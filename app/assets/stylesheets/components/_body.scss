@@ -1,0 +1,28 @@
+html {
+  font-size: 16px; /* Default for desktops */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* 1rem = 14px for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px; /* 1rem = 12px for mobile */
+  }
+}
+
+body {
+  background-color: white;
+  margin: 1rem 1.4rem 1rem 0rem; /* Remove default margin */
+  padding-right: 0.5rem; /* no extra spacing */
+  padding-left: 0.5rem;
+  // padding-bottom: 12rem;
+  min-height: 100%; /* Allow the content to grow beyond the viewport */
+  // display: flex;
+  // justify-content: center; /* Horizontal centering */
+  // align-items: center; /* Vertical centering */
+  font-family: 'afronaut-regular', sans-serif;
+}

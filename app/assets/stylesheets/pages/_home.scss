@@ -1,0 +1,183 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
+.toplayer-image {
+  width: 9.3rem;
+  height: 6.25rem;
+  object-fit: cover;
+  position: relative;
+  left: 40%; /* Use percentage for fluid positioning */
+
+  @media (min-width: 768px) {
+    width: 13.95rem;
+    height: 9.375rem;
+    left: 50%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 18.6rem;
+    height: 12.5rem;
+    left: 55%;
+  }
+}
+
+.title-aron{
+  font-size: 5.3rem;
+  font-weight: bold;
+  color: #FFF960;
+  margin-left: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 4.57rem;
+    // margin-top: 2rem;
+    margin-left: 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 8rem;
+    // margin-top: 5rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.title-hannes{
+  font-size: 5.3rem;
+  font-weight: bold;
+  color: #FFF960;
+  margin-top: -3.5rem;
+  margin-left: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 4.57rem;
+    margin-top: -3.5rem;
+    // margin-bottom: -6rem;
+    margin-left: 0.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 8rem;
+    margin-top: -5rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.backdrop-title {
+  background-image: image-url('backdrop-title.png');
+  height: 12.5rem;
+  width: 26.75rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 4rem;
+
+  @media (min-width: 768px) {
+    height: 10.7rem;
+    width: 22.9rem;
+    margin-bottom: 6rem;
+  }
+
+  @media (min-width: 1024px) {
+    height: 20rem;
+    width: 40rem;
+    margin-bottom: 8rem;
+  }
+}
+
+// ABOUT PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
+
+#about {
+  display: flex;
+  flex-direction: column; /* Stack items vertically on smaller screens */
+  align-items: center; /* Center align content */
+  gap: 1rem; /* Add space between items */
+  margin: 2rem 0; /* Add spacing around the section */
+}
+
+
+
+.about-row {
+  display: flex;
+  // flex-direction: row; /* Arrange image and text side-by-side */
+  flex-direction: row-reverse; /* Ensure the image is on the right */
+  gap: 1rem; /* Add space between image and text */
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align image and text at the top */
+  flex-wrap: wrap; /* Wrap for smaller screens */
+}
+
+.about-image {
+  width: 18.33rem;
+  height: 27.5rem;
+  object-fit: cover;
+  margin: 0;
+}
+
+.about-text {
+  max-width: 310px;
+  font-size: 1.3rem;
+  flex: 1; /* Allow the text to take up space next to the image */
+}
+
+.about-text p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.33rem;
+}
+
+.about-text h3 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.upper-text {
+  font-size: 1.3rem;
+  max-height: 330px;
+  font-family: 'Helvetica Neue', sans-serif;
+  word-wrap: break-word;
+}
+
+.upper-text p {
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  max-height: 310px;
+  line-height: 1.1875;
+
+  @media (min-width: 768px) { /* Tablet */
+    max-width: 380px; /* 75-80% of 485px */
+    // font-size: 1.4rem;
+    // line-height: 1.5;
+  }
+
+  @media (min-width: 1024px) { /* Desktop */
+    max-width: 485px; /* Full width for web design */
+    // font-size: 4rem;
+    // line-height: 1.6;
+  }
+}
+
+.under-text {
+  flex-basis: 100%; /* Make it span the full row */
+  text-align: left; /* Center align the text */
+  font-size: 1.3rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin-top: -2rem;
+}
+
+@media (min-width: 768px) {
+  #about {
+    gap: 2rem; /* Increase spacing on larger screens */
+  }
+
+  .about-image {
+    width: 221px;
+    height: 330px;
+  }
+
+  .about-text {
+    max-width: 485px; /* Allow more width for text */
+    font-size: 1.5rem; /* Larger font size for tablets */
+  }
+}
