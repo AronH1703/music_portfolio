@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+@import url("https://use.typekit.net/lnr4wfy.css");
 
 .toplayer-image {
   width: 9.3rem;
@@ -13,7 +14,7 @@
     left: 50%;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 992px) {
     width: 18.6rem;
     height: 12.5rem;
     left: 55%;
@@ -32,7 +33,7 @@
     margin-left: 0.5rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 992px) {
     font-size: 8rem;
     // margin-top: 5rem;
     margin-left: 0.5rem;
@@ -53,7 +54,7 @@
     margin-left: 0.5rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 992px) {
     font-size: 8rem;
     margin-top: -5rem;
     margin-left: 0.5rem;
@@ -75,7 +76,7 @@
     margin-bottom: 6rem;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 992px) {
     height: 20rem;
     width: 40rem;
     margin-bottom: 8rem;
@@ -85,99 +86,121 @@
 // ABOUT PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
 
 #about {
-  display: flex;
-  flex-direction: column; /* Stack items vertically on smaller screens */
-  align-items: center; /* Center align content */
-  gap: 1rem; /* Add space between items */
-  margin: 2rem 0; /* Add spacing around the section */
+  display: block; /* Allow natural text flow */
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem; /* Prevents text from touching the edges */
 }
 
-
-
-.about-row {
-  display: flex;
-  // flex-direction: row; /* Arrange image and text side-by-side */
-  flex-direction: row-reverse; /* Ensure the image is on the right */
-  gap: 1rem; /* Add space between image and text */
-  justify-content: center; /* Center content horizontally */
-  align-items: flex-start; /* Align image and text at the top */
-  flex-wrap: wrap; /* Wrap for smaller screens */
-}
-
-.about-image {
-  width: 18.33rem;
-  height: 27.5rem;
-  object-fit: cover;
-  margin: 0;
-}
-
-.about-text {
-  max-width: 310px;
-  font-size: 1.3rem;
-  flex: 1; /* Allow the text to take up space next to the image */
-}
-
-.about-text p {
-  margin: 0;
-  padding: 0;
-  font-size: 1.33rem;
-}
-
-.about-text h3 {
-  font-size: 2rem;
+.about-text{
   text-align: center;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 2.6rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 4rem;
+  }
 }
 
+/* ✅ Float image right and allow text to wrap */
+.about-image {
+  width: 18.33rem; /* Default for mobile */
+  height: auto; /* Maintain aspect ratio */
+  // object-fit: cover;
+  float: right; /* Moves image to the right */
+  margin-left: 0.8rem; /* Creates space between text and image */
+  margin-bottom: 0.5rem; /* Avoids text clashing */
+  margin-right: 1.833rem;
+  shape-outside: margin-box; /* Ensures smooth wrapping */
+  // shape-margin: 2rem; /* Creates space around the image */;
+
+  @media (min-width: 768px) { /* Tablet */
+    width: 25rem;
+    margin-left: 2rem;
+  }
+
+  @media (min-width: 992px) { /* Desktop */
+    width: 30rem;
+    margin-left: 2.5rem;
+  }
+}
+
+/* ✅ Ensure text wraps around the image */
 .upper-text {
-  font-size: 1.3rem;
-  max-height: 330px;
-  font-family: 'Helvetica Neue', sans-serif;
-  word-wrap: break-word;
+  font-size: 1.333rem;
+  // font-family: 'Helvetica Neue', sans-serif;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: -1rem;
+  margin-right: 1.833rem;
+  // word-wrap: break-word;
+  // overflow: hidden; /* Prevents layout issues */
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+    margin-top: -1.5rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 3.5rem;
+    margin-top: -2rem;
+  }
 }
 
 .upper-text p {
-  margin: 0;
-  padding: 0;
-  overflow-wrap: break-word;
-  max-height: 310px;
-  line-height: 1.1875;
+  // margin: 0;
+  // padding: 0;
+  // display: block; /* Ensures paragraph wraps properly */
+  text-align: left;
+}
 
-  @media (min-width: 768px) { /* Tablet */
-    max-width: 380px; /* 75-80% of 485px */
-    // font-size: 1.4rem;
-    // line-height: 1.5;
+// .gtr-image{
+//   width: 29.0833rem;
+//   height: 5.8rem;
+//   display: block; /* Ensures it's treated as a block-level element */
+//   margin: 0 auto; /* Centers it horizontally */
+// }
+
+.gtr-image {
+  width: 100%; /* Adjust the percentage as needed */
+  max-width: 29.0833rem; /* Keeps original size as max */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Centers properly */
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: 53.5rem;
   }
 
-  @media (min-width: 1024px) { /* Desktop */
-    max-width: 485px; /* Full width for web design */
-    // font-size: 4rem;
-    // line-height: 1.6;
+  @media (min-width: 992px) {
+    width: 100%;
+    max-width: 87.1875rem;
   }
 }
 
-.under-text {
-  flex-basis: 100%; /* Make it span the full row */
-  text-align: left; /* Center align the text */
-  font-size: 1.3rem;
-  font-family: 'Helvetica Neue', sans-serif;
-  margin-top: -2rem;
+.star-image{
+  width: 39.6625;
+  height: 29.555;
 }
 
-@media (min-width: 768px) {
-  #about {
-    gap: 2rem; /* Increase spacing on larger screens */
+.star-image {
+  width: 100%; /* Adjust percentage for responsiveness */
+  max-width: 39.6625rem; /* Keeps original size as max */
+  height: auto; /* Maintains aspect ratio */
+  margin-top: -6rem;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    max-width: 59.49375rem;
   }
 
-  .about-image {
-    width: 221px;
-    height: 330px;
-  }
-
-  .about-text {
-    max-width: 485px; /* Allow more width for text */
-    font-size: 1.5rem; /* Larger font size for tablets */
+  @media (min-width: 992px) {
+    width: 100%;
+    max-width: 79.325rem;
   }
 }
