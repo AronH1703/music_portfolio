@@ -132,22 +132,26 @@
 .upper-text {
   font-size: 1.333rem;
   // font-family: 'Helvetica Neue', sans-serif;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: 'Helvetica Neue';
   font-weight: 300;
   font-style: normal;
   margin-top: -1rem;
   margin-right: 1.833rem;
+  line-height: 3rem;
+  letter-spacing: 0.1rem;
   // word-wrap: break-word;
   // overflow: hidden; /* Prevents layout issues */
 
   @media (min-width: 768px) {
     font-size: 2rem;
     margin-top: -1.5rem;
+    line-height: 3.5rem;
   }
 
   @media (min-width: 992px) {
     font-size: 3.5rem;
     margin-top: -2rem;
+    line-height: 5rem;
   }
 }
 
@@ -158,39 +162,34 @@
   text-align: left;
 }
 
-// .gtr-image{
-//   width: 29.0833rem;
-//   height: 5.8rem;
-//   display: block; /* Ensures it's treated as a block-level element */
-//   margin: 0 auto; /* Centers it horizontally */
-// }
+.gtr-container{
+  margin-top: 4rem;
+}
 
 .gtr-image {
-  width: 100%; /* Adjust the percentage as needed */
-  max-width: 29.0833rem; /* Keeps original size as max */
+  // width: 100%; /* Adjust the percentage as needed */
+  width: 40.0833rem; /* Keeps original size as max */
   height: auto; /* Maintains aspect ratio */
   display: block; /* Centers properly */
   margin: 0 auto;
 
+
   @media (min-width: 768px) {
     width: 100%;
     max-width: 53.5rem;
+    margin-top: 4rem;
   }
 
   @media (min-width: 992px) {
     width: 100%;
     max-width: 87.1875rem;
+    margin-top: 10rem;
   }
 }
 
-.star-image{
-  width: 39.6625;
-  height: 29.555;
-}
-
 .star-image {
-  width: 100%; /* Adjust percentage for responsiveness */
-  max-width: 39.6625rem; /* Keeps original size as max */
+  // width: 100%; /* Adjust percentage for responsiveness */
+  width: 43.6625rem; /* Keeps original size as max */
   height: auto; /* Maintains aspect ratio */
   margin-top: -6rem;
 
@@ -202,5 +201,105 @@
   @media (min-width: 992px) {
     width: 100%;
     max-width: 79.325rem;
+  }
+}
+
+.music-vector{
+  width: 24.25rem;
+  height: auto;
+}
+
+.music-vector-container{
+  margin-top: -48rem;
+  margin-bottom: 16rem;
+  margin-left: 20rem;
+}
+
+
+
+// MUSIC PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
+
+#music-platforms {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+
+.music-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.music-list li {
+  height: 6rem; // Adjust height for mobile
+  width: 80%;
+  max-width: 29.166rem; // Restricts width on larger screens
+  background: #F1F0EB; // Light grey background like in Figma
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  // gap: 1rem;
+  // border-radius: 10px; // Soft rounded edges
+  border: 2px solid black; // Subtle border for separation
+}
+
+.music-list li a {
+  text-decoration: none;
+  color: #000;
+  font-family: 'afronaut-regular', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.music-list li img {
+  width: 2.5rem; // Adjust icon size for mobile
+  height: auto;
+}
+
+/* Tablet View */
+@media (min-width: 768px) {
+  .music-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .music-list li {
+    flex: 1 1 45%; // Allows two items per row
+    max-width: 22rem;
+  }
+
+  .music-list li img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .music-list li a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 992px) {
+  .music-list li {
+    flex: 1 1 30%; // Adjusts to three items per row
+    max-width: 25rem;
+  }
+
+  .music-list li img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .music-list li a {
+    font-size: 1.4rem;
   }
 }

@@ -25,14 +25,42 @@
 <%= image_tag "star.png", alt: "Star Image", class: "star-image" %>
 </div>
 
+<div class="music-vector-container">
+<%= image_tag "MUSiC.svg", alt: "Music Vector", class: "music-vector" %>
+</div>
+
 
 <section id="music-platforms">
-      <h2>Music</h2>
-      <ul>
-        <li><a href="https://open.spotify.com/artist/3YWoe6haPoiQdq7GaQz2OR?si=eaM94hB-SkGdMmlK50nF4A" target="_blank">Spotify</a></li>
-        <li><a href="https://music.apple.com/is/artist/aron-hannes/820717161" target="_blank">Apple Music</a></li>
-        <li><a href="https://deezer.page.link/XSZdQHGWG5SsZhzE7" target="_blank">Deezer</a></li>
-        <li><a href="https://music.youtube.com/channel/UCG5wQ2UMfLYD5lp8MAbk6Zg?si=oIyyNtdSgnZ4b54G" target="_blank">YouTube Music</a></li>
-        <li><a href="https://tidal.com/browse/artist/7421898" target="_blank">Tidal</a></li>
-      </ul>
-    </section>
+  <ul class="music-list">
+    <li>
+      <a href="https://open.spotify.com/artist/3YWoe6haPoiQdq7GaQz2OR?si=eaM94hB-SkGdMmlK50nF4A" target="_blank">
+        <%= image_tag "Spotify.svg", alt: "Spotify" %>
+        SPOTIFY
+      </a>
+    </li>
+    <li>
+      <a href="https://music.apple.com/is/artist/aron-hannes/820717161" target="_blank">
+        <%= image_tag "applemusic.svg", alt: "Apple Music" %>
+        APPLE MUSIC
+      </a>
+    </li>
+    <li>
+      <a href="https://deezer.page.link/XSZdQHGWG5SsZhzE7" target="_blank">
+        <%= image_tag "deezer.svg", alt: "Deezer" %>
+        DEEZER
+      </a>
+    </li>
+    <li>
+      <a href="https://music.youtube.com/channel/UCG5wQ2UMfLYD5lp8MAbk6Zg?si=Se8nOTEe2Vvr014o" target="_blank">
+        <%= image_tag "youtube-music.svg", alt: "YouTube Music" %>
+        YOUTUBE MUSIC
+      </a>
+    </li>
+    <li>
+      <a href="https://tidal.com/browse/artist/7421898" target="_blank">
+        <%= image_tag "tidal.svg", alt: "Tidal" %>
+        TIDAL
+      </a>
+    </li>
+  </ul>
+</section>
