@@ -164,14 +164,18 @@
 
 .gtr-container{
   margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gtr-image {
   // width: 100%; /* Adjust the percentage as needed */
-  width: 40.0833rem; /* Keeps original size as max */
+  width: 33rem; /* Keeps original size as max */
   height: auto; /* Maintains aspect ratio */
-  display: block; /* Centers properly */
-  margin: 0 auto;
+  margin-left: 0.5rem;
+  // display: block; /* Centers properly */
+  // margin: 0 auto;
 
 
   @media (min-width: 768px) {
@@ -188,10 +192,10 @@
 }
 
 .star-image {
-  // width: 100%; /* Adjust percentage for responsiveness */
-  width: 43.6625rem; /* Keeps original size as max */
+  width: 100%; /* Adjust percentage for responsiveness */
+  max-width: 43.6625rem; /* Keeps original size as max */
   height: auto; /* Maintains aspect ratio */
-  margin-top: -6rem;
+  margin-top: -4rem;
 
   @media (min-width: 768px) {
     width: 100%;
@@ -205,14 +209,40 @@
 }
 
 .music-vector{
-  width: 24.25rem;
+  width: 20rem;
   height: auto;
+
+  // @media (min-width: 768px) {
+
+  // }
 }
 
 .music-vector-container{
-  margin-top: -48rem;
-  margin-bottom: 16rem;
-  margin-left: 20rem;
+  // margin-top: -42rem;;
+  // margin-bottom: 16rem;
+  // margin-left: 17rem;
+
+  position: absolute;
+  left: 44%;
+  bottom: -45rem;
+  /* transform: translateX(-50%); */
+  /* width: fit-content;
+
+  // @media (min-width: 768px) {
+  //   // margin-top: -56rem;
+  //   // margin-bottom: 18rem;
+  //   // margin-left: 20rem;
+  // }
+
+  // @media (min-width: 992px) {
+
+  // }
+}
+
+.music-wrapper {
+  position: relative;
+  width: 100%; /* Ensures it spans full width */
+  height: auto;
 }
 
 
@@ -221,7 +251,7 @@
 
 #music-platforms {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: -5rem;
 }
 
 
@@ -300,6 +330,6 @@
   }
 
   .music-list li a {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
 }
