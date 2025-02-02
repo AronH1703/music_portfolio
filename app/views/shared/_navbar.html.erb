@@ -1,10 +1,11 @@
+
 <nav class="navbar" data-controller="navbar">
   <div class="logo">
     <%= link_to "Aron Hannes", root_path %>
   </div>
 
   <button class="menu-toggle" data-action="click->navbar#toggle">
-    ☰
+<%= image_tag "gridicons_dropdown.svg", alt: "Dropdown Image", class: "dropdown-image" %>
   </button>
 
   <ul class="nav-links hidden" data-navbar-target="menu">

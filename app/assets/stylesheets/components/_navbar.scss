@@ -6,6 +6,7 @@
   padding: 10px 20px;
   background: #ffffff;
   color: rgb(0, 0, 0);
+  z-index: 1000;
 }
 
 .nav-links {
@@ -33,14 +34,16 @@
     top: 60px;
     left: 0;
     width: 100%;
-    background: #111;
+    background: #ffffff;
     text-align: center;
     padding: 10px 0;
   }
 
   .nav-links.show {
-    display: flex;
+    display: flex !important;
+    z-index: 1000;
   }
+
 
   .menu-toggle {
     display: block;
@@ -57,4 +60,8 @@
   .menu-toggle {
     display: none;
   }
+}
+
+.hidden {
+  display: none !important;
 }
