@@ -10,9 +10,13 @@
     <%= javascript_importmap_tags %>
     <!-- Adobe Fonts -->
   <link rel="stylesheet" href="https://use.typekit.net/lnr4wfy.css">
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
 
   <body>
+  <%= render "shared/navbar" %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

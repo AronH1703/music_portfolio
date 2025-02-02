@@ -30,7 +30,6 @@ gem "sassc-rails"
 
 gem 'bootstrap', '~> 5.3.3'
 
-gem 'font-awesome-sass', '~> 6.4'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -71,3 +70,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "font-awesome-sass", "~> 6.7"

@@ -301,7 +301,7 @@ DEPENDENCIES
   bootstrap (~> 5.3.3)
   capybara
   debug
-  font-awesome-sass (~> 6.4)
+  font-awesome-sass (~> 6.7)
   importmap-rails
   jbuilder
   puma (>= 5.0)

@@ -5,11 +5,15 @@
 
 // External libraries
 // @import "bootstrap";
-// @import "font-awesome";
+// @import "font-awesome-sprockets";
+@import "font-awesome";
+
+
 
 // Your CSS partials
 // @import "home/pages";
 // @import "pages/index";
   @import "pages/index";
   @import "components/body";
-
+  @import "components/footer";
+  @import "components/navbar";

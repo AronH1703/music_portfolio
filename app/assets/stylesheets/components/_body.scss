@@ -18,13 +18,14 @@ body {
   background-color: white;
   margin: 1rem 0rem 1rem 0rem; /* Remove default margin */
   padding-right: 0.5rem; /* no extra spacing */
-  overflow-x: hidden;
   // padding-right: 0.5rem;
-  // padding-bottom: 4rem;
-  padding-bottom: 12rem;
   min-height: 100%; /* Allow the content to grow beyond the viewport */
-  // display: flex;
-  // justify-content: center; /* Horizontal centering */
-  // align-items: center; /* Vertical centering */
   font-family: 'afronaut-regular', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
