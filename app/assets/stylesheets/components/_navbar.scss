@@ -1,4 +1,4 @@
-/* Base Navbar */
+/* General Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -6,28 +6,28 @@
   padding: 10px 20px;
   background: #ffffff;
   color: rgb(0, 0, 0);
-  // z-index: 1000;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:visited {
+  color: inherit; /* Keeps the text color the same */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
-}
+  transition: all 0.3s ease-in-out;
 
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: black;
-  font-size: 18px;
 }
 
 
 
-/* Mobile - Hide nav-links & show toggle button */
+/* 🔽 Mobile Menu Hidden by Default */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -39,14 +39,38 @@
     background: #ffffff;
     text-align: center;
     padding: 10px 0;
+    text-decoration: none;
   }
 
+  /* Apply when active */
   .nav-links.show {
     display: flex !important;
     z-index: 1000;
   }
 
+  /* 🎬 Smooth Fade Animation */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
 
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 📉 Slide Down Effect */
+  .slide-down {
+    transform: translateY(-100%);
+    animation: slideDown 0.5s ease-in-out forwards;
+  }
+
+  @keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Button Styles */
   .menu-toggle {
     display: block;
     background: none;
@@ -57,13 +81,22 @@
   }
 }
 
-/* Desktop - Show nav links & hide toggle */
+/* Desktop Mode */
 @media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+  }
+
   .menu-toggle {
     display: none;
   }
 }
 
-// .hidden {
-//   display: none !important;
-// }
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links a:visited {
+  color: inherit; /* Keeps the text color the same */
+}
