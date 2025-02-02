@@ -6,7 +6,7 @@
   padding: 10px 20px;
   background: #ffffff;
   color: rgb(0, 0, 0);
-  z-index: 1000;
+  // z-index: 1000;
 }
 
 .nav-links {
@@ -24,6 +24,8 @@
   color: black;
   font-size: 18px;
 }
+
+
 
 /* Mobile - Hide nav-links & show toggle button */
 @media (max-width: 768px) {
@@ -62,6 +64,6 @@
   }
 }
 
-.hidden {
-  display: none !important;
-}
+// .hidden {
+//   display: none !important;
+// }
