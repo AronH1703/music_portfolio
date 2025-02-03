@@ -1,0 +1,43 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
+.gallery {
+  background-color: #B94432; /* Change to your desired color */
+  min-height: 100vh; /* Ensure it covers the full height */
+}
+
+.gallery-container h1 {
+  font-size: 2rem;
+  color: white;
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.gallery-container p{
+  font-size: 1rem;
+  color: white;
+  font-family: 'Helvetica Neue';
+  font-weight: 100;
+  font-style: normal;
+  align-self: flex-start;
+  margin-left: 10%;
+}
+
+.gallery-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.child-image{
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  margin: 1rem;
+  // border-radius: 10px;
+  border: solid 0.4rem #F4EE53;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

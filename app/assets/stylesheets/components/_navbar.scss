@@ -1,11 +1,22 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
 /* General Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  // padding: 10px 20px;
   background: #ffffff;
   color: rgb(0, 0, 0);
+  width: 100vw;
+  max-width: 100%;
+}
+
+.logo{
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-left: 1rem;
 }
 
 .navbar a {
@@ -33,7 +44,7 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 54px;
     left: 0;
     width: 100%;
     background: #ffffff;
@@ -85,6 +96,7 @@
 @media (min-width: 769px) {
   .nav-links {
     display: flex !important;
+    margin-right: 1rem;
   }
 
   .menu-toggle {

@@ -16,10 +16,10 @@ html {
 
 body {
   background-color: white;
-  margin: 1rem 0rem 1rem 0rem; /* Remove default margin */
-  padding-right: 0.5rem; /* no extra spacing */
+  // margin: 0; /* Remove default margin */
+  // padding-right: 0.5rem; /* no extra spacing */
   // padding-right: 0.5rem;
-  min-height: 100%; /* Allow the content to grow beyond the viewport */
+  min-height: 100vh; /* Allow the content to grow beyond the viewport */
   font-family: 'afronaut-regular', sans-serif;
 }
 
@@ -28,4 +28,18 @@ html, body {
   height: 100%;
   max-width: 100vw;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-page layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full viewport height */
+}
+
+/* Pushes content above the footer */
+.content-wrapper {
+  flex: 1;
 }
