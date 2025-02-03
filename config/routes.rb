@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   root to: 'home#index' # Home page
 
   get '/gallery', to: 'gallery#index', as: :gallery
-  get '/contact', to: 'contact#index', as: :contact
-  post '/contact', to: 'contact#create' # Add this for form submission
+  get '/newsletter', to: 'newsletter_subscribers#new', as: :newsletter
+post '/newsletter', to: 'newsletter_subscribers#create'
 
   # Use RESTful routes for videos
   resources :videos, only: [:index, :show]

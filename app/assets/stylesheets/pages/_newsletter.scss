@@ -1,14 +1,10 @@
-.contact-container {
-  max-width: 600px;
+.newsletter-container {
+  max-width: 400px;
   margin: 50px auto;
-  padding: 30px;
+  padding: 20px;
   background: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // flex-direction: column;
 
   h2 {
     text-align: center;
@@ -19,7 +15,7 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
 
   label {
@@ -27,17 +23,11 @@
     color: #555;
   }
 
-  input, textarea {
-    width: 100%;
+  input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-  }
-
-  textarea {
-    height: 120px;
-    resize: none;
   }
 
   input[type="submit"] {
