@@ -1,44 +1,110 @@
+.newsletter {
+  height: auto;
+}
+
+.newsletter-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #F4EE53;
+}
+
 .newsletter-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 80%;
+  // margin: 25% auto;
+  padding: 5%;
+  background: #B94432;;
+  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+  border: solid 0.166rem black;
+
+  @media (min-width: 769px) {
+    margin: 5%;
+  }
 
   h2 {
     text-align: center;
-    color: #333;
+    color: #ffff;
+    margin-bottom: 2vh;
+    font-family: "neue-kabel", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 3rem;
+  }
+
+  p {
+    text-align: center;
+    color: #ffff;
     margin-bottom: 20px;
+    font-family: 'Helvetica Neue';
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.4rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    // max-width: 43%;  // Adjust as needed
   }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 1rem;
   }
 
   label {
-    font-weight: bold;
-    color: #555;
+    font-family: "neue-kabel", sans-serif;
+    font-weight: 600;
+    color: #ffff;
+    margin-bottom: 5%;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+
   }
 
   input {
+    flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    min-width: 20rem;
+    max-width: 35rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-align: left;
+    border: solid 0.166rem black;
   }
 
   input[type="submit"] {
     background: #007bff;
     color: white;
-    padding: 10px;
+    padding: 0.8rem;
     font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    margin-top: 0.5rem;
 
     &:hover {
       background: #0056b3;

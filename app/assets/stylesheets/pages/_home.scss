@@ -2,11 +2,12 @@
 @import url("https://use.typekit.net/lnr4wfy.css");
 
 .toplayer-image {
-  width: 9.3rem;
-  height: 6.25rem;
+  width: 12.3rem;
+  height: auto;
   object-fit: cover;
   position: relative;
-  left: 40%; /* Use percentage for fluid positioning */
+  left: 50%; /* Use percentage for fluid positioning */
+  margin-top: 2rem;
 
   @media (min-width: 768px) {
     width: 13.95rem;
