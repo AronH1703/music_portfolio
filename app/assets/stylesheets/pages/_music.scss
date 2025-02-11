@@ -1,11 +1,12 @@
 .latest-music-container {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 3rem 1rem;
   background-color: #F5F5F5;
+  min-height: calc(100vh - 10rem); /* Adjust the height for the container, accounting for padding */
 }
 
 .latest-music-container h1 {
@@ -13,15 +14,20 @@
   font-family: "neue-kabel", sans-serif;
   font-weight: bold;
   font-style: normal;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: -2%;
 }
 
 .latest-music {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   gap: 1.5rem;
   width: 90%;
-  max-width: 900px;
+  max-width: 100vw;
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  }
 }
 
 .music-item img {
