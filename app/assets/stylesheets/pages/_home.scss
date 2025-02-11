@@ -312,6 +312,15 @@
   flex-direction: column;
   gap: 0.8rem;
   align-items: center;
+
+  @media (min-width: 768px) {
+
+  }
+
+
+  @media (min-width: 992px) {
+    margin-bottom: 4rem;
+  }
 }
 
 .music-list li {

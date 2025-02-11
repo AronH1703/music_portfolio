@@ -1,0 +1,31 @@
+<div class="latest-music-container" data-controller="music-popup">
+  <h1>Latest Music.</h1>
+  <div class="latest-music">
+
+    <!-- First Song -->
+    <div class="music-item" data-action="click->music-popup#open" data-song="child">
+      <%= image_tag "Child New TEXT.png", alt: "Child - Aron Hannes" %>
+    </div>
+
+    <!-- Second Song -->
+    <div class="music-item" data-action="click->music-popup#open" data-song="those-were-the-times">
+      <%= image_tag "twtt.jpg", alt: "Those Were The Times - Aron Hannes" %>
+    </div>
+
+    <!-- Third Song -->
+    <div class="music-item" data-action="click->music-popup#open" data-song="twenties-album">
+      <%= image_tag "Twenties art final.jpg", alt: "Twenties - Aron Hannes" %>
+    </div>
+
+  </div>
+
+  <!-- Popup Window - MUST BE INSIDE THE CONTROLLER'S SCOPE -->
+  <div id="music-popup" class="popup" data-music-popup-target="popup">
+    <div class="popup-content">
+      <span class="close" data-action="click->music-popup#close">&times;</span>
+      <h2 data-music-popup-target="title">Title Placeholder</h2>  <!-- ✅ Title Target Exists -->
+      <p>Listen on:</p>
+      <ul data-music-popup-target="links"></ul>  <!-- ✅ Links Target Exists -->
+    </div>
+  </div>
+</div>
