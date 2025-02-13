@@ -6,10 +6,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: flex-start;
+  height: 80vh;
   background: #FFFF;
-  height: max-content;
+  // height: max-content;
   padding-top: 2rem;
 
   @media (min-width: 769px) {
@@ -31,6 +31,12 @@
   justify-content: center;
   border: solid 0.166rem black;
   // margin-top: 15%;
+  height: 100%;
+  margin-bottom: 2rem;
+
+  // @media (max-width: 480px) {
+  //   height: 34rem;
+  // }
 
   @media (min-width: 769px) {
     margin-bottom: 4%;

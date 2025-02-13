@@ -6,3 +6,5 @@ pin "@hotwired/stimulus", to: "@hotwired--stimulus.js" # @3.2.2
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@fortawesome/fontawesome-free", to: "@fortawesome--fontawesome-free.js" # @6.7.2
+pin "swiper", to: "https://cdn.jsdelivr.net/npm/swiper@11.2.3/swiper-bundle.min.js"
+

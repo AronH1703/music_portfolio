@@ -1,10 +1,51 @@
 <body class="gallery">
 
-
 <div class="gallery-container">
-<h1>photos.</h1>
+  <h1>photos.</h1>
 
-<%= image_tag "CHILD (BOLD:YELLOW).png", alt: "Child Image", class: "child-image" %>
-<p>Photo by Eva Rut.</p>
+  <div class="swiper mySwiper" data-controller="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <%= image_tag "CHILD (BOLD:YELLOW).png", alt: "Child Image", class: "gallery-image" %>
+        <p>Photo by Eva Rut.</p>
+      </div>
+      <div class="swiper-slide">
+        <%= image_tag "Girl Like You - Cover.jpg", alt: "GLY Image", class: "gallery-image" %>
+      </div>
+      <div class="swiper-slide">
+        <%= image_tag "You-Cover.jpg", alt: "YOU Image", class: "gallery-image" %>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ Inline Swiper script is running!"); // ✅ Debugging log
+
+    new Swiper(".mySwiper", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+    console.log("✅ Swiper initialized successfully!"); // ✅ Another debugging log
+  });
+</script>
+
 </body>
