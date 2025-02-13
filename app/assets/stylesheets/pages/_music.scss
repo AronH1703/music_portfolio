@@ -84,11 +84,52 @@
   }
 }
 
+.popup h2 {
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.popup p {
+  font-family: "helvetica", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+/* Change background ONLY on hover or when clicked */
+.popup a.spotify:hover, .popup a.spotify:active {
+  background: #1DB954; /* Green */
+}
+
+.popup a.apple-music:hover, .popup a.apple-music:active {
+  background: #FA243C; /* Red */
+}
+
+.popup a.deezer:hover, .popup a.deezer:active {
+  background: #a138ff; /* Red */
+}
+
+.popup a.tidal:hover, .popup a.tidal:active {
+  background: #ffd432; /* Black */
+}
+
+.popup a.amazon-music:hover, .popup a.amazon-music:active {
+  background: #27d0da; /* Orange */
+}
+
+
 /* Close Button */
 .close {
-  font-size: 24px;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 10px;
+  // font-size: 24px;
+  // cursor: pointer;
+  // position: absolute;
+  // right: 20px;
+  // top: 10px;
+
+  font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
 }

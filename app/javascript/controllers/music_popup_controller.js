@@ -15,27 +15,30 @@ export default class extends Controller {
         title: "Child - Aron Hannes",
         links: {
           Spotify: "https://open.spotify.com/track/4krgdvPJd5VaCqeVQ7pux3",
-          AppleMusic: "https://music.apple.com/us/album/child/1702521356?i=1702521361",
+          "Apple Music": "https://music.apple.com/us/album/child/1702521356?i=1702521361",
           Deezer: "https://www.deezer.com/track/476188905",
-          Tidal: "https://tidal.com/browse/track/310739997"
+          Tidal: "https://tidal.com/browse/track/310739997",
+          "Amazon Music": "https://music.amazon.com/albums/B09KQ9QX4D"
         }
       },
       "those-were-the-times": {
-        title: "Those Were The Times - Aron Hannes",
+        title: "Those Were The Times - INKT ft. Aron Hannes",
         links: {
           Spotify: "https://open.spotify.com/track/example",
-          AppleMusic: "https://music.apple.com/us/album/example",
+          "Apple Music": "https://music.apple.com/us/album/example",
           Deezer: "https://www.deezer.com/track/example",
-          Tidal: "https://tidal.com/browse/track/example"
+          Tidal: "https://tidal.com/browse/track/example",
+          "Amazon Music": "https://music.amazon.com"
         }
       },
       "twenties-album": {
         title: "Twenties - Aron Hannes",
         links: {
           Spotify: "https://open.spotify.com/album/example",
-          AppleMusic: "https://music.apple.com/us/album/example",
+          "Apple Music": "https://music.apple.com/us/album/example",
           Deezer: "https://www.deezer.com/album/example",
-          Tidal: "https://tidal.com/browse/album/example"
+          Tidal: "https://tidal.com/browse/album/example",
+          "Amazon Music": "https://music.amazon.com"
         }
       }
     };
@@ -47,7 +50,8 @@ export default class extends Controller {
 
     Object.entries(musicLinks[song].links).forEach(([platform, url]) => {
       const li = document.createElement("li");
-      li.innerHTML = `<a href="${url}" target="_blank">${platform}</a>`;
+      const platformClass = platform.toLowerCase().replace(/\s/g, "-"); // Converts "Apple Music" → "apple-music"
+      li.innerHTML = `<a href="${url}" target="_blank" class="platform-link ${platformClass}">${platform}</a>`;
       this.linksTarget.appendChild(li);
     });
 
