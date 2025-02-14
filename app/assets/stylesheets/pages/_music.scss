@@ -1,8 +1,12 @@
+.music-body{
+  // background-color: red;
+}
+
 .latest-music-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   padding: 3rem 1rem;
   background-color: #F5F5F5;
