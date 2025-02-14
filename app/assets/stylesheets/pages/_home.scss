@@ -131,26 +131,26 @@
 
 /* ✅ Ensure text wraps around the image */
 .upper-text {
-  font-size: 1.333rem;
+  font-size: 1rem;
   // font-family: 'Helvetica Neue', sans-serif;
   font-family: 'Helvetica Neue';
   font-weight: 300;
   font-style: normal;
   margin-top: -1rem;
   margin-right: 1.833rem;
-  line-height: 3rem;
+  line-height: 2rem;
   letter-spacing: 0.1rem;
   // word-wrap: break-word;
   // overflow: hidden; /* Prevents layout issues */
 
   @media (min-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-top: -1.5rem;
     line-height: 3.5rem;
   }
 
   @media (min-width: 992px) {
-    font-size: 3.5rem;
+    font-size: 2rem;
     margin-top: -2rem;
     line-height: 5rem;
   }

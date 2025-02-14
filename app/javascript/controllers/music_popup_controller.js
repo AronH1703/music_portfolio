@@ -24,21 +24,21 @@ export default class extends Controller {
       "those-were-the-times": {
         title: "Those Were The Times - INKT ft. Aron Hannes",
         links: {
-          Spotify: "https://open.spotify.com/track/example",
-          "Apple Music": "https://music.apple.com/us/album/example",
-          Deezer: "https://www.deezer.com/track/example",
-          Tidal: "https://tidal.com/browse/track/example",
-          "Amazon Music": "https://music.amazon.com"
+          Spotify: "https://open.spotify.com/track/2vQwvuPDgsxyJyzsg8bKNG?si=f86bffca758347a2",
+          "Apple Music": "https://music.apple.com/us/album/those-were-the-times-single/1699380849",
+          Deezer: "https://deezer.page.link/HTzVk7THkqZ98qBV9",
+          Tidal: "https://tidal.com/browse/track/307289435",
+          "Amazon Music": "https://music.amazon.com/tracks/B0CCVR2SLY?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=NL&ref=dm_sh_x6K7RPbaKfzJU7Q57T9hxcVjI"
         }
       },
       "twenties-album": {
         title: "Twenties - Aron Hannes",
         links: {
-          Spotify: "https://open.spotify.com/album/example",
-          "Apple Music": "https://music.apple.com/us/album/example",
-          Deezer: "https://www.deezer.com/album/example",
-          Tidal: "https://tidal.com/browse/album/example",
-          "Amazon Music": "https://music.amazon.com"
+          Spotify: "https://open.spotify.com/album/3udzLBW2ax27oLtvTEW2Ac?si=dHY1ua6GRcuEr6_c7fjONA",
+          "Apple Music": "https://music.apple.com/us/album/twenties-ep/1642285479",
+          Deezer: "https://deezer.page.link/WTZ3432eWX3USLuW6",
+          Tidal: "https://tidal.com/browse/album/245472703",
+          "Amazon Music": "https://music.amazon.com/albums/B0BC8L8G4R?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=NL&ref=dm_sh_kgctZjyJE4GqmR4HqRSt6XyJy"
         }
       }
     };
