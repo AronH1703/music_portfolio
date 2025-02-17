@@ -40,5 +40,12 @@ export default class extends Controller {
     } else {
       console.warn("⚠️ .kassi-image NOT FOUND inside .kassi-container!"); // Debug if image is missing
     }
+
+    // **Step 2: Move `.backdrop-title` background (ONLY if this element is `.backdrop-title`)**
+    if (this.element.classList.contains("backdrop-title")) {
+      let bgMovement = scrollPosition * 0.1; // Adjust speed for backdrop-title background
+      console.log(`✅ Moving .backdrop-title background: ${bgMovement}%`);
+      this.element.style.backgroundPosition = `90% ${60 - bgMovement}%`;
+    }
   }
 }

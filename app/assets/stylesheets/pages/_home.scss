@@ -29,6 +29,9 @@
   left: 50%; /* Use percentage for fluid positioning */
   margin-top: 2rem;
   overflow: hidden; /* Ensure the image stays inside the mask */
+
+  max-width: 297.6px;
+
 }
 
 /* iPad (14px base font size) */
@@ -71,10 +74,16 @@
 
   @media (min-width: 768px) { /* iPad */
     right: 19.2rem;
+
+    // width: 52.724rem; /* Match the mask size */
+    // height: 43.1662rem;
 }
 
 @media (min-width: 1024px) { /* Desktop */
   right: 19.2rem;
+
+  // width: 65.905rem; /* Match the mask size */
+  // height: 30.833rem;
 }
 }
 
@@ -86,8 +95,8 @@
   margin-left: 0.5rem;
 
   @media (min-width: 768px) {
-    font-size: 4.57rem;
-    // margin-top: 2rem;
+    font-size: 6.5rem;  // Adjusted between 5.3rem (mobile) and 8rem (desktop)
+    margin-top: -4.5rem; // Slight adjustment for better spacing
     margin-left: 0.5rem;
   }
 
@@ -106,9 +115,8 @@
   margin-left: 0.5rem;
 
   @media (min-width: 768px) {
-    font-size: 4.57rem;
-    margin-top: -3.5rem;
-    // margin-bottom: -6rem;
+    font-size: 6.5rem;  // Adjusted between 5.3rem (mobile) and 8rem (desktop)
+    margin-top: -4.5rem; // Slight adjustment for better spacing
     margin-left: 0.5rem;
   }
 
@@ -120,24 +128,42 @@
 }
 
 .backdrop-title {
-  background-image: image-url('backdrop-title.png');
+  background-image: image-url("2guys.png");
+  background-size: 300% auto;
   height: 12.5rem;
   width: 26.75rem;
-  background-size: cover;
-  background-position: center;
+  background-position: 90% 60%;
+  // background-size: cover;
+  // background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 4rem;
+  margin-top: 10%;
+
+  /* Apply the mask */
+  -webkit-mask-image: image-url('Vector-2.svg'); /* Use Rails asset helper */
+  mask-image: image-url('Vector-2.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  transition: background-position 0.2s ease-out;
+
 
   @media (min-width: 768px) {
-    height: 10.7rem;
-    width: 22.9rem;
+    height: 16rem;  // Adjusted between 12.5rem (mobile) and 20rem (desktop)
+    width: 33rem;   // Adjusted between 26.75rem (mobile) and 40rem (desktop)
     margin-bottom: 6rem;
+    margin-top: 16%;
   }
 
   @media (min-width: 992px) {
     height: 20rem;
     width: 40rem;
     margin-bottom: 8rem;
+    margin-top: 14%;
   }
 }
 
