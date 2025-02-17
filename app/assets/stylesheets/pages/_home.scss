@@ -22,6 +22,63 @@
   }
 }
 
+.kassi-container {
+  width: 12.5rem; /* Mobile: 150px */
+  height: 8.333rem; /* Mobile: 100px */
+  position: relative;
+  left: 50%; /* Use percentage for fluid positioning */
+  margin-top: 2rem;
+  overflow: hidden; /* Ensure the image stays inside the mask */
+}
+
+/* iPad (14px base font size) */
+@media (min-width: 768px) {
+  .kassi-container {
+    width: 13.95rem;
+    height: 9.375rem;
+    left: 50%;
+  }
+}
+
+/* Desktop (16px base font size) */
+@media (min-width: 1024px) {
+  .kassi-container {
+    width: 18.6rem;
+    height: 12.5rem;
+    left: 55%;
+  }
+}
+
+
+.kassi-image {
+  width: 37.66rem; /* Match the mask size */
+  height: 30.833rem;
+  right: 19rem;
+  object-fit: cover; /* Ensures the image fits well */
+
+  -webkit-mask-image: url('/assets/Rectangle.svg');
+  mask-image: url('/assets/Rectangle.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  position: relative;
+  // transform: translateY(0); /* Default position */
+  transition: transform 0.2s ease-out; /* Smooth scrolling effect */
+
+  @media (min-width: 768px) { /* iPad */
+    right: 19.2rem;
+}
+
+@media (min-width: 1024px) { /* Desktop */
+  right: 19.2rem;
+}
+}
+
+
 .title-aron{
   font-size: 5.3rem;
   font-weight: bold;
