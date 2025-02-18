@@ -63,6 +63,8 @@
   border: solid 0.4rem #F4EE53;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+
+
   @media (min-width: 768px) {
     width: 80%;
     height: auto;
@@ -93,7 +95,8 @@
 }
 
 .swiper-pagination {
-  display: flex;
+  // display: flex;
+  position: absolute;
   text-align: center;
   transition: .3s opacity;
   transform: translate3d(0, 0, 0);
@@ -122,6 +125,9 @@
   color: white !important;
   transform: scale(0.2); /* Reduces size to 80% */
   transition: transform 0.2s ease-in-out; /* Smooth transition */
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 
   @media (min-width: 768px) {
     transform: scale(0.5);
@@ -130,4 +136,8 @@
   @media (min-width: 992px) {
     transform: scale(0.8);
   }
+}
+
+.swiper-cube-shadow {
+  opacity: 0.2 !important; /* ✅ Reduces shadow intensity */
 }

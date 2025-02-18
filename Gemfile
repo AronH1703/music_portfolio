@@ -30,6 +30,11 @@ gem "sassc-rails"
 
 gem 'bootstrap', '~> 5.3.3'
 
+gem 'image_optim'
+
+gem 'image_processing', '~> 1.12'
+
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

@@ -11,6 +11,14 @@
         <p>Photo by Eva Rut.</p>
         </div>
       </div>
+
+      <div class="swiper-slide">
+        <%= image_tag "Portrait 1.png", alt: "Portrait-Gallery Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo by Eva Rut.</p>
+        </div>
+      </div>
+
       <div class="swiper-slide">
         <%= image_tag "Girl Like You - Cover.jpg", alt: "GLY Image", class: "gallery-image" %>
         <div class="by">
@@ -35,25 +43,61 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ Inline Swiper script is running!"); // ✅ Debugging log
+function initializeSwiper() {
+  console.log("✅ Reinitializing Swiper!");
 
-    new Swiper(".mySwiper", {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    lazy: true,
+    effect: "cube", // ✅ Enables 3D cube rotation
+    cubeEffect: {
+    shadow: true,
+    slideShadows: true,
+    shadowOffset: 20,
+    shadowScale: 0.9,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    on: {
+      slideChangeTransitionEnd: function () {
+        adjustButtonPositions(swiper);
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-
-    console.log("✅ Swiper initialized successfully!"); // ✅ Another debugging log
+    },
   });
+
+  adjustButtonPositions(swiper); // Ensure correct position on first load
+}
+
+function adjustButtonPositions(swiper) {
+  const activeSlide = swiper.slides[swiper.activeIndex]; // Get current slide
+  const image = activeSlide.querySelector("img");
+
+  if (image) {
+    const imageHeight = image.clientHeight; // Get image height
+    const offset = 20; // Adjust as needed
+
+    // Adjust navigation button position
+    document.querySelector(".swiper-button-next").style.top = `${imageHeight / 2 + offset}px`;
+    document.querySelector(".swiper-button-prev").style.top = `${imageHeight / 2 + offset}px`;
+
+    // Adjust pagination position below the image
+    document.querySelector(".swiper-pagination").style.top = `${imageHeight + offset * 2}px`;
+  }
+}
+
+// ✅ Ensure Swiper initializes properly on page load and Turbo navigation
+document.addEventListener("DOMContentLoaded", initializeSwiper);
+document.addEventListener("turbo:load", initializeSwiper);
+
 </script>
+
 
 </body>
