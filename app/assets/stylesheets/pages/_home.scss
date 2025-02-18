@@ -302,82 +302,125 @@
 
 .floating-section {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // padding: 5rem 0;
-  margin-bottom: 0rem;
-  margin-top: -4rem;
-
-  @media (min-width: 768px) {
-    // margin-bottom: 24rem;
-    // margin-top: -6rem;
-  }
-
-  @media (min-width: 992px) {
-    // margin-bottom: -12rem;
-    // margin-top: -12rem;
-  }
 }
 
-.floating-elements {
-  display: flex;
-  position: relative; /* Allows precise control */
-  flex-direction: column;
-  align-items: center; /* Keeps elements together */
-  justify-content: center;
-  width: 100%;
-  // max-width: 80rem;
-
-  @media (min-width: 768px) {
-
-  }
-
-  @media (min-width: 992px) {
-
-  }
-}
-
-/* Star Image */
+/* ✅ Add Perspective to the Container */
 .star-container {
-  // position: relative;
-  // width: 100%;
-
-  // @media (min-width: 768px) {
-  //   position: relative;
-  //   width: 100%;
-  // }
-
-  // @media (min-width: 992px) {
-
-  // }
-
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center; /* Keeps it centered */
+  justify-content: center; /* Centers the masked image */
+  padding-bottom: 6rem;
+  padding-top: 18%;
+  perspective: 1000px; /* Ensures proper 3D depth */
+  transform-style: preserve-3d; /* Maintains 3D depth */
+  overflow: hidden; /* Prevents overflow issues */
 }
 
+/* ✅ Star Image Wrapper (Creates 3D Effect) */
+.star-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  transform-style: preserve-3d; /* Maintains 3D depth */
+  animation: rotateAnimation 3s linear infinite;
+  // perspective: 500px; /* Ensures proper 3D depth */
+}
+
+/* ✅ Front and Back Star Images */
+.star-image, .star-image-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides flipped side */
+  background-image: image-url('AKAII.png'); /* ✅ Ensure it has a background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ✅ Front Side (Main Star Mask) */
 .star-image {
-  // width: 32.6625rem;
-  // height: auto;
-  width: clamp(40rem, 50vw, 90rem); /* Min 20rem, scales with viewport, max 90rem */
-  height: auto;
+  -webkit-mask-image: image-url('Star-1.svg');
+  mask-image: image-url('Star-1.svg');
 
+  -webkit-mask-size: 90%;
+  mask-size: 90%;
 
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 
-  @media (min-width: 768px) {
-    // width: 52.6625rem;
-    // height: auto;
-    width: 60rem;
-  }
+  -webkit-mask-position: center;
+  mask-position: center;
+}
 
-  @media (min-width: 992px) {
-    width: 90rem;
-    // height: auto;
+/* ✅ Back Side (Duplicate Mask Rotated) */
+.star-image-back {
+  -webkit-mask-image: image-url('Star-1.svg'); /* Same mask */
+  mask-image: image-url('Star-1.svg');
+
+  -webkit-mask-size: 90%;
+  mask-size: 90%;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  transform: rotateY(180deg); /* Creates a backside */
+}
+
+.star-image::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 90%;
+  width: 160%; /* Make larger so rotation doesn't clip */
+  height: 200%;
+
+  background-image: image-url('AKAII.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translate(-50%, -50%) rotate(45deg); /* Moves and rotates the background */
+}
+
+.star-image-back::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 90%;
+  width: 160%; /* Make larger so rotation doesn't clip */
+  height: 200%;
+
+  background-image: image-url('AKAII.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: translate(-50%, -50%) rotate(45deg); /* Moves and rotates the background */
+}
+
+/* ✅ 3D Rotation Animation */
+@keyframes rotateAnimation {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* ✅ Responsive Adjustments */
+@media (min-width: 768px) { /* Tablet */
+  .star-wrapper {
+    animation: rotateAnimation 6s linear infinite; /* Slower rotation */
   }
 }
 
+@media (min-width: 992px) { /* Desktop */
+  .star-wrapper {
+    animation: rotateAnimation 8s linear infinite; /* Even slower */
+}
+}
 
 // MUSIC PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
 
