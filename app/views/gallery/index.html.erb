@@ -1,6 +1,6 @@
 <body class="gallery">
 
-<div class="gallery-container">
+<div class="gallery-container" data-controller="adjust-image-width">
   <h1>photos.</h1>
 
   <div class="swiper mySwiper" data-controller="swiper">
@@ -51,8 +51,8 @@ function initializeSwiper() {
     slidesPerView: 1,
     spaceBetween: 20,
     lazy: true,
-    effect: "cube", // ✅ Enables 3D cube rotation
-    speed: 1000, // ✅ Slows down transition (1000ms = 1 second)
+    effect: "cube",
+    speed: 1000,
     cubeEffect: {
       shadow: true,
       slideShadows: true,
@@ -68,13 +68,18 @@ function initializeSwiper() {
       clickable: true,
     },
     on: {
+      init: function () {
+        console.log("✅ Swiper initialized, adjusting pagination...");
+        setTimeout(() => adjustButtonPositions(swiper), 300);
+      },
       slideChangeTransitionEnd: function () {
         adjustButtonPositions(swiper);
       },
     },
   });
 
-  adjustButtonPositions(swiper); // Ensure correct position on first load
+  // Final adjustment after a delay to ensure everything settles
+  setTimeout(() => adjustButtonPositions(swiper), 500);
 }
 
 function adjustButtonPositions(swiper) {
@@ -83,18 +88,15 @@ function adjustButtonPositions(swiper) {
 
   if (image) {
     const imageHeight = image.clientHeight; // Get image height
-    const offset = 20; // Adjust as needed
+    const offset = 30; // Adjust as needed
 
-    // Adjust navigation button position
     document.querySelector(".swiper-button-next").style.top = `${imageHeight / 2 + offset}px`;
     document.querySelector(".swiper-button-prev").style.top = `${imageHeight / 2 + offset}px`;
-
-    // Adjust pagination position below the image
     document.querySelector(".swiper-pagination").style.top = `${imageHeight + offset * 2}px`;
   }
 }
 
-// ✅ Ensure Swiper initializes properly on page load and Turbo navigation
+// Ensure Swiper initializes properly on page load and Turbo navigation
 document.addEventListener("DOMContentLoaded", initializeSwiper);
 document.addEventListener("turbo:load", initializeSwiper);
 

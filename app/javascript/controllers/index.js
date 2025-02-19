@@ -9,5 +9,7 @@ import KassiScrollController from "./kassi_scroll_controller"
 
 application.register("kassi-scroll", KassiScrollController)
 
-// import SwiperController from "./swiper_controller"; // ✅ Ensure it's imported
-// application.register("swiper", SwiperController);
+// ✅ Manually register controllers if needed
+import SwiperController from "./swiper_controller";
+application.register("swiper", SwiperController);
+
