@@ -33,9 +33,22 @@
       <div class="star-image"></div>
       <div class="star-image-back"></div>
     </div>
+
+    <!-- ✅ This is orbiting text effect -->
+
+    <div class="orbit">
+      <%= image_tag "MUSiC.svg", class: "orbiting-music", alt: "Music Text" %>
+    </div>
+
   </div>
 </section>
 
+<%# <section>
+<div data-controller="three" data-three-model-url="/models/Star-Mask.obj">
+
+  <canvas id="three-canvas"></canvas>
+</div>
+</section> %>
 
 <section id="music-platforms">
   <ul class="music-list">
@@ -71,3 +84,5 @@
     </li>
   </ul>
 </section>
+
+<div data-controller="three" style="width:800px; height:600px;"></div>

@@ -288,20 +288,62 @@
 
 
 
+/* ✅ The orbit path */
+.orbit {
+  position: absolute;
+  width: 75%;
+  height: 50%;
+  // border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: orbit 8s linear infinite;
+  rotate: 1 0 0 75deg;
+  z-index: 1;
+  overflow: visible;
+}
 
-// .gtr-container{
 
-// }
+/* 🛠️ Increase orbit size on tablets */
+@media (min-width: 768px) {
+  .orbit {
+    width: 60%;
+    height: 55%;
+  }
+}
 
-// .gtr-image{
+/* 🛠️ Even bigger on desktop */
+@media (min-width: 1024px) {
+  .orbit {
+    width: 50%;
+    height: 60%;
+  }
+}
 
-// }
 
+/* ✅ The orbiting MUSiC.svg */
+.orbiting-music {
+  position: absolute;
+  width: 100%; /* Adjust size */
+  height: auto;
+  top: 60%;
+  left: 50%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
 
+/* ✅ Keyframes for smooth orbit animation */
+@keyframes orbit {
+  to { transform: rotate3d(0, 0, 1, 360deg); }
+}
 
 
 .floating-section {
   width: 100%;
+  // position: relative;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // perspective: 800px; /* Creates depth effect */
+  // perspective-origin: center;
 }
 
 /* ✅ Add Perspective to the Container */
@@ -314,7 +356,14 @@
   padding-top: 18%;
   perspective: 1000px; /* Ensures proper 3D depth */
   transform-style: preserve-3d; /* Maintains 3D depth */
-  overflow: hidden; /* Prevents overflow issues */
+  // overflow: visible; /* Prevents overflow issues */
+  z-index: 2; // Ensure it's above the WebGL canvas
+  margin-bottom: 4rem;
+  // overflow: hidden;
+
+  @media (min-width: 992px) { /* Desktop */
+    padding-bottom: 14rem;
+  }
 }
 
 /* ✅ Star Image Wrapper (Creates 3D Effect) */
@@ -324,6 +373,8 @@
   position: relative;
   transform-style: preserve-3d; /* Maintains 3D depth */
   animation: rotateAnimation 3s linear infinite;
+  z-index: 2;
+  overflow: hidden;
   // perspective: 500px; /* Ensures proper 3D depth */
 }
 
@@ -337,6 +388,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 3;
 }
 
 /* ✅ Front Side (Main Star Mask) */
@@ -460,6 +512,13 @@
   // gap: 1rem;
   // border-radius: 10px; // Soft rounded edges
   border: 2px solid black; // Subtle border for separation
+
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .music-list li a {
@@ -518,3 +577,13 @@
     font-size: 2rem;
   }
 }
+
+// #three-canvas {
+//   width: 100vw;
+//   height: 100vh;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background-color: #202020; // This ensures visibility
+//   overflow: hidden;
+// }
