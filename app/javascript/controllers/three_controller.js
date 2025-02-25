@@ -43,9 +43,41 @@ export default class extends Controller {
       (gltf) => {
         // When loaded, add the model to the scene
         console.log('Model loaded:', gltf)
+
+        // Load the texture
+        const textureLoader = new THREE.TextureLoader()
+        const texture = textureLoader.load('assets/AKAII.png', () => {
+          // Apply the texture to the model's material
+          gltf.scene.traverse((child) => {
+            if (child.isMesh) {
+              child.material.map = texture
+              child.material.needsUpdate = true
+
+              // Adjust UV mapping to change the position and scale of the texture
+              const uvAttribute = child.geometry.attributes.uv
+              const uOffset = 0.0; // Change this value to move horizontally
+              const vOffset = 0.1; // Change this value to move vertically
+              const scale = 2.2; // Change this value to scale the texture proportionally
+              for (let i = 0; i < uvAttribute.count; i++) {
+                const u = uvAttribute.getX(i) * scale + uOffset
+                const v = (1 - uvAttribute.getY(i)) * scale + vOffset
+                uvAttribute.setXY(i, u, v)
+              }
+              uvAttribute.needsUpdate = true
+            }
+          })
+        })
+
         gltf.scene.position.set(0, 0, 0) // Adjust the model position
         gltf.scene.scale.set(85, 85, 85) // Adjust the model scale if necessary
         scene.add(gltf.scene)
+
+        // Simple render loop with rotation animation
+        const animate = () => {
+          requestAnimationFrame(animate)
+          gltf.scene.rotation.y += 0.01 // Rotate the model on the y-axis
+          renderer.render(scene, camera)
+        }
         animate()
       },
       undefined,
@@ -53,11 +85,5 @@ export default class extends Controller {
         console.error('Error loading glTF file:', error)
       }
     )
-
-    // Simple render loop
-    const animate = () => {
-      requestAnimationFrame(animate)
-      renderer.render(scene, camera)
-    }
   }
 }
