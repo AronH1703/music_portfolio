@@ -6,14 +6,14 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 export default class extends Controller {
   connect() {
     console.log("three_controller connected")
-    // Use the element this controller is attached to as the container
-    const container = this.element
+    // Use the element with the ID 'three-container' as the container
+    const container = document.getElementById('three-container')
     const width = container.clientWidth
     const height = container.clientHeight
 
     // Set up a basic scene
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color(0x0000ff) // Set background color to blue
+    scene.background = new THREE.Color(0xffffff) // Set background color to blue
 
     // Set up the camera
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
@@ -32,50 +32,38 @@ export default class extends Controller {
     scene.add(directionalLight)
 
     // Add a helper grid to visualize the scene
-    const gridHelper = new THREE.GridHelper(100, 10)
-    scene.add(gridHelper)
+    // const gridHelper = new THREE.GridHelper(100, 10)
+    // scene.add(gridHelper)
 
     // Instantiate the GLTFLoader
     const loader = new GLTFLoader()
     loader.load(
-      // Path to your glTF file in app/assets/images; asset pipeline will serve it at /assets/Star-Mask.gltf
-      'assets/Star-Mask.gltf',
+      // Path to your glTF file in app/assets/images; asset pipeline will serve it at /assets/STAR-MASK3.glb
+      'assets/STAR-MASK3.glb',
       (gltf) => {
         // When loaded, add the model to the scene
         console.log('Model loaded:', gltf)
 
-        // Load the texture
-        const textureLoader = new THREE.TextureLoader()
-        const texture = textureLoader.load('assets/AKAII.png', () => {
-          // Apply the texture to the model's material
-          gltf.scene.traverse((child) => {
-            if (child.isMesh) {
-              child.material.map = texture
-              child.material.needsUpdate = true
+        // Extract the mesh from the loaded glTF
+        const starMesh = gltf.scene.getObjectByName('STAR')
+        if (!starMesh) {
+          console.error('STAR mesh not found in the GLTF file.')
+          return
+        }
 
-              // Adjust UV mapping to change the position and scale of the texture
-              const uvAttribute = child.geometry.attributes.uv
-              const uOffset = 0.0; // Change this value to move horizontally
-              const vOffset = 0.1; // Change this value to move vertically
-              const scale = 2.2; // Change this value to scale the texture proportionally
-              for (let i = 0; i < uvAttribute.count; i++) {
-                const u = uvAttribute.getX(i) * scale + uOffset
-                const v = (1 - uvAttribute.getY(i)) * scale + vOffset
-                uvAttribute.setXY(i, u, v)
-              }
-              uvAttribute.needsUpdate = true
-            }
-          })
-        })
+        // Ensure the material is transparent to achieve the glass effect
+        starMesh.material.transparent = true
+        starMesh.material.opacity = 0.5 // Adjust the opacity as needed
+        starMesh.material.side = THREE.DoubleSide // Render both sides of the material
 
-        gltf.scene.position.set(0, 0, 0) // Adjust the model position
-        gltf.scene.scale.set(85, 85, 85) // Adjust the model scale if necessary
-        scene.add(gltf.scene)
+        starMesh.position.set(0, 0.065, 0) // Adjust the model position
+        starMesh.scale.set(70, 70, 70) // Scale the model up
+        scene.add(starMesh)
 
         // Simple render loop with rotation animation
         const animate = () => {
           requestAnimationFrame(animate)
-          gltf.scene.rotation.y += 0.01 // Rotate the model on the y-axis
+          starMesh.rotation.y += 0.01 // Rotate the model on the y-axis
           renderer.render(scene, camera)
         }
         animate()

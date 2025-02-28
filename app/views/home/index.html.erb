@@ -27,7 +27,7 @@
 <%= image_tag "gtr.png", alt: "Guitar Image", class: "gtr-image" %>
 </div>
 
-<section class="floating-section">
+<%# <section class="floating-section">
   <div class="star-container">
     <div class="star-wrapper">
       <div class="star-image"></div>
@@ -38,17 +38,12 @@
 
     <div class="orbit">
       <%= image_tag "MUSiC.svg", class: "orbiting-music", alt: "Music Text" %>
-    </div>
+    <%# </div>
 
   </div>
-</section>
-
-<%# <section>
-<div data-controller="three" data-three-model-url="/models/Star-Mask.obj">
-
-  <canvas id="three-canvas"></canvas>
-</div>
 </section> %>
+
+<div id="three-container" data-controller="three" ></div>
 
 <section id="music-platforms">
   <ul class="music-list">
@@ -84,5 +79,3 @@
     </li>
   </ul>
 </section>
-
-<div data-controller="three" style="width:800px; height:600px;"></div>
