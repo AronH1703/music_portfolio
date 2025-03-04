@@ -4,7 +4,14 @@ import * as THREE from "three"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
 export default class extends Controller {
+  static added = false; // Static flag to track if the object has been added
+
   connect() {
+    if (this.constructor.added) {
+      console.log("3D object already added, skipping...");
+      return;
+    }
+
     console.log("three_controller connected")
     // Use the element with the ID 'three-container' as the container
     const container = document.getElementById('three-container')
@@ -32,8 +39,8 @@ export default class extends Controller {
     scene.add(directionalLight)
 
     // Add a helper grid to visualize the scene
-    // const gridHelper = new THREE.GridHelper(100, 10)
-    // scene.add(gridHelper)
+    const gridHelper = new THREE.GridHelper(100, 10)
+    scene.add(gridHelper)
 
     // Instantiate the GLTFLoader
     const loader = new GLTFLoader()
@@ -58,7 +65,14 @@ export default class extends Controller {
 
         starMesh.position.set(0, 0.065, 0) // Adjust the model position
         starMesh.scale.set(70, 70, 70) // Scale the model up
-        scene.add(starMesh)
+
+        // Check if the object is already in the scene
+        if (!scene.getObjectByName('STAR')) {
+          scene.add(starMesh)
+        }
+
+        // Set the flag to true to indicate the object has been added
+        this.constructor.added = true;
 
         // Simple render loop with rotation animation
         const animate = () => {

@@ -174,6 +174,7 @@
   width: 100%;
   margin: 2rem auto;
   padding: 0 1rem; /* Prevents text from touching the edges */
+  height: 100vh;
 }
 
 .about-text{
@@ -235,7 +236,7 @@
   @media (min-width: 992px) {
     font-size: 2rem;
     margin-top: -2rem;
-    line-height: 5rem;
+    line-height: 4.2rem;
   }
 }
 
@@ -246,239 +247,21 @@
   text-align: left;
 }
 
-.gtr-container{
-  margin-top: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.gtr-image {
-  // width: 100%; /* Adjust the percentage as needed */
-  // width: 33rem; /* Keeps original size as max */
-  // height: auto; /* Maintains aspect ratio */
-  // margin-left: 0.5rem;
-  // display: block; /* Centers properly */
-  // margin: 0 auto;
+// THREE.JS 👇🏻👇🏻👇🏻👇🏻👇🏻
 
-  width: clamp(38rem, 70vw, 87.1875rem); /* Smooth scaling */
-  height: auto;
-  // box-shadow: 10px 15px 20px rgba(0, 0, 0, 0.2);
-  // margin-left: 0.5rem;
+.threejs-section{
+  height: 100vh;
 
-
-  @media (min-width: 768px) {
-    width: 62rem;
-    // max-width: 53.5rem;
-    // margin-top: 4rem;
-  }
-
-  @media (min-width: 992px) {
-    width: 82rem;
-    // max-width: 87.1875rem;
-    // margin-top: 10rem;
-  }
-
-  @media (min-width: 992px) {
-    width: 87rem;
-    // max-width: 87.1875rem;
-    // margin-top: 10rem;
-  }
-}
-
-
-
-/* ✅ The orbit path */
-.orbit {
-  position: absolute;
-  width: 75%;
-  height: 50%;
-  // border-radius: 50%;
-  transform-style: preserve-3d;
-  animation: orbit 8s linear infinite;
-  rotate: 1 0 0 75deg;
-  z-index: 1;
-  overflow: visible;
-}
-
-
-/* 🛠️ Increase orbit size on tablets */
-@media (min-width: 768px) {
-  .orbit {
-    width: 60%;
-    height: 55%;
-  }
-}
-
-/* 🛠️ Even bigger on desktop */
-@media (min-width: 1024px) {
-  .orbit {
-    width: 50%;
-    height: 60%;
-  }
-}
-
-
-/* ✅ The orbiting MUSiC.svg */
-.orbiting-music {
-  position: absolute;
-  width: 100%; /* Adjust size */
-  height: auto;
-  top: 60%;
-  left: 50%;
-  transform-origin: center;
-  transform-style: preserve-3d;
-}
-
-/* ✅ Keyframes for smooth orbit animation */
-@keyframes orbit {
-  to { transform: rotate3d(0, 0, 1, 360deg); }
-}
-
-
-.floating-section {
-  width: 100%;
-  // position: relative;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // perspective: 800px; /* Creates depth effect */
-  // perspective-origin: center;
-}
-
-/* ✅ Add Perspective to the Container */
-.star-container {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center; /* Centers the masked image */
-  padding-bottom: 6rem;
-  padding-top: 18%;
-  perspective: 1000px; /* Ensures proper 3D depth */
-  transform-style: preserve-3d; /* Maintains 3D depth */
-  // overflow: visible; /* Prevents overflow issues */
-  z-index: 2; // Ensure it's above the WebGL canvas
-  margin-bottom: 4rem;
-  // overflow: hidden;
-
-  @media (min-width: 992px) { /* Desktop */
-    padding-bottom: 14rem;
-  }
-}
-
-/* ✅ Star Image Wrapper (Creates 3D Effect) */
-.star-wrapper {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  position: relative;
-  transform-style: preserve-3d; /* Maintains 3D depth */
-  animation: rotateAnimation 3s linear infinite;
-  z-index: 2;
-  overflow: hidden;
-  // perspective: 500px; /* Ensures proper 3D depth */
-}
-
-/* ✅ Front and Back Star Images */
-.star-image, .star-image-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Hides flipped side */
-  background-image: image-url('AKAII.png'); /* ✅ Ensure it has a background */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 3;
-}
-
-/* ✅ Front Side (Main Star Mask) */
-.star-image {
-  -webkit-mask-image: image-url('Star-1.svg');
-  mask-image: image-url('Star-1.svg');
-
-  -webkit-mask-size: 90%;
-  mask-size: 90%;
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-position: center;
-  mask-position: center;
-}
-
-/* ✅ Back Side (Duplicate Mask Rotated) */
-.star-image-back {
-  -webkit-mask-image: image-url('Star-1.svg'); /* Same mask */
-  mask-image: image-url('Star-1.svg');
-
-  -webkit-mask-size: 90%;
-  mask-size: 90%;
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-position: center;
-  mask-position: center;
-
-  transform: rotateY(180deg); /* Creates a backside */
-}
-
-.star-image::before {
-  content: "";
-  position: absolute;
-  top: 30%;
-  left: 90%;
-  width: 160%; /* Make larger so rotation doesn't clip */
-  height: 200%;
-
-  background-image: image-url('AKAII.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  transform: translate(-50%, -50%) rotate(45deg); /* Moves and rotates the background */
-}
-
-.star-image-back::before {
-  content: "";
-  position: absolute;
-  top: 30%;
-  left: 90%;
-  width: 160%; /* Make larger so rotation doesn't clip */
-  height: 200%;
-
-  background-image: image-url('AKAII.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  transform: translate(-50%, -50%) rotate(45deg); /* Moves and rotates the background */
-}
-
-/* ✅ 3D Rotation Animation */
-@keyframes rotateAnimation {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
-}
-
-/* ✅ Responsive Adjustments */
-@media (min-width: 768px) { /* Tablet */
-  .star-wrapper {
-    animation: rotateAnimation 6s linear infinite; /* Slower rotation */
-  }
-}
-
-@media (min-width: 992px) { /* Desktop */
-  .star-wrapper {
-    animation: rotateAnimation 8s linear infinite; /* Even slower */
-}
 }
 
 #three-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh; // Full viewport height
-  background-color: #f0f0f0; // Example background color
+  // background-color: #f0f0f0; // Example background color
   // Add any other styles you need
 
   canvas {
@@ -491,9 +274,9 @@
 // MUSIC PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
 
 #music-platforms {
-  text-align: center;
-  margin-top: -5rem;
-  padding-bottom: 6rem;
+  // text-align: center;
+  // margin-top: -5rem;
+  // padding-bottom: 6rem;
 }
 
 
@@ -592,12 +375,18 @@
   }
 }
 
-// #three-canvas {
-//   width: 100vw;
-//   height: 100vh;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   background-color: #202020; // This ensures visibility
-//   overflow: hidden;
-// }
+.fullpage-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+#fullpage {
+  // scroll-snap-type: y mandatory;
+  // overflow-y: hidden; // Change this to hidden to prevent splitting scroll behavior
+  // height: 100vh;
+  // z-index: 1001;
+
+}

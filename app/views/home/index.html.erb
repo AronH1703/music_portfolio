@@ -1,15 +1,12 @@
-<%# <%= image_tag "Top Layer.png", alt: "Top Layer Image", class: "toplayer-image" %>
+<section>
 <div class="kassi-container" data-controller="kassi-scroll">
   <%= image_tag "kassi.png", alt: "Kassi Image", class: "kassi-image" %>
 </div>
-
-
 
 <div class="backdrop-title" data-controller="kassi-scroll">
   <h1 class="title-aron">ARON</h1>
   <h1 class="title-hannes">HANNES</h1>
 </div>
-
 
 <section id="about">
   <div class="about-row">
@@ -23,59 +20,43 @@
   </div>
 </section>
 
-<div class="gtr-container">
-<%= image_tag "gtr.png", alt: "Guitar Image", class: "gtr-image" %>
+<div id="fullpage" data-controller="fullpage-scroll">
+  <section class="fullpage-section threejs-section" data-fullpage-scroll-target="section">
+    <div id="three-container" data-controller="three"></div>
+  </section>
+
+  <section class="fullpage-section" id="music-platforms" data-fullpage-scroll-target="section">
+    <ul class="music-list">
+      <li>
+        <a href="https://open.spotify.com/artist/3YWoe6haPoiQdq7GaQz2OR?si=eaM94hB-SkGdMmlK50nF4A" target="_blank">
+          <%= image_tag "Spotify.svg", alt: "Spotify" %>
+          SPOTIFY
+        </a>
+      </li>
+      <li>
+        <a href="https://music.apple.com/is/artist/aron-hannes/820717161" target="_blank">
+          <%= image_tag "applemusic.svg", alt: "Apple Music" %>
+          APPLE MUSIC
+        </a>
+      </li>
+      <li>
+        <a href="https://deezer.page.link/XSZdQHGWG5SsZhzE7" target="_blank">
+          <%= image_tag "deezer.svg", alt: "Deezer" %>
+          DEEZER
+        </a>
+      </li>
+      <li>
+        <a href="https://music.youtube.com/channel/UCG5wQ2UMfLYD5lp8MAbk6Zg?si=Se8nOTEe2Vvr014o" target="_blank">
+          <%= image_tag "youtube-music.svg", alt: "YouTube Music" %>
+          YOUTUBE MUSIC
+        </a>
+      </li>
+      <li>
+        <a href="https://tidal.com/browse/artist/7421898" target="_blank">
+          <%= image_tag "tidal.svg", alt: "Tidal" %>
+          TIDAL
+        </a>
+      </li>
+    </ul>
+  </section>
 </div>
-
-<%# <section class="floating-section">
-  <div class="star-container">
-    <div class="star-wrapper">
-      <div class="star-image"></div>
-      <div class="star-image-back"></div>
-    </div>
-
-    <!-- ✅ This is orbiting text effect -->
-
-    <div class="orbit">
-      <%= image_tag "MUSiC.svg", class: "orbiting-music", alt: "Music Text" %>
-    <%# </div>
-
-  </div>
-</section> %>
-
-<div id="three-container" data-controller="three" ></div>
-
-<section id="music-platforms">
-  <ul class="music-list">
-    <li>
-      <a href="https://open.spotify.com/artist/3YWoe6haPoiQdq7GaQz2OR?si=eaM94hB-SkGdMmlK50nF4A" target="_blank">
-        <%= image_tag "Spotify.svg", alt: "Spotify" %>
-        SPOTIFY
-      </a>
-    </li>
-    <li>
-      <a href="https://music.apple.com/is/artist/aron-hannes/820717161" target="_blank">
-        <%= image_tag "applemusic.svg", alt: "Apple Music" %>
-        APPLE MUSIC
-      </a>
-    </li>
-    <li>
-      <a href="https://deezer.page.link/XSZdQHGWG5SsZhzE7" target="_blank">
-        <%= image_tag "deezer.svg", alt: "Deezer" %>
-        DEEZER
-      </a>
-    </li>
-    <li>
-      <a href="https://music.youtube.com/channel/UCG5wQ2UMfLYD5lp8MAbk6Zg?si=Se8nOTEe2Vvr014o" target="_blank">
-        <%= image_tag "youtube-music.svg", alt: "YouTube Music" %>
-        YOUTUBE MUSIC
-      </a>
-    </li>
-    <li>
-      <a href="https://tidal.com/browse/artist/7421898" target="_blank">
-        <%= image_tag "tidal.svg", alt: "Tidal" %>
-        TIDAL
-      </a>
-    </li>
-  </ul>
-</section>

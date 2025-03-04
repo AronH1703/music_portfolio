@@ -30,6 +30,7 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+
 }
 
 /* Full-page layout */
@@ -42,4 +43,5 @@ html, body {
 /* Pushes content above the footer */
 .content-wrapper {
   flex: 1;
+  // padding-bottom: 42rem;
 }
