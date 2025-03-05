@@ -1,13 +1,22 @@
-<div class="kassi-container" data-controller="kassi-scroll">
-  <%= image_tag "kassi.png", alt: "Kassi Image", class: "kassi-image" %>
-</div>
+<div class="scroll-wrapper">
+  <section class="scroll-selection">
+    <div class="kassi-container" data-controller="kassi-scroll">
+      <%= image_tag "kassi.png", alt: "Kassi Image", class: "kassi-image" %>
+    </div>
 
-<div class="backdrop-title" data-controller="kassi-scroll">
-  <h1 class="title-aron">ARON</h1>
-  <h1 class="title-hannes">HANNES</h1>
-</div>
+    <div class="backdrop-title" data-controller="kassi-scroll">
+      <h1 class="title-aron">ARON</h1>
+      <h1 class="title-hannes">HANNES</h1>
+    </div>
+  </section>
 
-<section id="about">
+
+  <%# <section class="scroll-selection" >
+  <div style="background-color: red; height: 100vh;">
+    </div>
+  </section> %>
+
+  <section class="scroll-selection" id="about">
   <div class="about-row">
     <%= image_tag "Portrait 1.png", alt: "About Image", class: "about-image" %>
     <div class="about-text">
@@ -19,12 +28,12 @@
   </div>
 </section>
 
-<div id="fullpage" data-controller="">
+<div class="scroll-selection" id="fullpage" data-controller="">
   <section class="fullpage-section threejs-section" data-gsap-scroll-target="section">
     <div id="three-container" data-controller="three"></div>
   </section>
 
-  <section class="fullpage-section" id="music-platforms" data-gsap-scroll-target="section">
+<section class="scroll-selection" id="music-platforms" data-gsap-scroll-target="section">
     <ul class="music-list">
       <li>
         <a href="https://open.spotify.com/artist/3YWoe6haPoiQdq7GaQz2OR?si=eaM94hB-SkGdMmlK50nF4A" target="_blank">
@@ -58,4 +67,55 @@
       </li>
     </ul>
   </section>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const scrollSelection = document.querySelector(".scroll-selection");
+  const upperText = document.querySelector(".upper-text");
+
+  if (scrollSelection && upperText) {
+    const adjustTextSize = () => {
+      const scrollSelectionHeight = scrollSelection.clientHeight;
+      const upperTextHeight = upperText.scrollHeight;
+
+      if (upperTextHeight > scrollSelectionHeight) {
+        if (window.innerHeight < 600) { // For very small screens like iPhone 5
+          if (upperText.style.fontSize !== "1rem" || upperText.style.lineHeight !== "1.2rem") {
+            upperText.style.fontSize = "1rem";
+            upperText.style.lineHeight = "1.2rem";
+          }
+        } else {
+          if (upperText.style.fontSize !== "1.2rem" || upperText.style.lineHeight !== "1.4rem") {
+            upperText.style.fontSize = "1.2rem";
+            upperText.style.lineHeight = "1.4rem";
+          }
+        }
+      } else {
+        if (upperText.style.fontSize !== "1.4rem" || upperText.style.lineHeight !== "2.1rem") {
+          upperText.style.fontSize = "1.4rem";
+          upperText.style.lineHeight = "2.1rem";
+        }
+      }
+    };
+
+    adjustTextSize();
+    window.addEventListener("resize", adjustTextSize);
+  }
+});
+</script> %>

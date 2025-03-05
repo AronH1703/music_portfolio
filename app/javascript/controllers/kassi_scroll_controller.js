@@ -8,14 +8,21 @@ export default class extends Controller {
     // **Step 2: Bind the scroll function to this instance**
     this.boundScrollEffect = this.scrollEffect.bind(this);
 
-    // **Step 3: Add the scroll event listener**
-    window.addEventListener("scroll", this.boundScrollEffect);
+    // **Step 3: Add the scroll event listener to the scroll-wrapper**
+    this.scrollWrapper = document.querySelector(".scroll-wrapper");
+    if (this.scrollWrapper) {
+      this.scrollWrapper.addEventListener("scroll", this.boundScrollEffect);
+    } else {
+      console.warn("⚠️ .scroll-wrapper NOT FOUND!");
+    }
   }
 
   // **Step 4: When the controller disconnects**
   disconnect() {
     // Remove the scroll event listener to prevent memory leaks
-    window.removeEventListener("scroll", this.boundScrollEffect);
+    if (this.scrollWrapper) {
+      this.scrollWrapper.removeEventListener("scroll", this.boundScrollEffect);
+    }
   }
 
   // **Step 5: Function triggered when scrolling**
@@ -23,7 +30,7 @@ export default class extends Controller {
     console.log("Scrolling..."); // Debugging message
 
     // **Step 6: Get current scroll position**
-    let scrollPosition = window.scrollY;
+    let scrollPosition = this.scrollWrapper.scrollTop;
 
     // **Step 7: Calculate movement amount**
     let movement = scrollPosition * 0.6; // Adjust speed by changing multiplier

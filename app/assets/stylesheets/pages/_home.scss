@@ -27,7 +27,7 @@
   height: 8.333rem; /* Mobile: 100px */
   position: relative;
   left: 50%; /* Use percentage for fluid positioning */
-  margin-top: 2rem;
+  padding-top: 2rem;
   overflow: hidden; /* Ensure the image stays inside the mask */
 
   max-width: 297.6px;
@@ -111,7 +111,7 @@
   font-size: 5.3rem;
   font-weight: bold;
   color: #FFF960;
-  margin-top: -3.5rem;
+  margin-top: -4.5rem;
   margin-left: 0.5rem;
 
   @media (min-width: 768px) {
@@ -172,14 +172,15 @@
 #about {
   display: block; /* Allow natural text flow */
   width: 100%;
-  margin: 2rem auto;
+  // margin: 0rem auto;
   padding: 0 1rem; /* Prevents text from touching the edges */
+  padding-top: 2rem;
   // height: 100vh;
 }
 
 .about-text{
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 
   @media (min-width: 768px) {
     font-size: 2.6rem;
@@ -202,30 +203,39 @@
   shape-outside: margin-box; /* Ensures smooth wrapping */
   // shape-margin: 2rem; /* Creates space around the image */;
 
+  @media (max-width: 320px) {
+    width: 12rem;
+  }
+
   @media (min-width: 768px) { /* Tablet */
     width: 25rem;
     margin-left: 2rem;
   }
 
   @media (min-width: 992px) { /* Desktop */
-    width: 30rem;
+    width: 20rem;
     margin-left: 2.5rem;
   }
 }
 
 /* ✅ Ensure text wraps around the image */
 .upper-text {
-  font-size: 1rem;
-  // font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.4rem;
   font-family: 'Helvetica Neue';
   font-weight: 300;
   font-style: normal;
-  margin-top: -1rem;
+  margin-top: 0rem;
   margin-right: 1.833rem;
-  line-height: 2rem;
+  line-height: 2.1rem;
   letter-spacing: 0.1rem;
+
   // word-wrap: break-word;
   // overflow: hidden; /* Prevents layout issues */
+
+  @media (max-width: 320px) {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
 
   @media (min-width: 768px) {
     font-size: 1.5rem;
@@ -234,9 +244,9 @@
   }
 
   @media (min-width: 992px) {
-    font-size: 2rem;
+    font-size: 1.5remrem;
     margin-top: -2rem;
-    line-height: 4.2rem;
+    line-height: 3rem;
   }
 }
 
@@ -274,9 +284,10 @@
 // MUSIC PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
 
 #music-platforms {
-  // text-align: center;
-  // margin-top: -5rem;
-  // padding-bottom: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 
@@ -285,7 +296,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
   align-items: center;
 
   @media (min-width: 768px) {
@@ -375,14 +386,16 @@
   }
 }
 
-// .fullpage-section {
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
+/* Ensure the CSS is applied correctly */
+.scroll-wrapper {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth; /* Optional for smooth scrolling */
+}
 
-// #fullpage {
-//   overflow-y: scroll;
-//   height: 100vh;
-// }
+.scroll-selection {
+  height: 100%;
+  scroll-snap-align: start;
+}
