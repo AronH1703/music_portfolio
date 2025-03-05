@@ -174,7 +174,7 @@
   width: 100%;
   margin: 2rem auto;
   padding: 0 1rem; /* Prevents text from touching the edges */
-  height: 100vh;
+  // height: 100vh;
 }
 
 .about-text{
@@ -380,13 +380,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: start;
 }
 
 #fullpage {
-  // scroll-snap-type: y mandatory;
-  // overflow-y: hidden; // Change this to hidden to prevent splitting scroll behavior
-  // height: 100vh;
-  // z-index: 1001;
-
+  overflow-y: scroll;
+  height: 100vh;
 }

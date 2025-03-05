@@ -5,14 +5,14 @@ eagerLoadControllersFrom("controllers", application);
 import NavbarController from "./navbar_controller";
 application.register("navbar", NavbarController);
 
-import KassiScrollController from "./kassi_scroll_controller"
-application.register("kassi-scroll", KassiScrollController)
+import KassiScrollController from "./kassi_scroll_controller";
+application.register("kassi-scroll", KassiScrollController);
 
 import ThreeController from "./three_controller";
 application.register("three", ThreeController);
 
-import FullpageScrollController from "./fullpage_scroll_controller";
-application.register("fullpage-scroll", FullpageScrollController);
+import GsapScrollController from "./gsap_scroll_controller"; // ✅ Import GSAP Controller
+application.register("gsap-scroll", GsapScrollController); // ✅ Register GSAP Controller
 
 // ✅ Make Stimulus available in the browser console for debugging
 window.Stimulus = application;
