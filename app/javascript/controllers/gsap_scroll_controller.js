@@ -1,13 +1,13 @@
 import { Controller } from "@hotwired/stimulus";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default class extends Controller {
   connect() {
     console.log("✅ GSAP ScrollTrigger Controller Connected!");
 
+    // ✅ Register Plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ✅ Apply GSAP animation
     gsap.to(this.element, {
       scrollTrigger: {
         trigger: this.element,
