@@ -8,4 +8,6 @@ eagerLoadControllersFrom("controllers", application);
 
 
 
+
+
 console.log("✅ application.js is loaded!"); // ✅ Debugging log

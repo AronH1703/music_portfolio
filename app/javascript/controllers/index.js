@@ -14,6 +14,9 @@ application.register("three", ThreeController);
 import GsapScrollController from "./gsap_scroll_controller"; // ✅ Import GSAP Controller
 application.register("gsap-scroll", GsapScrollController); // ✅ Register GSAP Controller
 
+import ScrollAnimationController from "/scroll_animation_controller";
+application.register("scroll-animation", ScrollAnimationController);
+
 // ✅ Make Stimulus available in the browser console for debugging
 window.Stimulus = application;
 console.log("✅ Stimulus application is now globally accessible!");

@@ -220,13 +220,13 @@
 
 /* ✅ Ensure text wraps around the image */
 .upper-text {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-family: 'Helvetica Neue';
   font-weight: 300;
   font-style: normal;
   margin-top: 0rem;
   margin-right: 1.833rem;
-  line-height: 2.1rem;
+  line-height: 1.8rem;
   letter-spacing: 0.1rem;
 
   // word-wrap: break-word;
@@ -390,6 +390,7 @@
 .scroll-wrapper {
   height: 100vh;
   height: 100dvh;
+  overflow-x: hidden;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   -webkit-scroll-snap-type: y mandatory;
@@ -402,3 +403,19 @@
   -webkit-scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+/* When section is in view */
+.scroll-selection.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-selection {
+  opacity: 0; /* Start hidden */
+  transform: scale(0.95); /* Slightly scaled down */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+// .scroll-selection:not(.active) {
+//   animation-play-state: paused;
+// }

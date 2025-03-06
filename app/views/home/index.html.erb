@@ -1,4 +1,4 @@
-<div class="scroll-wrapper">
+<div class="scroll-wrapper" data-controller="scroll-animation">
 
   <section class="scroll-selection-nav">
     <%= render "shared/navbar" %>
@@ -33,10 +33,11 @@
   </div>
 </section>
 
-<div class="scroll-selection" id="fullpage" data-controller="">
+<div class="scroll-selection" id="fullpage">
   <section class="fullpage-section threejs-section" data-gsap-scroll-target="section">
     <div id="three-container" data-controller="three"></div>
   </section>
+</div>
 
 <section class="scroll-selection" id="music-platforms" data-gsap-scroll-target="section">
     <ul class="music-list">
@@ -73,9 +74,47 @@
     </ul>
   </section>
 
+
+
   <section class="scroll-selection-footer">
 <%= render "shared/footer" %>
 </section>
 
 </div>
 </div>
+
+<%# <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.scroll-selection');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.1 // Ensures section is mostly visible before triggering animation
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  // Re-observe sections when the page is shown again
+  window.addEventListener('pageshow', () => {
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+
+  // Check visibility on load
+  sections.forEach(section => {
+    if (section.getBoundingClientRect().top < window.innerHeight) {
+      section.classList.add('active');
+    }
+  });
+});
+</script> %>
