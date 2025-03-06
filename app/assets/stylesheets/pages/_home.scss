@@ -394,11 +394,11 @@
   scroll-snap-type: y mandatory;
   -webkit-scroll-snap-type: y mandatory;
   scroll-behavior: smooth; /* Optional for smooth scrolling */
-  scroll-behavior: smooth;
 }
 
 .scroll-selection {
   height: 100%;
   scroll-snap-align: start;
   -webkit-scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
