@@ -113,3 +113,9 @@
 .nav-links a:visited {
   color: inherit; /* Keeps the text color the same */
 }
+
+.scroll-selection-nav{
+  scroll-snap-align: start;
+  -webkit-scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
