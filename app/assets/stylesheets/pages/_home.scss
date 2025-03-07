@@ -16,41 +16,68 @@
   }
 
   @media (min-width: 992px) {
+    width: 35.98rem;
+    height: 24.19rem;
+    left: 55%;
+  }
+
+  @media (min-width: 1920px) {
     width: 18.6rem;
     height: 12.5rem;
     left: 55%;
+
   }
 }
 
 .kassi-container {
-  width: 12.5rem; /* Mobile: 150px */
-  height: 8.333rem; /* Mobile: 100px */
+  // width: 12.5rem; /* Mobile: 150px */
+  // height: 8.333rem; /* Mobile: 100px */
   position: relative;
-  left: 50%; /* Use percentage for fluid positioning */
+  left: 50vw; /* Use percentage for fluid positioning */
   padding-top: 2rem;
   overflow: hidden; /* Ensure the image stays inside the mask */
 
-  max-width: 297.6px;
+  // max-width: 297.6px;
+
+  width: 40vw;  /* Scales with viewport width */
+  height: clamp(15vh, 30vw, 30vh);
+
 
 }
 
 /* iPad (14px base font size) */
-@media (min-width: 768px) {
-  .kassi-container {
-    width: 13.95rem;
-    height: 9.375rem;
-    left: 50%;
-  }
-}
+// @media (min-width: 768px) {
+//   .kassi-container {
+//     width: 13.95rem;
+//     height: 9.375rem;
+//     left: 50%;
+//   }
+// }
 
-/* Desktop (16px base font size) */
-@media (min-width: 1024px) {
-  .kassi-container {
-    width: 18.6rem;
-    height: 12.5rem;
-    left: 55%;
-  }
-}
+//   @media (min-width: 992px) {
+//   .kassi-container {
+//     width: 18rem;  /* Scaled up */
+//     height: 12.1rem;
+//     left: 50%;     /* Unchanged */
+//   }
+// }
+
+// /* Desktop (16px base font size) */
+// @media (min-width: 1024px) {
+//   .kassi-container {
+//     width: 18.6rem;
+//     height: 12.5rem;
+//     left: 55%;
+//   }
+// }
+
+// @media (min-width: 1920px) {
+//   .kassi-container {
+//     width: 35rem;  /* Rounded */
+//     height: 23.5rem;
+//     left: 50%;     /* Unchanged */
+//   }
+// }
 
 
 .kassi-image {
@@ -77,14 +104,22 @@
 
     // width: 52.724rem; /* Match the mask size */
     // height: 43.1662rem;
-}
+  }
 
-@media (min-width: 1024px) { /* Desktop */
+  @media (min-width: 1024px) { /* Desktop */
   right: 19.2rem;
 
   // width: 65.905rem; /* Match the mask size */
   // height: 30.833rem;
-}
+  }
+
+  // @media (min-width: 1920px) { /* Large Desktop */
+  //   width: 168.4rem; /* Rounded */
+  //   height: 138rem; /* Rounded */
+  //   right: 85rem; /* Rounded */
+  // }
+
+
 }
 
 
@@ -163,7 +198,7 @@
     height: 20rem;
     width: 40rem;
     margin-bottom: 8rem;
-    margin-top: 14%;
+    margin-top: 10%;
   }
 }
 
@@ -176,11 +211,20 @@
   padding: 0 1rem; /* Prevents text from touching the edges */
   padding-top: 2rem;
   // height: 100vh;
+
+  @media (min-width: 768px) {
+    padding-top: 1rem;
+
+  }
+
+  @media (min-width: 992px) {
+    padding-top: 1rem;
+  }
 }
 
 .about-text{
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
 
   @media (min-width: 768px) {
     font-size: 2.6rem;
@@ -190,10 +234,17 @@
     font-size: 4rem;
   }
 }
+.about-text h3{
+  margin-bottom: 1rem;
 
+  @media (min-width: 768px) {
+    margin-bottom: 3rem;
+}
+}
 /* ✅ Float image right and allow text to wrap */
 .about-image {
-  width: 18.33rem; /* Default for mobile */
+  // width: 18.33rem; /* Default for mobile */
+  width: 52%;
   height: auto; /* Maintain aspect ratio */
   // object-fit: cover;
   float: right; /* Moves image to the right */
@@ -208,7 +259,7 @@
   }
 
   @media (min-width: 768px) { /* Tablet */
-    width: 25rem;
+    width: 42%;
     margin-left: 2rem;
   }
 
@@ -220,34 +271,38 @@
 
 /* ✅ Ensure text wraps around the image */
 .upper-text {
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
   font-family: 'Helvetica Neue';
   font-weight: 300;
   font-style: normal;
   margin-top: 0rem;
   margin-right: 1.833rem;
-  line-height: 1.8rem;
+  line-height: clamp(1.6rem, 3vw, 2.5rem);
   letter-spacing: 0.1rem;
 
-  // word-wrap: break-word;
-  // overflow: hidden; /* Prevents layout issues */
-
   @media (max-width: 320px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.2rem;
   }
 
   @media (min-width: 768px) {
-    font-size: 1.5rem;
     margin-top: -1.5rem;
-    line-height: 3.5rem;
+    line-height: 3rem;
+  }
+
+  @media (min-width: 769px) {
+    margin-top: -2rem;
+    line-height: clamp(2rem, 4.5vh, 2.5rem);
   }
 
   @media (min-width: 992px) {
-    font-size: 1.5remrem;
     margin-top: -2rem;
     line-height: 3rem;
   }
+}
+
+.upper-text p {
+  text-align: left;
 }
 
 .upper-text p {
@@ -326,6 +381,10 @@
 
   &:hover {
     transform: scale(1.05);
+  }
+
+      @media (max-width: 320px) {
+    height: 3rem !important;
   }
 }
 
@@ -416,6 +475,24 @@
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-// .scroll-selection:not(.active) {
-//   animation-play-state: paused;
-// }
+.scroll-selection:has([data-controller="kassi-scroll"]) {
+  // height: 50vh !important;
+  height: clamp(50vh, 60vh, 70vh) !important;
+
+
+  @media (max-width: 320px) {
+    height: 100vh !important;
+  }
+
+  @media (min-width: 481px) {
+    height: 70vh !important;
+  }
+
+  @media (min-width: 768px) {
+    height: 80vh !important;
+  }
+
+  @media (min-width: 992px) {
+    height: 100vh !important;
+  }
+}
