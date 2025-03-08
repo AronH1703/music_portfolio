@@ -18,4 +18,10 @@ Rails.application.routes.draw do
 
   # RESTful routes for videos
   resources :videos, only: [:index, :show]
+
+  # Add routes for contact
+  get '/contact', to: 'contact#index', as: :contact
+
+  # Add route for pages/music
+  get 'pages/music', to: 'pages#music', as: 'pages_music'
 end

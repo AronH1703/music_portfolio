@@ -9,7 +9,7 @@ class NewsletterSubscribersController < ApplicationController
       flash[:notice] = "You have successfully subscribed to the newsletter!"
       redirect_to newsletter_path
     else
-      flash[:alert] = "Invalid email address. Please try again."
+      flash[:alert] = @newsletter_subscriber.errors.full_messages.to_sentence
       render :new
     end
   end
