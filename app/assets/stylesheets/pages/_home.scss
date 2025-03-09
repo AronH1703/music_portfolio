@@ -167,6 +167,7 @@
   background-size: 300% auto;
   height: 12.5rem;
   width: 26.75rem;
+
   background-position: 90% 60%;
   // background-size: cover;
   // background-position: center;
@@ -204,6 +205,7 @@
 
 // ABOUT PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
 
+
 #about {
   display: block; /* Allow natural text flow */
   width: 100%;
@@ -211,6 +213,7 @@
   padding: 0 1rem; /* Prevents text from touching the edges */
   padding-top: 2rem;
   // height: 100vh;
+  font-size: 1rem;
 
   @media (min-width: 768px) {
     padding-top: 1rem;
@@ -235,16 +238,15 @@
   }
 }
 .about-text h3{
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
-  @media (min-width: 768px) {
-    margin-bottom: 3rem;
 }
-}
+
+
 /* ✅ Float image right and allow text to wrap */
 .about-image {
-  // width: 18.33rem; /* Default for mobile */
-  width: 52%;
+  max-width: 18.33rem; /* Default for mobile */
+  // width: 42%;
   height: auto; /* Maintain aspect ratio */
   // object-fit: cover;
   float: right; /* Moves image to the right */
@@ -254,50 +256,70 @@
   shape-outside: margin-box; /* Ensures smooth wrapping */
   // shape-margin: 2rem; /* Creates space around the image */;
 
-  @media (max-width: 320px) {
-    width: 12rem;
+  @media (max-width: 372px) {
+    max-width: 11.33rem;
   }
 
-  @media (min-width: 768px) { /* Tablet */
-    width: 42%;
-    margin-left: 2rem;
-  }
+  // @media (min-width: 320px) {
+  //   width: 30%;
+  // }
 
-  @media (min-width: 992px) { /* Desktop */
-    width: 20rem;
-    margin-left: 2.5rem;
-  }
+  // @media (min-width: 768px) { /* Tablet */
+  //   width: 36%;
+  //   margin-left: 2rem;
+  // }
+
+  // @media (min-width: 992px) { /* Desktop */
+  //   width: 31.5%;
+  //   margin-left: 2.5rem;
+  // }
 }
 
 /* ✅ Ensure text wraps around the image */
 .upper-text {
-  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  font-size: 1.2rem;
   font-family: 'Helvetica Neue';
   font-weight: 300;
   font-style: normal;
   margin-top: 0rem;
   margin-right: 1.833rem;
-  line-height: clamp(1.6rem, 3vw, 2.5rem);
-  letter-spacing: 0.1rem;
+  line-height: 1.6;
+
+  // line-height: clamp(1.6rem, 3vw, 2.5rem);
+  // letter-spacing: 0.1rem;
+
 
   @media (max-width: 320px) {
     font-size: 1rem;
-    line-height: 1.2rem;
+    line-height: 1.4rem;
   }
+
+  @media (min-width: 768px) and (max-width: 834px) and (min-height: 1024px) {
+    font-size: 1.6rem !important;
+    line-height: 2.6rem;
+  }
+
 
   @media (min-width: 768px) {
-    margin-top: -1.5rem;
-    line-height: 3rem;
-  }
-
-  @media (min-width: 769px) {
-    margin-top: -2rem;
-    line-height: clamp(2rem, 4.5vh, 2.5rem);
+    // margin-top: -2rem;
+    // line-height: clamp(2rem, 4.5vh, 2.5rem);
+    font-size: 1.2rem;
   }
 
   @media (min-width: 992px) {
-    margin-top: -2rem;
-    line-height: 3rem;
+    // margin-top: -2rem;
+    // line-height: 3rem;
+    font-size: 1.7rem;
+  }
+
+  // @media (max-width: 1044px) {
+  //   font-size: 1.7rem;
+  // }
+
+    @media (min-width: 1240px) {
+    // margin-top: -2rem;
+    // line-height: 3rem;
+    font-size: 2rem;
   }
 }
 
@@ -477,15 +499,23 @@
 
 .scroll-selection:has([data-controller="kassi-scroll"]) {
   // height: 50vh !important;
-  height: clamp(50vh, 60vh, 70vh) !important;
+  // height: clamp(50vh, 60vh, 70vh) !important;
+  height: 60vh !important;
 
+  @media (min-width: 358px) and (min-height: 780px) {
+  height: 40vh !important;
+  }
 
   @media (max-width: 320px) {
     height: 100vh !important;
   }
 
-  @media (min-width: 481px) {
-    height: 70vh !important;
+  // @media (min-width: 481px) {
+  //   height: 70vh !important;
+  // }
+
+  @media (min-width: 650px) {
+    height: 65vh !important;
   }
 
   @media (min-width: 768px) {
@@ -494,5 +524,20 @@
 
   @media (min-width: 992px) {
     height: 100vh !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 834px) and (min-height: 1024px) {
+  height: 60vh !important;
+  }
+}
+
+.scroll-selection:has([class="about-row"]) {
+
+  @media (min-width: 390px) and (min-height: 800px) {
+    height: 80vh !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 834px) and (min-height: 1024px) {
+    height: 70vh !important;
   }
 }
