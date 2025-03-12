@@ -34,6 +34,9 @@
   @media (min-width: 1024px) { // Desktop breakpoint
     max-width: 65rem; // Expand further for desktops
   }
+
+  // SIDEWAYS!!
+
 }
 
 .video-iframe {
@@ -41,4 +44,11 @@
   height: 66vw; // Scales with viewport width
   max-height: 40rem; // Ensures it doesn’t get too large
   border-radius: 5px;
+
+  @media only screen
+  and (min-width: 400px)
+  and (max-width: 850px)
+  and (orientation: landscape) {
+    height: 80vh !important;
+  }
 }
