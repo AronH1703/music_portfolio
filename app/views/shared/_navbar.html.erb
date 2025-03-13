@@ -16,3 +16,14 @@
     <li><%= link_to "Newsletter", newsletter_path %></li>
   </ul>
 </nav>
+
+<script>
+document.querySelectorAll('.navbar li').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    if (!item.dataset.spun) {
+      item.setAttribute('data-spun', 'true');
+    }
+  });
+});
+
+</script>
