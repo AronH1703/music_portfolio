@@ -26,4 +26,21 @@ document.querySelectorAll('.navbar li').forEach(item => {
   });
 });
 
+document.querySelectorAll('.navbar li a').forEach(link => {
+  link.addEventListener('click', (event) => {
+    if (window.innerWidth <= 768) { // Only for mobile devices
+      event.preventDefault(); // Stop immediate navigation
+
+      const listItem = link.closest('li');
+      listItem.classList.add('clicked');
+
+      // Wait for the spin-out animation to complete before navigating
+      setTimeout(() => {
+        window.location.href = link.href; // Now navigate
+      }, 600); // Matches spinOut animation duration (0.8s)
+    }
+  });
+});
+
+
 </script>

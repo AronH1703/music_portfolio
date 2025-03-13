@@ -19,17 +19,19 @@
 }
 
 /* 🔥 First Hover → Spin IN + Glow */
-.navbar li:not([data-spun]):hover {
-  animation: spinIn 1.8s ease forwards, textGlow 2s ease infinite;
-}
+@media (min-width: 769px) { /* Only apply on desktop */
+  .navbar > ul > li:not([data-spun]):hover {
+    animation: spinIn 1.8s ease forwards, textGlow 2s ease infinite;
+  }
 
-/* 🔄 Always Spin OUT when Unhovered */
-.navbar li[data-spun]:hover {
-  animation: textGlow 1.2s ease-in-out infinite;
-}
+  /* 🔄 Always Spin OUT when Unhovered */
+  .navbar > ul > li[data-spun]:hover {
+    animation: textGlow 1.2s ease-in-out infinite;
+  }
 
-.navbar li[data-spun]:not(:hover) {
-  animation: spinOut 1s ease forwards;
+  .navbar li[data-spun]:not(:hover) {
+    animation: spinOut 1s ease forwards;
+  }
 }
 
 /* 🔹 Navbar Hover Effects */
@@ -79,6 +81,14 @@
   }
 }
 
+/* 🚀 Mobile: Remove Hover but Add Spin Out on Click */
+@media (max-width: 768px) {
+  /* 🔄 Spin Out when Clicked */
+  .navbar li.clicked {
+    animation: spinOut 0.6s ease forwards !important;
+  }
+}
+
 
 .logo{
   font-family: 'MotterOmbra';
@@ -120,9 +130,11 @@
     padding: 10px 0;
     text-decoration: none;
     font-size: 1.2rem;
+    top: 52px;
 
-    @media (max-width: 770px) {
+    @media (min-width: 768px) {
     font-size: 1.4rem;
+    top: 50px;
     }
   }
 

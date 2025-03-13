@@ -614,7 +614,7 @@
 .music-list li a {
   text-decoration: none;
   color: #000;
-  font-family: 'afronaut-regular', sans-serif;
+  font-family: 'afronaut', sans-serif;
   font-weight: bold;
   font-size: 2rem;
   display: flex;
@@ -756,20 +756,22 @@
   }
 
   @media only screen
-and (min-width: 370px)
+and (min-width: 400px)
 and (max-width: 430px)
 and (orientation: portrait) {
   /* Your styles for iPhones in portrait mode */
   height: 55vh;
 }
 
+
+
   @media only screen
 and (min-width: 370px)
-and (max-width: 430px)
+and (max-width: 400px)
 and (max-height: 950px)
 and (orientation: portrait) {
   /* Your styles for iPhones in portrait mode */
-  height: 50vh;
+  height: 58vh;
 }
 
 
