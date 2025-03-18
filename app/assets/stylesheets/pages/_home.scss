@@ -1,33 +1,69 @@
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
 @import url("https://use.typekit.net/lnr4wfy.css");
 
-// .toplayer-image {
-//   width: 12.3rem;
-//   height: auto;
-//   object-fit: cover;
-//   position: relative;
-//   left: 50%; /* Use percentage for fluid positioning */
-//   margin-top: 2rem;
+.paper-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://img.freepik.com/free-photo/white-wall-background_1194-633.jpg?t=st=1742294062~exp=1742297662~hmac=a2a90a73cff4ee862a1079c7844861bcd1cd1ff3b035659988e2d65792a93059&w=1380') repeat;
+  background-size: cover; /* Ensures it covers the full viewport */
+  opacity: 0.1; /* Adjust for effect */
+  pointer-events: none; /* Prevents interaction */
+  mix-blend-mode: multiply; /* Enhances paper-like effect */
+  z-index: 1; /* Keeps it behind the content */
+}
 
-//   @media (min-width: 768px) {
-//     width: 13.95rem;
-//     height: 9.375rem;
-//     left: 50%;
-//   }
+@keyframes fadeOutVHS {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
-//   @media (min-width: 992px) {
-//     width: 35.98rem;
-//     height: 24.19rem;
-//     left: 55%;
-//   }
+.vhs-noise-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 1; /* Start fully visible */
+  pointer-events: none; /* Prevents interaction */
+  z-index: 50;
+  animation: fadeOutVHS 1s ease-out 1.5s forwards; /* 3s delay, 1s fade */
+}
 
-//   @media (min-width: 1920px) {
-//     width: 18.6rem;
-//     height: 12.5rem;
-//     left: 55%;
 
-//   }
-// }
+.noise-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://img.freepik.com/free-photo/noisy-background_1194-7547.jpg?t=st=1742294083~exp=1742297683~hmac=9f95f3adcdc352a08639f079d4bbf65ef02e3cf8f6ef40f98702a4a9e58be914&w=1380') repeat;
+  background-size: cover; /* Ensures it covers the full viewport */
+  opacity: 0.1; /* Adjust for effect */
+  pointer-events: none; /* Prevents interaction */
+  mix-blend-mode: luminosity; /* Enhances paper-like effect */
+  z-index: 1; /* Keeps it behind the content */
+}
+
+
+// 🏁 VHS Noise Overlay (GIF)
+.vhs-noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://64.media.tumblr.com/da60c13b478dda09ab90c27e880983b8/tumblr_nd4pwdPKdc1tun3l0o1_1280.gifv') repeat;
+  background-size: cover;
+  opacity: 0.15;  // Adjust opacity for effect
+  pointer-events: none; // Prevents interactions
+  mix-blend-mode: difference; // Ensures realistic blending
+  z-index: 1; // Keeps it behind content
+}
+
 
 .kassi-container {
   // width: 12.5rem; /* Mobile: 150px */

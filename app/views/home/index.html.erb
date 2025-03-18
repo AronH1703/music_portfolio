@@ -1,3 +1,21 @@
+<div class="paper-texture"></div>
+<div class="noise-texture"></div>
+
+
+
+<body>
+
+  <video id="loader" class="vhs-noise-video" autoplay muted>
+    <source src="<%= asset_path('Noise-HS.mp4') %>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+
+
+
+<!-- VHS Background Noise GIF Overlay (ONLY on Home Page) -->
+<div class="vhs-noise-overlay"></div>
+
 <div class="scroll-wrapper" data-controller="scroll-animation">
 
   <section class="scroll-selection-nav">
@@ -9,7 +27,7 @@
       <%= image_tag "kassi.png", alt: "Kassi Image", class: "kassi-image" %>
     </div>
 
-    
+
     <div class="backdrop-title" data-controller="kassi-scroll">
       <h1 class="title-aron">ARON</h1>
       <h1 class="title-hannes">HANNES</h1>
@@ -82,4 +100,42 @@
 </section>
 
 </div>
-</div>
+</body>
+
+
+<script>
+document.addEventListener("turbo:render", () => {
+  const video = document.getElementById("loader");
+
+  if (sessionStorage.getItem("vhsPlayed")) {
+    if (video) video.remove(); // Remove if navigating back
+  } else if (video) {
+    // Ensure the video starts fully visible
+    video.style.opacity = "1";
+
+    // Option 1: Fade out after a set time (e.g., 3 seconds)
+    setTimeout(() => {
+      video.style.transition = "opacity 1s ease-out";
+      video.style.opacity = "0";
+
+      setTimeout(() => {
+        video.remove();
+        sessionStorage.setItem("vhsPlayed", "true"); // Mark as played
+      }, 1000);
+    }, 3000); // 3s delay before fade-out
+
+    // Option 2: Fade out after video ends
+    video.addEventListener("ended", () => {
+      video.style.transition = "opacity 1s ease-out";
+      video.style.opacity = "0";
+
+      setTimeout(() => {
+        video.remove();
+        sessionStorage.setItem("vhsPlayed", "true");
+      }, 1000);
+    });
+  }
+});
+
+
+</script>
