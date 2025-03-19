@@ -1,8 +1,9 @@
 <div class="paper-texture"></div>
 <div class="noise-texture"></div>
+<div class="grain-texture"></div>
 
   <video id="loader" class="vhs-noise-video" autoplay muted>
-    <source src="<%= asset_path('Noise-HS.mp4') %>" type="video/mp4">
+    <source src="<%= asset_path('VHS Web_ntsc.mp4') %>" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
@@ -107,14 +108,16 @@
 document.addEventListener("turbo:render", () => {
   const video = document.getElementById("loader");
 
+  if (!video) return; // Prevent errors if video is already removed
+
   if (sessionStorage.getItem("vhsPlayed")) {
-    if (video) video.remove(); // Remove if navigating back
-  } else if (video) {
+    video.remove(); // Remove if navigating back
+  } else {
     // Ensure the video starts fully visible
     video.style.opacity = "1";
 
-    // Option 1: Fade out after a set time (e.g., 3 seconds)
-    setTimeout(() => {
+    // Prevent multiple event listeners from being attached
+    const fadeOutVideo = () => {
       video.style.transition = "opacity 1s ease-out";
       video.style.opacity = "0";
 
@@ -122,18 +125,14 @@ document.addEventListener("turbo:render", () => {
         video.remove();
         sessionStorage.setItem("vhsPlayed", "true"); // Mark as played
       }, 1000);
-    }, 3000); // 3s delay before fade-out
+    };
+
+    // Option 1: Fade out after a set time (e.g., 3 seconds)
+    setTimeout(fadeOutVideo, 2000);
 
     // Option 2: Fade out after video ends
-    video.addEventListener("ended", () => {
-      video.style.transition = "opacity 1s ease-out";
-      video.style.opacity = "0";
-
-      setTimeout(() => {
-        video.remove();
-        sessionStorage.setItem("vhsPlayed", "true");
-      }, 1000);
-    });
+    video.removeEventListener("ended", fadeOutVideo); // Ensure no duplicate listeners
+    video.addEventListener("ended", fadeOutVideo);
   }
 });
 
