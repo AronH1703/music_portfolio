@@ -1,13 +1,14 @@
+<body>
+<div id="video-overlay">
+  <video id="loader" class="vhs-noise-video" autoplay muted playsinline>
+    <source src="<%= asset_path('VHS Web_ntsc-HS.mp4') %>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 <div class="paper-texture"></div>
 <div class="noise-texture"></div>
 <div class="grain-texture"></div>
-
-  <video id="loader" class="vhs-noise-video" autoplay muted>
-    <source src="<%= asset_path('VHS Web_ntsc.mp4') %>" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
-<body>
 
 
 
@@ -105,36 +106,60 @@
 
 
 <script>
-document.addEventListener("turbo:render", () => {
+
+document.addEventListener("turbo:load", () => {
+  console.log("🚀 Turbo Load Event Fired!");
+
   const video = document.getElementById("loader");
+  const videoOverlay = document.getElementById("video-overlay");
 
-  if (!video) return; // Prevent errors if video is already removed
-
-  if (sessionStorage.getItem("vhsPlayed")) {
-    video.remove(); // Remove if navigating back
-  } else {
-    // Ensure the video starts fully visible
-    video.style.opacity = "1";
-
-    // Prevent multiple event listeners from being attached
-    const fadeOutVideo = () => {
-      video.style.transition = "opacity 1s ease-out";
-      video.style.opacity = "0";
-
-      setTimeout(() => {
-        video.remove();
-        sessionStorage.setItem("vhsPlayed", "true"); // Mark as played
-      }, 1000);
-    };
-
-    // Option 1: Fade out after a set time (e.g., 3 seconds)
-    setTimeout(fadeOutVideo, 2000);
-
-    // Option 2: Fade out after video ends
-    video.removeEventListener("ended", fadeOutVideo); // Ensure no duplicate listeners
-    video.addEventListener("ended", fadeOutVideo);
+  if (!video || !videoOverlay) {
+    console.warn("⚠️ No video or overlay found! Exiting script...");
+    return;
   }
+
+  // Check if the video has already played in this session
+  if (sessionStorage.getItem("vhsPlayed") === "true") {
+    console.log("✅ Video already played before. Removing overlay...");
+    videoOverlay.remove();
+    document.body.style.overflowY = ""; // Restore scrolling
+    return;
+  }
+
+  // Ensure the video is muted and attempt to play
+  video. muted = true; // Required for autoplay
+  video.setAttribute("playsinline", ""); // Helps autoplay on iOS
+
+  video.play().catch((error) => {
+    console.warn("⚠️ Autoplay failed. Retrying with muted video...", error);
+    video.muted = true; // Ensure mute is enforced
+    video.play();
+  });
+
+  // When the video ends, fade out and remove the overlay
+  video.addEventListener("ended", () => {
+    videoOverlay.style.transition = "opacity 1s ease-out";
+    videoOverlay.style.opacity = "0";
+
+    setTimeout(() => {
+      if (videoOverlay) {
+        videoOverlay.remove();
+      }
+      document.body.style.overflowY = ""; // Restore scrolling
+      sessionStorage.setItem("vhsPlayed", "true"); // Mark as played
+    }, 1000); // Wait for fade-out animation
+  });
+
+  // Disable scrolling while the video is playing
+  document.body.style.overflowY = "hidden";
 });
+
+// Ensure the script also runs on Turbo cache restored pages
+document.addEventListener("turbo:render", () => {
+  console.log("♻️ Turbo Render Event Fired!");
+});
+
+
 
 
 </script>
