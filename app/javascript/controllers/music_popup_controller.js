@@ -11,7 +11,19 @@ export default class extends Controller {
     const song = event.currentTarget.dataset.song;
 
     const musicLinks = {
-     "child": {
+
+      "little-me": {
+        title: "Little Me - Aron Hannes ft. Snny - Pre-save now! (01/04/2025)",
+        links: {
+          Spotify: "https://ffm.to/little-me",
+          // "Apple Music": "https://music.apple.com/us/album/child/1702521356?i=1702521361",
+          // Deezer: "https://www.deezer.com/track/476188905",
+          // Tidal: "https://tidal.com/browse/track/310739997",
+          // "Amazon Music": "https://music.amazon.com/albums/B09KQ9QX4D"
+        }
+      },
+
+      "child": {
         title: "Child - Aron Hannes",
         links: {
           Spotify: "https://open.spotify.com/track/4krgdvPJd5VaCqeVQ7pux3",
