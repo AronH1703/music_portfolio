@@ -1,6 +1,6 @@
 <body>
 <div id="video-overlay">
-  <video id="loader" class="vhs-noise-video" autoplay muted playsinline>
+  <video id="loader" class="vhs-noise-video" autoplay muted playsinline preload="auto" webkit-playsinline>
     <source src="<%= asset_path('VHS Web_ntsc-HS.mp4') %>" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -11,11 +11,6 @@
 <div class="grain-texture"></div>
 
 
-
-
-
-
-<!-- VHS Background Noise GIF Overlay (ONLY on Home Page) -->
 <div class="vhs-noise-overlay"></div>
 
 <div class="scroll-wrapper" data-controller="scroll-animation">
@@ -108,46 +103,69 @@
 <script>
 
 document.addEventListener("turbo:load", () => {
-  console.log("🚀 Turbo Load Event Fired!");
+  console.log("🚀 Turbo Load virkar!!!");
 
   const video = document.getElementById("loader");
   const videoOverlay = document.getElementById("video-overlay");
+
+  console.log("🎥 Video element:", video); // Add this line
+  console.log("🖼️ Video overlay element:", videoOverlay); // Add this line
 
   if (!video || !videoOverlay) {
     console.warn("⚠️ No video or overlay found! Exiting script...");
     return;
   }
 
+  console.log("📦 sessionStorage vhsPlayed:", sessionStorage.getItem("vhsPlayed"));
+
   // Check if the video has already played in this session
   if (sessionStorage.getItem("vhsPlayed") === "true") {
-    console.log("✅ Video already played before. Removing overlay...");
+    console.log("✅ Búið að spilast myndbandið. Fjærlægum overlay...");
     videoOverlay.remove();
     document.body.style.overflowY = ""; // Restore scrolling
     return;
   }
 
-  // Ensure the video is muted and attempt to play
-  video. muted = true; // Required for autoplay
-  video.setAttribute("playsinline", ""); // Helps autoplay on iOS
+    // Required attributes for mobile Safari
+  video.muted = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.setAttribute("preload", "auto");
 
-  video.play().catch((error) => {
-    console.warn("⚠️ Autoplay failed. Retrying with muted video...", error);
-    video.muted = true; // Ensure mute is enforced
-    video.play();
+  // Try to load and play
+  video.load();
+  console.log("🎥 Attempting to play the video...");
+  video.play().then(() => {
+    console.log("🎬 Video is playing!");
+  }).catch((error) => {
+    console.error("⚠️ Autoplay failed. Error details:", error);
+    if (error.name === "NotAllowedError") {
+      console.warn("Autoplay is not allowed. Retrying with muted video...");
+    } else if (error.name === "NotSupportedError") {
+      console.error("The video format is not supported.");
+    }
+    video.muted = true; // Ensure the video is muted
+    video.load(); // Reload the video
+    video.play(); // Retry playback
   });
 
   // When the video ends, fade out and remove the overlay
   video.addEventListener("ended", () => {
-    videoOverlay.style.transition = "opacity 1s ease-out";
-    videoOverlay.style.opacity = "0";
-
+    console.log("🎥 Video ended! Starting fade-out...");
     setTimeout(() => {
-      if (videoOverlay) {
+      videoOverlay.style.transition = "opacity 1s ease-out";
+      videoOverlay.style.opacity = "0";
+
+      // Let the fade animation finish before removing
+      setTimeout(() => {
+        console.log("🧹 Removing overlay...");
         videoOverlay.remove();
-      }
-      document.body.style.overflowY = ""; // Restore scrolling
-      sessionStorage.setItem("vhsPlayed", "true"); // Mark as played
-    }, 1000); // Wait for fade-out animation
+        document.body.style.overflowY = "";
+        document.body.style.visibility = "visible";
+        sessionStorage.setItem("vhsPlayed", "true");
+        console.log("📦 sessionStorage updated: vhsPlayed =", sessionStorage.getItem("vhsPlayed"));
+      }, 1000); // Wait for fade-out animation
+    }, 100); // Slight delay helps iOS Safari render
   });
 
   // Disable scrolling while the video is playing
@@ -156,7 +174,7 @@ document.addEventListener("turbo:load", () => {
 
 // Ensure the script also runs on Turbo cache restored pages
 document.addEventListener("turbo:render", () => {
-  console.log("♻️ Turbo Render Event Fired!");
+  console.log("🕺 Turbo Render í gang!");
 });
 
 
