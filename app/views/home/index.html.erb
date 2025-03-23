@@ -112,7 +112,7 @@ document.addEventListener("turbo:load", () => {
   console.log("🖼️ Video overlay element:", videoOverlay); // Add this line
 
   if (!video || !videoOverlay) {
-    console.warn("⚠️ No video or overlay found! Exiting script...");
+    console.warn("⚠️ Ekkert mp4!! 😬 Exiting script...");
     return;
   }
 
@@ -134,9 +134,9 @@ document.addEventListener("turbo:load", () => {
 
   // Try to load and play
   video.load();
-  console.log("🎥 Attempting to play the video...");
+  console.log("🎥 Reynum að spila mp4...");
   video.play().then(() => {
-    console.log("🎬 Video is playing!");
+    console.log("🎬 mp4 virkar!");
   }).catch((error) => {
     console.error("⚠️ Autoplay failed. Error details:", error);
     if (error.name === "NotAllowedError") {
@@ -151,19 +151,19 @@ document.addEventListener("turbo:load", () => {
 
   // When the video ends, fade out and remove the overlay
   video.addEventListener("ended", () => {
-    console.log("🎥 Video ended! Starting fade-out...");
+    console.log("🎥 .mp4 virkar og er búið! fade-out...");
     setTimeout(() => {
       videoOverlay.style.transition = "opacity 1s ease-out";
       videoOverlay.style.opacity = "0";
 
       // Let the fade animation finish before removing
       setTimeout(() => {
-        console.log("🧹 Removing overlay...");
+        console.log("🧹 Overlay fjarlægt...");
         videoOverlay.remove();
         document.body.style.overflowY = "";
         document.body.style.visibility = "visible";
         sessionStorage.setItem("vhsPlayed", "true");
-        console.log("📦 sessionStorage updated: vhsPlayed =", sessionStorage.getItem("vhsPlayed"));
+        console.log("📦 sessionStorage uppfært: vhsPlayed =", sessionStorage.getItem("vhsPlayed"));
       }, 1000); // Wait for fade-out animation
     }, 100); // Slight delay helps iOS Safari render
   });
