@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   # Add route for pages/music
   get 'pages/music', to: 'pages#music', as: 'pages_music'
+
+  get '/privacy', to: 'pages#privacy', as: :privacy
 end

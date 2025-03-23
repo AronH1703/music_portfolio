@@ -24,6 +24,10 @@
     <!-- Adobe Fonts -->
   <link rel="stylesheet" href="https://use.typekit.net/lnr4wfy.css">
 
+  <!-- CookieConsent CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
+
     <!-- Font Awesome -->
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -49,6 +53,26 @@
       <%= render "shared/footer" %>
     <% end %>
   </div>
+
+  <!-- CookieConsent JS -->
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      palette: {
+        popup: { background: "#000" },
+        button: { background: "#f1d600" }
+      },
+      theme: "classic",
+      content: {
+        message: "This website uses cookies to ensure you get the best experience.",
+        dismiss: "Got it!",
+        link: "Learn more",
+        href: "/privacy"
+      }
+    });
+  });
+</script>
 
 
 </body>
