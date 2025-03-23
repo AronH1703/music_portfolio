@@ -1,10 +1,12 @@
-<body>
+
 <div id="video-overlay">
   <video id="loader" class="vhs-noise-video" autoplay muted playsinline preload="auto" webkit-playsinline>
     <source src="<%= asset_path('VHS Web_ntsc-HS.mp4') %>" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <img id="loader-fallback" src="<%= asset_path('VHSWeb_ntsc-HS-ezgif.com-optimize.gif') %>" alt="Fallback animation" style="display: none;" class="vhs-noise-video">
 </div>
+
 
 <div class="paper-texture"></div>
 <div class="noise-texture"></div>
@@ -97,85 +99,73 @@
 </section>
 
 </div>
-</body>
+
 
 
 <script>
 
 document.addEventListener("turbo:load", () => {
-  console.log("🚀 Turbo Load virkar!!!");
-
   const video = document.getElementById("loader");
   const videoOverlay = document.getElementById("video-overlay");
 
-  console.log("🎥 Video element:", video); // Add this line
-  console.log("🖼️ Video overlay element:", videoOverlay); // Add this line
+  if (!video || !videoOverlay) return;
 
-  if (!video || !videoOverlay) {
-    console.warn("⚠️ Ekkert mp4!! 😬 Exiting script...");
-    return;
-  }
-
-  console.log("📦 sessionStorage vhsPlayed:", sessionStorage.getItem("vhsPlayed"));
-
-  // Check if the video has already played in this session
   if (sessionStorage.getItem("vhsPlayed") === "true") {
-    console.log("✅ Búið að spilast myndbandið. Fjærlægum overlay...");
     videoOverlay.remove();
-    document.body.style.overflowY = ""; // Restore scrolling
+    document.body.style.overflowY = "";
     return;
   }
 
-    // Required attributes for mobile Safari
   video.muted = true;
   video.setAttribute("playsinline", "");
   video.setAttribute("webkit-playsinline", "");
   video.setAttribute("preload", "auto");
 
-  // Try to load and play
   video.load();
-  console.log("🎥 Reynum að spila mp4...");
+
   video.play().then(() => {
-    console.log("🎬 mp4 virkar!");
+    // All good — wait for video end
+    video.addEventListener("ended", () => {
+      fadeOutOverlay();
+    });
   }).catch((error) => {
-    console.error("⚠️ Autoplay failed. Error details:", error);
-    if (error.name === "NotAllowedError") {
-      console.warn("Autoplay is not allowed. Retrying with muted video...");
-    } else if (error.name === "NotSupportedError") {
-      console.error("The video format is not supported.");
-    }
-    video.muted = true; // Ensure the video is muted
-    video.load(); // Reload the video
-    video.play(); // Retry playback
-  });
+    console.warn("🎥 Video autoplay failed, switching to GIF fallback");
 
-  // When the video ends, fade out and remove the overlay
-  video.addEventListener("ended", () => {
-    console.log("🎥 .mp4 virkar og er búið! fade-out...");
+    // Replace video with GIF
+    const gif = document.createElement("img");
+    gif.src = "/assets/VHSWeb_ntsc-HS-ezgif.com-optimize.gif";
+    gif.style.width = "100%";
+    gif.style.height = "100%";
+    gif.style.objectFit = "fill";
+    gif.style.pointerEvents = "none";
+    video.replaceWith(gif);
+
+    // Fade out GIF after 2.3 seconds (one loop)
     setTimeout(() => {
-      videoOverlay.style.transition = "opacity 1s ease-out";
-      videoOverlay.style.opacity = "0";
-
-      // Let the fade animation finish before removing
-      setTimeout(() => {
-        console.log("🧹 Overlay fjarlægt...");
-        videoOverlay.remove();
-        document.body.style.overflowY = "";
-        document.body.style.visibility = "visible";
-        sessionStorage.setItem("vhsPlayed", "true");
-        console.log("📦 sessionStorage uppfært: vhsPlayed =", sessionStorage.getItem("vhsPlayed"));
-      }, 1000); // Wait for fade-out animation
-    }, 100); // Slight delay helps iOS Safari render
+      fadeOutOverlay();
+    }, 2000);
   });
 
-  // Disable scrolling while the video is playing
   document.body.style.overflowY = "hidden";
+
+  function fadeOutOverlay() {
+    videoOverlay.style.transition = "opacity 1s ease-out";
+    videoOverlay.style.opacity = "0";
+
+    setTimeout(() => {
+      videoOverlay.remove();
+      document.body.style.overflowY = "";
+      document.body.style.visibility = "visible";
+      sessionStorage.setItem("vhsPlayed", "true");
+    }, 1000);
+  }
 });
 
-// Ensure the script also runs on Turbo cache restored pages
 document.addEventListener("turbo:render", () => {
   console.log("🕺 Turbo Render í gang!");
 });
+
+
 
 
 
