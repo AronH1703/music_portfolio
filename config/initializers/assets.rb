@@ -14,4 +14,4 @@ Rails.application.config.assets.version = "1.0"
 # Rails.application.config.assets.paths << Rails.root.join("app", "assets", "models")
 # Rails.application.config.assets.paths << Rails.root.join("app", "assets", "models")
 # Rails.application.config.assets.precompile += %w( models/*.obj )
-Rails.application.config.assets.precompile += %w( VHS\ Web_ntsc-HS.mp4 )
+# Rails.application.config.assets.precompile += %w( VHS\ Web_ntsc-HS.mp4 )
