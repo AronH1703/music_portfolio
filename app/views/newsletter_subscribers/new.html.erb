@@ -1,22 +1,26 @@
 <div class="newsletter-page">
-<div class="newsletter-container">
-  <h2>Subscribe to my Newsletter</h2>
+  <div class="newsletter-container">
+    <h2>Subscribe to my Newsletter</h2>
 
-  <p>So you won't miss out on any release or upcoming performances/tours</p>
+    <p>So you won't miss out on any release or upcoming performances/tours</p>
 
-  <%= form_with model: @newsletter_subscriber, url: newsletter_path, method: :post, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :email, "Enter your email 👇🏻" %>
-      <%= f.email_field :email, required: true %>
-    </div>
+    <%= form_with model: @newsletter_subscriber, url: newsletter_path, method: :post, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :email, "Enter your email 👇🏻" %>
+        <%= f.email_field :email, required: true %>
+      </div>
 
-    <%= f.submit "Subscribe" %>
-  <% end %>
+      <%= f.submit "Subscribe" %>
+    <% end %>
 
-  <% if flash[:notice] %>
-    <p class="flash-message success"><%= flash[:notice] %></p>
-  <% elsif flash[:alert] %>
-    <p class="flash-message error"><%= flash[:alert] %></p>
-  <% end %>
-</div>
+    <p class="privacy-disclaimer">
+      By subscribing, you agree to our <a href="/privacy">Privacy Policy</a>.
+    </p>
+
+    <% if flash[:notice] %>
+      <p class="flash-message success"><%= flash[:notice] %></p>
+    <% elsif flash[:alert] %>
+      <p class="flash-message error"><%= flash[:alert] %></p>
+    <% end %>
+  </div>
 </div>

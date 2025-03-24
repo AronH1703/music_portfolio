@@ -1,33 +1,33 @@
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
 @import url("https://use.typekit.net/lnr4wfy.css");
 
-.paper-texture {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('https://img.freepik.com/free-photo/white-wall-background_1194-633.jpg?t=st=1742294062~exp=1742297662~hmac=a2a90a73cff4ee862a1079c7844861bcd1cd1ff3b035659988e2d65792a93059&w=1380') repeat;
-  background-size: cover; /* Ensures it covers the full viewport */
-  opacity: 0.1; /* Adjust for effect */
-  pointer-events: none; /* Prevents interaction */
-  mix-blend-mode: multiply; /* Enhances paper-like effect */
-  z-index: 1; /* Keeps it behind the content */
-}
+// .paper-texture {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: url('https://img.freepik.com/free-photo/white-wall-background_1194-633.jpg?t=st=1742294062~exp=1742297662~hmac=a2a90a73cff4ee862a1079c7844861bcd1cd1ff3b035659988e2d65792a93059&w=1380') repeat;
+//   background-size: cover; /* Ensures it covers the full viewport */
+//   opacity: 0.1; /* Adjust for effect */
+//   pointer-events: none; /* Prevents interaction */
+//   mix-blend-mode: multiply; /* Enhances paper-like effect */
+//   z-index: 1; /* Keeps it behind the content */
+// }
 
-.grain-texture{
-    position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('https://i.gifer.com/ZTrl.gif') repeat;
-  background-size: cover; /* Ensures it covers the full viewport */
-  opacity: 0.035; /* Adjust for effect */
-  pointer-events: none; /* Prevents interaction */
-  mix-blend-mode: luminosity; /* Enhances paper-like effect */
-  z-index: 1; /* Keeps it behind the content */
-}
+// .grain-texture{
+//     position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: url('https://i.gifer.com/ZTrl.gif') repeat;
+//   background-size: cover; /* Ensures it covers the full viewport */
+//   opacity: 0.035; /* Adjust for effect */
+//   pointer-events: none; /* Prevents interaction */
+//   mix-blend-mode: luminosity; /* Enhances paper-like effect */
+//   z-index: 1; /* Keeps it behind the content */
+// }
 
 // @keyframes fadeOutVHS {
 //   0% { opacity: 1; }
@@ -66,35 +66,35 @@
 // }
 
 
-.noise-texture {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('https://img.freepik.com/free-photo/noisy-background_1194-7547.jpg?t=st=1742294083~exp=1742297683~hmac=9f95f3adcdc352a08639f079d4bbf65ef02e3cf8f6ef40f98702a4a9e58be914&w=1380') repeat;
-  background-size: cover; /* Ensures it covers the full viewport */
-  opacity: 0.1; /* Adjust for effect */
-  pointer-events: none; /* Prevents interaction */
-  mix-blend-mode: luminosity; /* Enhances paper-like effect */
-  z-index: 1; /* Keeps it behind the content */
-}
+// .noise-texture {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: url('https://img.freepik.com/free-photo/noisy-background_1194-7547.jpg?t=st=1742294083~exp=1742297683~hmac=9f95f3adcdc352a08639f079d4bbf65ef02e3cf8f6ef40f98702a4a9e58be914&w=1380') repeat;
+//   background-size: cover; /* Ensures it covers the full viewport */
+//   opacity: 0.1; /* Adjust for effect */
+//   pointer-events: none; /* Prevents interaction */
+//   mix-blend-mode: luminosity; /* Enhances paper-like effect */
+//   z-index: 1; /* Keeps it behind the content */
+// }
 
 
-// 🏁 VHS Noise Overlay (GIF)
-.vhs-noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: image-url("vhs-turbulance.gif") repeat;
-  background-size: cover;
-  opacity: 0.15;  // Adjust opacity for effect
-  pointer-events: none; // Prevents interactions
-  mix-blend-mode: difference; // Ensures realistic blending
-  z-index: 1; // Keeps it behind content
-}
+// // 🏁 VHS Noise Overlay (GIF)
+// .vhs-noise-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: image-url("vhs-turbulance.gif") repeat;
+//   background-size: cover;
+//   opacity: 0.15;  // Adjust opacity for effect
+//   pointer-events: none; // Prevents interactions
+//   mix-blend-mode: difference; // Ensures realistic blending
+//   z-index: 1; // Keeps it behind content
+// }
 
 
 .kassi-container {

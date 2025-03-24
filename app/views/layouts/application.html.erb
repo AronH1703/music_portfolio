@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>MusicPortfolio</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,7 @@
 
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
 
     <!-- Swiper CSS -->
@@ -24,8 +24,6 @@
     <!-- Adobe Fonts -->
   <link rel="stylesheet" href="https://use.typekit.net/lnr4wfy.css">
 
-  <!-- CookieConsent CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 
 
     <!-- Font Awesome -->
@@ -35,6 +33,8 @@
   <!-- ✅ GSAP JavaScript (Place before closing </head>) -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+
 
   </head>
 
@@ -54,25 +54,6 @@
     <% end %>
   </div>
 
-  <!-- CookieConsent JS -->
-<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-<script>
-  window.addEventListener("load", function(){
-    window.cookieconsent.initialise({
-      palette: {
-        popup: { background: "#000" },
-        button: { background: "#f1d600" }
-      },
-      theme: "classic",
-      content: {
-        message: "This website uses cookies to ensure you get the best experience.",
-        dismiss: "Got it!",
-        link: "Learn more",
-        href: "/privacy"
-      }
-    });
-  });
-</script>
 
 
 </body>
