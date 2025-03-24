@@ -1,19 +1,10 @@
 
-<div id="video-overlay">
-  <video id="loader" class="vhs-noise-video" autoplay muted playsinline preload="auto" webkit-playsinline>
-    <source src="<%= asset_path('VHS Web_ntsc-HS.mp4') %>" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <img id="loader-fallback" src="<%= asset_path('VHSWeb_ntsc-HS-ezgif.com-optimize.gif') %>" alt="Fallback animation" style="display: none;" class="vhs-noise-video">
-</div>
 
 
-<div class="paper-texture"></div>
-<div class="noise-texture"></div>
-<div class="grain-texture"></div>
-
-
-<div class="vhs-noise-overlay"></div>
+<%# <div class="paper-texture"></div>%>
+<%#<div class="noise-texture"></div>%>
+<%#<div class="grain-texture"></div>%>
+<%# <div class="vhs-noise-overlay"></div> %>
 
 <div class="scroll-wrapper" data-controller="scroll-animation">
 
@@ -102,11 +93,12 @@
 
 
 
-<script>
+<%# <script>
 
 document.addEventListener("turbo:load", () => {
   const video = document.getElementById("loader");
   const videoOverlay = document.getElementById("video-overlay");
+
 
   if (!video || !videoOverlay) return;
 
@@ -170,4 +162,4 @@ document.addEventListener("turbo:render", () => {
 
 
 
-</script>
+</script> %>
