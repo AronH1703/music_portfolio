@@ -13,13 +13,13 @@ export default class extends Controller {
     const musicLinks = {
 
       "little-me": {
-        title: "Little Me - Aron Hannes ft. Snny - Pre-save now! (01/04/2025)",
+        title: "Little Me - Aron Hannes ft. Snny",
         links: {
-          Spotify: "https://ffm.to/little-me",
-          // "Apple Music": "https://music.apple.com/us/album/child/1702521356?i=1702521361",
-          // Deezer: "https://www.deezer.com/track/476188905",
-          // Tidal: "https://tidal.com/browse/track/310739997",
-          // "Amazon Music": "https://music.amazon.com/albums/B09KQ9QX4D"
+          Spotify: "https://open.spotify.com/track/040XmcipGce3NYEKkJDgfa",
+          "Apple Music": "https://geo.music.apple.com/nl/album/_/1796929157?app=music&at=1000lHKX&ct=linktree_http&i=1796929287&itscg=30200&itsct=lt_m&ls=1&mt=1",
+          Deezer: "https://www.deezer.com/track/476188905",
+          Tidal: "https://listen.tidal.com/album/418547352/track/418547353",
+          "Amazon Music": "https://music.amazon.com/albums/B0DXJCLX4R?trackAsin=B0DXJ9KBC4"
         }
       },
 
@@ -30,7 +30,7 @@ export default class extends Controller {
           "Apple Music": "https://music.apple.com/us/album/child/1702521356?i=1702521361",
           Deezer: "https://www.deezer.com/track/476188905",
           Tidal: "https://tidal.com/browse/track/310739997",
-          "Amazon Music": "https://music.amazon.com/albums/B09KQ9QX4D"
+          "Amazon Music": "https://music.amazon.com/albums/B0CFM5H6QG"
         }
       },
       "those-were-the-times": {
@@ -66,6 +66,16 @@ export default class extends Controller {
       li.innerHTML = `<a href="${url}" target="_blank" class="platform-link ${platformClass}">${platform}</a>`;
       this.linksTarget.appendChild(li);
     });
+
+    if (musicLinks[song]) {
+      const moreLinksButton = document.createElement("button");
+      moreLinksButton.innerText = "More Links";
+      moreLinksButton.className = "more-links-button";
+      moreLinksButton.onclick = () => {
+        window.location.href = `/songs/${song}`;
+      };
+      this.linksTarget.appendChild(moreLinksButton);
+    }
 
     this.popupTarget.style.display = "flex";
   }
