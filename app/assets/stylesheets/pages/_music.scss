@@ -57,6 +57,7 @@
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
+  z-index: 1001;
 }
 
 .popup-content {
@@ -136,4 +137,24 @@
     cursor: pointer;
     display: flex;
     justify-content: flex-end;
+}
+
+.more-platforms-button{
+  background-color: #FFF960;
+  padding: 10px;
+  margin: 5px 0;
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #B94432; /* Change to your desired hover color */
+    color: white;
+  }
 }

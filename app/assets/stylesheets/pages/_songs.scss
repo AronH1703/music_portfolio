@@ -9,6 +9,8 @@
   font-style: normal;
   text-align: center;
   margin-bottom: 2rem;
+  color: #FFF960;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Adds a subtle shadow
 }
 
 .more-links-container {
@@ -19,4 +21,9 @@
   @media (max-width: 320px) { /* Target screens like iPhone 5 */
     font-size: 1.8rem; /* Adjust font size for smaller screens */
   }
+}
+
+.more-links-body{
+  background-color: #B94432;
+  min-height: 100vh;
 }

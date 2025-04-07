@@ -11,7 +11,6 @@ export default class extends Controller {
     const song = event.currentTarget.dataset.song;
 
     const musicLinks = {
-
       "little-me": {
         title: "Little Me - Aron Hannes ft. Snny",
         links: {
@@ -19,10 +18,12 @@ export default class extends Controller {
           "Apple Music": "https://geo.music.apple.com/nl/album/_/1796929157?app=music&at=1000lHKX&ct=linktree_http&i=1796929287&itscg=30200&itsct=lt_m&ls=1&mt=1",
           Deezer: "https://www.deezer.com/track/476188905",
           Tidal: "https://listen.tidal.com/album/418547352/track/418547353",
-          "Amazon Music": "https://music.amazon.com/albums/B0DXJCLX4R?trackAsin=B0DXJ9KBC4"
+          "Amazon Music": "https://music.amazon.com/albums/B0DXJCLX4R?trackAsin=B0DXJ9KBC4",
+          "YouTube Music": "https://music.youtube.com/watch?v=FDUUrfMfkRQ",
+          SoundCloud: "https://soundcloud.com/aronhannes/little-me-feat-snny", // New link
+
         }
       },
-
       "child": {
         title: "Child - Aron Hannes",
         links: {
@@ -30,7 +31,9 @@ export default class extends Controller {
           "Apple Music": "https://music.apple.com/us/album/child/1702521356?i=1702521361",
           Deezer: "https://www.deezer.com/track/476188905",
           Tidal: "https://tidal.com/browse/track/310739997",
-          "Amazon Music": "https://music.amazon.com/albums/B0CFM5H6QG"
+          "Amazon Music": "https://music.amazon.com/albums/B0CFM5H6QG",
+          "YouTube Music": "https://music.youtube.com/watch?v=j5y1_QjBugA",
+          SoundCloud: "https://soundcloud.com/aronhannes/child" // New link
         }
       },
       "those-were-the-times": {
@@ -60,7 +63,13 @@ export default class extends Controller {
     this.titleTarget.innerText = musicLinks[song].title;
     this.linksTarget.innerHTML = "";
 
+    // Check if the current page is the music index page
+    const isMusicIndexPage = document.body.classList.contains("music-body");
+
     Object.entries(musicLinks[song].links).forEach(([platform, url]) => {
+      // Exclude "SoundCloud" link from the popup window
+      if (platform === "SoundCloud" || platform === "YouTube Music") return;
+
       const li = document.createElement("li");
       const platformClass = platform.toLowerCase().replace(/\s/g, "-"); // Converts "Apple Music" → "apple-music"
       li.innerHTML = `<a href="${url}" target="_blank" class="platform-link ${platformClass}">${platform}</a>`;
@@ -69,8 +78,8 @@ export default class extends Controller {
 
     if (musicLinks[song]) {
       const moreLinksButton = document.createElement("button");
-      moreLinksButton.innerText = "More Links";
-      moreLinksButton.className = "more-links-button";
+      moreLinksButton.innerText = "More Platforms";
+      moreLinksButton.className = "more-platforms-button";
       moreLinksButton.onclick = () => {
         window.location.href = `/songs/${song}`;
       };

@@ -1,4 +1,6 @@
 <!-- filepath: /Users/aronemilsson/music_portfolio/app/views/songs/show.html.erb -->
+<body class="more-links-body">
+
 <div class="more-links-container">
   <h1 class="song-more-title"><%= @song_data[:title] %></h1>
   <ul class="music-list">
@@ -8,10 +10,17 @@
       "Deezer" => "deezer.svg",
       "YouTube Music" => "youtube-music.svg",
       "Tidal" => "tidal.svg",
-      "Amazon Music" => "amazon-music.svg"
+      "Amazon Music" => "amazon-music.svg",
+      "SoundCloud" => "soundcloud.svg"
     } %>
+
     <% @song_data[:links].each do |platform, url| %>
-      <% icon = icon_files[platform] || "default-icon.svg" %>
+      <% icon = icon_files[platform] %>
+      <% Rails.logger.info "Processing platform: #{platform}, Icon: #{icon}" %>
+      <% if icon.nil? %>
+        <p>Missing icon for platform: <%= platform %></p>
+        <% next %>
+      <% end %>
       <li>
         <a href="<%= url %>" target="_blank">
           <%= image_tag icon, alt: platform, class: "platform-icon #{'amazon-music-icon' if platform == 'Amazon Music'}" %>
@@ -23,3 +32,5 @@
     <% end %>
   </ul>
 </div>
+
+</body>
