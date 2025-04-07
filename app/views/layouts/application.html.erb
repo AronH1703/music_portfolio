@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicPortfolio</title>
+    <title>"Aron Hannes"</title>
 
       <!-- ✅ Open Graph meta tags -->
-    <meta property="og:title" content="Aron Hannes | Music Artist & Producer" />
-    <meta property="og:description" content="Explore the music,   visuals, and creative world of Aron Hannes." />
-    <meta property="og:image" content="<%= image_url('AKAII.png') %>" />
+    <meta property="og:title" content="Aron Hannes" />
+    <meta property="og:description" content="Explore the music, visuals, and creative world of Aron Hannes." />
+    <meta property="og:image" content="<%= image_url('AKAII.png', host: 'https://aronhannes.com') %>" />
     <meta property="og:url" content="https://aronhannes.com" />
     <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aron Hannes" />
+    <meta name="twitter:description" content="Explore the music, visuals, and creative world of Aron Hannes." />
+    <meta name="twitter:image" content="<%= image_url('AKAII.png', host: 'https://aronhannes.com') %>" />
 
     <meta name="viewport" content="width=device-width,    initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
