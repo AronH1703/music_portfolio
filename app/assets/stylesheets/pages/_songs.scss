@@ -25,5 +25,8 @@
 
 .more-links-body{
   background-color: #B94432;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  height: auto; /* Allow it to grow if content exceeds viewport height */
+  display: flex; /* Optional: Use flexbox if you want to center content */
+  flex-direction: column; /* Optional: Align content vertically */
 }
