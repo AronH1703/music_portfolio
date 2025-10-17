@@ -17,6 +17,11 @@ Video.create!(
   youtube_url: "https://www.youtube.com/watch?v=KVr1b3-8zoY"
 )
 
+Video.create!(
+  title: "New Release",
+  youtube_url: "https://www.youtube.com/watch?v=vyRz8e2NDFE"
+)
+
 puts "Seeding completed! ✅"
 
 puts "Cleaning up old newsletter subscribers..."

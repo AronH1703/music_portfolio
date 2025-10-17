@@ -3,7 +3,18 @@ class SongsController < ApplicationController
     @song = params[:song]
 
     music_links = {
-      "little-me" => {
+    "scream" => {
+        title: "Scream - Aron Hannes ft. Diljá",
+        links: {
+          "Spotify" => "https://open.spotify.com/track/072Mb8aj53aafCvbLf3dUW?si=2c4fb122fd014c5b",
+          "Apple Music" => "https://music.apple.com/is/album/scream-feat-dilj%C3%A1-single/1831948616",
+          "Deezer" => "https://link.deezer.com/s/31lBS1XJD7oJFryTxBzF9",
+          "Tidal" => "https://tidal.com/track/452642557",
+          "Amazon Music" => "https://amazon.com/music/player/tracks/B0FLH4NK94?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_aheslWzTaMhrJuk7EPkSDQjO5",
+        }
+      },
+
+    "little-me" => {
         title: "Little Me - Aron Hannes ft. Snny",
         links: {
           "Spotify" => "https://open.spotify.com/track/040XmcipGce3NYEKkJDgfa",
