@@ -24,12 +24,12 @@ Video.create!(
 
 puts "Seeding completed! ✅"
 
-puts "Cleaning up old newsletter subscribers..."
-NewsletterSubscriber.destroy_all
+# puts "Cleaning up old newsletter subscribers..."
+# NewsletterSubscriber.destroy_all
 
-puts "Creating new newsletter subscribers..."
-NewsletterSubscriber.create!(email: "test@example.com") # Test email
-NewsletterSubscriber.create!(email: "hello@music.com")
-NewsletterSubscriber.create!(email: "fan@aronhannes.com")
+# puts "Creating new newsletter subscribers..."
+# NewsletterSubscriber.create!(email: "test@example.com") # Test email
+# NewsletterSubscriber.create!(email: "hello@music.com")
+# NewsletterSubscriber.create!(email: "fan@aronhannes.com")
 
-puts "Seeding completed! ✅"
+# puts "Seeding completed! ✅"
