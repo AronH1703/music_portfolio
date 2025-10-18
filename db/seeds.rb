@@ -8,28 +8,29 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-puts "Cleaning up old videos..."
-Video.destroy_all
+puts "Seeding videos and newsletter subscribers..."
 
-puts "Creating new videos..."
-Video.create!(
-  title: "YOU - Aron Hannes(Unplugged)",
-  youtube_url: "https://www.youtube.com/watch?v=KVr1b3-8zoY"
-)
+# Only wipe data in development to keep local DB clean during iterations.
+if Rails.env.development?
+  puts "[dev] Cleaning up old videos..."
+  Video.destroy_all
+  # puts "[dev] Cleaning up old newsletter subscribers..."
+  # NewsletterSubscriber.destroy_all
+end
 
-Video.create!(
-  title: "New Release",
-  youtube_url: "https://www.youtube.com/watch?v=vyRz8e2NDFE"
-)
+puts "Upserting videos..."
+[
+  { title: "YOU - Aron Hannes(Unplugged)", youtube_url: "https://www.youtube.com/watch?v=KVr1b3-8zoY" },
+  { title: "New Release", youtube_url: "https://www.youtube.com/watch?v=vyRz8e2NDFE" }
+].each do |attrs|
+  Video.find_or_create_by!(youtube_url: attrs[:youtube_url]) do |v|
+    v.title = attrs[:title]
+  end
+end
+
+puts "Upserting newsletter subscribers..."
+%w[test@example.com hello@music.com fan@aronhannes.com].each do |email|
+  NewsletterSubscriber.find_or_create_by!(email: email)
+end
 
 puts "Seeding completed! ✅"
-
-# puts "Cleaning up old newsletter subscribers..."
-# NewsletterSubscriber.destroy_all
-
-# puts "Creating new newsletter subscribers..."
-# NewsletterSubscriber.create!(email: "test@example.com") # Test email
-# NewsletterSubscriber.create!(email: "hello@music.com")
-# NewsletterSubscriber.create!(email: "fan@aronhannes.com")
-
-# puts "Seeding completed! ✅"
