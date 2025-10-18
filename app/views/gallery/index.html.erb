@@ -1,0 +1,144 @@
+<section class="gallery">
+
+<div class="gallery-container" data-controller="adjust-image-width">
+  <h1>photos.</h1>
+
+  <div class="swiper mySwiper" data-controller="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <%= image_tag "2guys.png", alt: "2guys Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo by Eva Rut.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <%= image_tag "AKAII.png", alt: "AKAII Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo by Eva Rut.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <%= image_tag "1guy(fixed).png", alt: "1guy Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo by Eva Rut.</p>
+        </div>
+      </div>
+
+            <div class="swiper-slide">
+        <%= image_tag "kassi.png", alt: "Kassi Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo by Eva Rut.</p>
+        </div>
+      </div>
+
+
+      <div class="swiper-slide">
+        <%= image_tag "Portrait 1.png", alt: "Portrait-Gallery Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo by Eva Rut.</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <%= image_tag "Girl Like You - Cover.jpg", alt: "GLY Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo/Design by Atli Sigursveinsson.</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <%= image_tag "You-Cover.jpg", alt: "YOU Image", class: "gallery-image" %>
+        <div class="by">
+        <p>Photo/Design by Atli Sigursveinsson.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<script>
+function initializeSwiper() {
+  console.log("✅ Reinitializing Swiper!");
+
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    lazy: {
+      loadPrevNext: true, // Load previous and next images for smoother transitions
+    },
+    effect: "cube",
+    speed: 1000,
+    cubeEffect: {
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.9,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    on: {
+      init: function () {
+        console.log("✅ Swiper initialized, adjusting pagination...");
+        setTimeout(() => adjustButtonPositions(this), 300); // Initial adjustment
+      },
+      slideChangeTransitionEnd: function () {
+        adjustButtonPositions(this); // Adjust positions after slide change
+      },
+      lazyImageReady: function () {
+        adjustButtonPositions(this); // Adjust positions when lazy-loaded images are ready
+      },
+    },
+  });
+
+  // Final adjustment after a delay to ensure everything settles
+  setTimeout(() => adjustButtonPositions(swiper), 500);
+}
+
+function adjustButtonPositions(swiper) {
+  const activeSlide = swiper.slides[swiper.activeIndex]; // Get the current slide
+  const image = activeSlide.querySelector("img");
+
+  if (!image) return; // Exit if no image is found
+
+  if (image.complete) {
+    // Image is already loaded
+    updatePositions(image);
+  } else {
+    // Wait for the image to load
+    image.addEventListener("load", () => updatePositions(image));
+  }
+}
+
+function updatePositions(image) {
+  const imageHeight = image.clientHeight; // Get the height of the image
+  const offset = 30; // Adjust as needed
+
+  // Update the positions of navigation buttons and pagination
+  document.querySelector(".swiper-button-next").style.top = `${imageHeight / 2 + offset}px`;
+  document.querySelector(".swiper-button-prev").style.top = `${imageHeight / 2 + offset}px`;
+  document.querySelector(".swiper-pagination").style.top = `${imageHeight + offset * 2}px`;
+}
+
+// Ensure Swiper initializes properly on page load and Turbo navigation
+document.addEventListener("DOMContentLoaded", initializeSwiper);
+document.addEventListener("turbo:load", initializeSwiper);
+
+</script>
+
+
+</section>

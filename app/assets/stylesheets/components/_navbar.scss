@@ -1,0 +1,205 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
+/* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  width: 100vw;
+  max-width: 100%;
+  border-bottom: solid 0.166rem black;
+}
+
+/* List items */
+.navbar li {
+  transition: color 1s ease-in-out, text-shadow 0.8s ease-in-out;
+  transform-origin: center bottom;
+}
+
+/* 🔥 First Hover → Spin IN + Glow */
+@media (min-width: 769px) { /* Only apply on desktop */
+  .navbar > ul > li:not([data-spun]):hover {
+    animation: spinIn 1.8s ease forwards, textGlow 2s ease infinite;
+  }
+
+  /* 🔄 Always Spin OUT when Unhovered */
+  .navbar > ul > li[data-spun]:hover {
+    animation: textGlow 1.2s ease-in-out infinite;
+  }
+
+  .navbar li[data-spun]:not(:hover) {
+    animation: spinOut 1s ease forwards;
+  }
+}
+
+/* 🔹 Navbar Hover Effects */
+.navbar ul:hover {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* ✨ Neon Glow Animation */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 4px rgba(255, 204, 0, 0.4),  /* Strong yellow glow */
+      0 0 8px rgba(255, 204, 0, 0.3),
+      0 0 16px rgba(255, 170, 0, 0.2), /* Deep warm yellow */
+      0 0 32px rgba(255, 136, 0, 0.1); /* Slight orange tint */
+    color: #ffe550; /* Gold-like neon */
+    filter: blur(1px); /* Soft glow effect */
+  }
+  50% {
+    text-shadow:
+      0 0 2px rgba(122, 115, 34, 0.3),
+      0 0 6px rgba(185, 68, 50, 0.2),
+      0 0 12px rgba(185, 68, 50, 0.1);
+    color: black;
+    filter: blur(2px); /* Increases blur for flickering effect */
+  }
+}
+
+/* 🎡 Spin IN */
+@keyframes spinIn {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+/* 🔄 Spin OUT */
+@keyframes spinOut {
+  0% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* 🚀 Mobile: Remove Hover but Add Spin Out on Click */
+@media (max-width: 768px) {
+  /* 🔄 Spin Out when Clicked */
+  .navbar li.clicked {
+    animation: spinOut 0.6s ease forwards !important;
+  }
+}
+
+
+.logo{
+  font-family: 'MotterOmbra';
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-left: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:visited {
+  color: inherit; /* Keeps the text color the same */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+
+
+/* 🔽 Mobile Menu Hidden by Default */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    top: 52px;
+
+    @media (min-width: 768px) {
+    font-size: 1.4rem;
+    top: 50px;
+    }
+  }
+
+  /* Apply when active */
+  .nav-links.show {
+    display: flex !important;
+    z-index: 1000;
+  }
+
+  /* 🎬 Smooth Fade Animation */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 📉 Slide Down Effect */
+  .slide-down {
+    transform: translateY(-100%);
+    animation: slideDown 0.5s ease-in-out forwards;
+  }
+
+  @keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Button Styles */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+/* Desktop Mode */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+    margin-right: 1rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-links a:visited {
+  color: inherit; /* Keeps the text color the same */
+}
+
+.scroll-selection-nav{
+  scroll-snap-align: start;
+  -webkit-scroll-snap-align: start;
+  scroll-snap-stop: always;
+}

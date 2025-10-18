@@ -1,0 +1,165 @@
+
+
+
+<%# <div class="paper-texture"></div>%>
+<%#<div class="noise-texture"></div>%>
+<%#<div class="grain-texture"></div>%>
+<%# <div class="vhs-noise-overlay"></div> %>
+
+<div class="scroll-wrapper" data-controller="scroll-animation">
+
+  <section class="scroll-selection-nav">
+    <%= render "shared/navbar" %>
+  </section>
+
+  <section class="scroll-selection">
+    <div class="kassi-container" data-controller="kassi-scroll">
+      <%= image_tag "kassi.png", alt: "Kassi Image", class: "kassi-image" %>
+    </div>
+
+
+    <div class="backdrop-title" data-controller="kassi-scroll">
+      <h1 class="title-aron">ARON</h1>
+      <h1 class="title-hannes">HANNES</h1>
+    </div>
+  </section>
+
+
+  <%# <section class="scroll-selection" >
+  <div style="background-color: red; height: 100vh;">
+    </div>
+  </section> %>
+
+  <section class="scroll-selection" id="about">
+  <div class="about-row">
+    <%= image_tag "Portrait 1.png", alt: "About Image", class: "about-image" %>
+    <div class="about-text">
+      <h3>ABouT</h3>
+      <div class="upper-text">
+        <p>Aron Hannes is an Icelandic artist and songwriter crafting a unique blend of Alt-Soul and Indie R&B. With deep roots in storytelling, he merges raw emotion with dynamic melodies, creating music that feels both intimate and expansive. Drawing inspiration from R&B, soul, pop, and gospel, his sound is ever-evolving—pushing boundaries while staying true to his artistic vision. Known for his versatility and passion for honest, genre-blurring music, Aron brings a distinct voice to the alternative R&B scene. Whether writing for himself or collaborating with others, his dedication to growth and authenticity continues to shape his journey as an artist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="scroll-selection" id="fullpage">
+  <section class="fullpage-section threejs-section" data-gsap-scroll-target="section">
+    <div id="three-container" data-controller="three"></div>
+  </section>
+</div>
+
+<section class="scroll-selection" id="music-platforms" data-gsap-scroll-target="section">
+    <ul class="music-list">
+      <li>
+        <a href="https://open.spotify.com/artist/3YWoe6haPoiQdq7GaQz2OR?si=eaM94hB-SkGdMmlK50nF4A" target="_blank">
+          <%= image_tag "Spotify.svg", alt: "Spotify" %>
+          SPOTIFY
+        </a>
+      </li>
+      <li>
+        <a href="https://music.apple.com/is/artist/aron-hannes/820717161" target="_blank">
+          <%= image_tag "applemusic.svg", alt: "Apple Music" %>
+          APPLE MUSIC
+        </a>
+      </li>
+      <li>
+        <a href="https://deezer.page.link/XSZdQHGWG5SsZhzE7" target="_blank">
+          <%= image_tag "deezer.svg", alt: "Deezer" %>
+          DEEZER
+        </a>
+      </li>
+      <li>
+        <a href="https://music.youtube.com/channel/UCG5wQ2UMfLYD5lp8MAbk6Zg?si=Se8nOTEe2Vvr014o" target="_blank">
+          <%= image_tag "youtube-music.svg", alt: "YouTube Music" %>
+          YOUTUBE MUSIC
+        </a>
+      </li>
+      <li>
+        <a href="https://tidal.com/browse/artist/7421898" target="_blank">
+          <%= image_tag "tidal.svg", alt: "Tidal" %>
+          TIDAL
+        </a>
+      </li>
+    </ul>
+  </section>
+
+
+
+  <section class="scroll-selection-footer">
+<%= render "shared/footer" %>
+</section>
+
+</div>
+
+
+
+<%# <script>
+
+document.addEventListener("turbo:load", () => {
+  const video = document.getElementById("loader");
+  const videoOverlay = document.getElementById("video-overlay");
+
+
+  if (!video || !videoOverlay) return;
+
+  if (sessionStorage.getItem("vhsPlayed") === "true") {
+    videoOverlay.remove();
+    document.body.style.overflowY = "";
+    return;
+  }
+
+  video.muted = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.setAttribute("preload", "auto");
+
+  video.load();
+
+  video.play().then(() => {
+    // All good — wait for video end
+    video.addEventListener("ended", () => {
+      fadeOutOverlay();
+    });
+  }).catch((error) => {
+    console.warn("🎥 Video autoplay failed, switching to GIF fallback");
+
+    // Replace video with GIF
+    const gif = document.createElement("img");
+    gif.src = "/assets/VHSWeb_ntsc-HS-ezgif.com-optimize.gif";
+    gif.style.width = "100%";
+    gif.style.height = "100%";
+    gif.style.objectFit = "fill";
+    gif.style.pointerEvents = "none";
+    video.replaceWith(gif);
+
+    // Fade out GIF after 2.3 seconds (one loop)
+    setTimeout(() => {
+      fadeOutOverlay();
+    }, 2000);
+  });
+
+  document.body.style.overflowY = "hidden";
+
+  function fadeOutOverlay() {
+    videoOverlay.style.transition = "opacity 1s ease-out";
+    videoOverlay.style.opacity = "0";
+
+    setTimeout(() => {
+      videoOverlay.remove();
+      document.body.style.overflowY = "";
+      document.body.style.visibility = "visible";
+      sessionStorage.setItem("vhsPlayed", "true");
+    }, 1000);
+  }
+});
+
+document.addEventListener("turbo:render", () => {
+  console.log("🕺 Turbo Render í gang!");
+});
+
+
+
+
+
+
+</script> %>

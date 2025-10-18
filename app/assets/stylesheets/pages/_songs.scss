@@ -1,0 +1,32 @@
+.amazon-music-icon {
+  width: 3rem !important;
+}
+
+.song-more-title {
+  font-size: 2rem;
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #FFF960;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Adds a subtle shadow
+}
+
+.more-links-container {
+  margin-bottom: 4rem;
+}
+
+.amazon-music-text {
+  @media (max-width: 320px) { /* Target screens like iPhone 5 */
+    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  }
+}
+
+.more-links-body{
+  background-color: #B94432;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  height: auto; /* Allow it to grow if content exceeds viewport height */
+  display: flex; /* Optional: Use flexbox if you want to center content */
+  flex-direction: column; /* Optional: Align content vertically */
+}

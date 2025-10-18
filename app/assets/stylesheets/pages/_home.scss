@@ -1,0 +1,892 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+@import url("https://use.typekit.net/lnr4wfy.css");
+
+// .paper-texture {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: url('https://img.freepik.com/free-photo/white-wall-background_1194-633.jpg?t=st=1742294062~exp=1742297662~hmac=a2a90a73cff4ee862a1079c7844861bcd1cd1ff3b035659988e2d65792a93059&w=1380') repeat;
+//   background-size: cover; /* Ensures it covers the full viewport */
+//   opacity: 0.1; /* Adjust for effect */
+//   pointer-events: none; /* Prevents interaction */
+//   mix-blend-mode: multiply; /* Enhances paper-like effect */
+//   z-index: 1; /* Keeps it behind the content */
+// }
+
+// .grain-texture{
+//     position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: url('https://i.gifer.com/ZTrl.gif') repeat;
+//   background-size: cover; /* Ensures it covers the full viewport */
+//   opacity: 0.035; /* Adjust for effect */
+//   pointer-events: none; /* Prevents interaction */
+//   mix-blend-mode: luminosity; /* Enhances paper-like effect */
+//   z-index: 1; /* Keeps it behind the content */
+// }
+
+// @keyframes fadeOutVHS {
+//   0% { opacity: 1; }
+//   100% { opacity: 0; }
+// }
+
+// #video-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: black; /* Optional: Add a background color */
+//   z-index: 9999; /* Ensure it appears above all other elements */
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   // object-fit: fill; /* Ensures the animation fills the screen */
+// }
+
+// .vhs-noise-video {
+//   // position: fixed;
+//   // top: 0;
+//   // left: 0;
+//   width: 100%;
+//   height: 100%;
+
+//   opacity: 1; /* Start fully visible */
+//   pointer-events: none; /* Prevents interaction */
+//   // z-index: 1000;
+//   animation: fadeOutVHS 3s ease-out 3s forwards; /* 3s delay, 1s fade */
+//   // overflow: hidden;
+//   // width: 100%;
+//   // height: 100%;
+//   object-fit: fill; /* Ensures the animation fills the screen */
+// }
+
+
+// .noise-texture {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: url('https://img.freepik.com/free-photo/noisy-background_1194-7547.jpg?t=st=1742294083~exp=1742297683~hmac=9f95f3adcdc352a08639f079d4bbf65ef02e3cf8f6ef40f98702a4a9e58be914&w=1380') repeat;
+//   background-size: cover; /* Ensures it covers the full viewport */
+//   opacity: 0.1; /* Adjust for effect */
+//   pointer-events: none; /* Prevents interaction */
+//   mix-blend-mode: luminosity; /* Enhances paper-like effect */
+//   z-index: 1; /* Keeps it behind the content */
+// }
+
+
+// // 🏁 VHS Noise Overlay (GIF)
+// .vhs-noise-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: image-url("vhs-turbulance.gif") repeat;
+//   background-size: cover;
+//   opacity: 0.15;  // Adjust opacity for effect
+//   pointer-events: none; // Prevents interactions
+//   mix-blend-mode: difference; // Ensures realistic blending
+//   z-index: 1; // Keeps it behind content
+// }
+
+
+.kassi-container {
+  // width: 12.5rem; /* Mobile: 150px */
+  // height: 8.333rem; /* Mobile: 100px */
+  position: relative;
+  left: 50vw; /* Use percentage for fluid positioning */
+  padding-top: 2rem;
+  overflow: hidden; /* Ensure the image stays inside the mask */
+
+  // max-width: 297.6px;
+
+  width: 40vw;  /* Scales with viewport width */
+  height: clamp(15vh, 30vw, 30vh);
+
+  @media (min-height: 992px) {
+    height: 20.5rem;
+  }
+
+  @media (min-width: 1920px) {
+    left: 55vw;
+    height: 38.5rem;
+  }
+
+      @media only screen
+  and (min-width: 768px)
+  and (max-width: 1366px)
+  and (orientation: portrait) {
+    /* Styles for iPad Pro 12.9" in portrait */
+    height: 14.5rem;
+  }
+
+
+  // SIDEWAYS!!
+
+    @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
+      width: 28vw;
+      height: 7rem;
+    }
+
+}
+
+/* iPad (14px base font size) */
+// @media (min-width: 768px) {
+//   .kassi-container {
+//     width: 13.95rem;
+//     height: 9.375rem;
+//     left: 50%;
+//   }
+// }
+
+//   @media (min-width: 992px) {
+//   .kassi-container {
+//     width: 18rem;  /* Scaled up */
+//     height: 12.1rem;
+//     left: 50%;     /* Unchanged */
+//   }
+// }
+
+// /* Desktop (16px base font size) */
+// @media (min-width: 1024px) {
+//   .kassi-container {
+//     width: 18.6rem;
+//     height: 12.5rem;
+//     left: 55%;
+//   }
+// }
+
+// @media (min-width: 1920px) {
+//   .kassi-container {
+//     width: 35rem;  /* Rounded */
+//     height: 23.5rem;
+//     left: 50%;     /* Unchanged */
+//   }
+// }
+
+
+.kassi-image {
+  width: 37.66rem; /* Match the mask size */
+  height: 30.833rem;
+  right: 19rem;
+  object-fit: cover; /* Ensures the image fits well */
+
+  -webkit-mask-image: url('/assets/Rectangle.svg');
+  mask-image: url('/assets/Rectangle.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  position: relative;
+  // transform: translateY(0); /* Default position */
+  transition: transform 0.2s ease-out; /* Smooth scrolling effect */
+
+  @media (min-width: 768px) { /* iPad */
+    right: 19.2rem;
+
+    // width: 52.724rem; /* Match the mask size */
+    // height: 43.1662rem;
+  }
+
+  @media (min-width: 1024px) { /* Desktop */
+  right: 19.2rem;
+
+  // width: 65.905rem; /* Match the mask size */
+  // height: 30.833rem;
+  }
+
+  @media (min-width: 1920px) { /* Large Desktop */
+    width: 97.66rem;
+    height: 79.833rem;
+    right: 50.2rem;
+  }
+
+  // SIDEWAYS!!
+
+
+
+}
+
+
+.title-aron{
+  font-size: 5.3rem;
+  font-weight: bold;
+  color: #FFF960;
+  margin-left: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 6.5rem;  // Adjusted between 5.3rem (mobile) and 8rem (desktop)
+    margin-top: -4.5rem; // Slight adjustment for better spacing
+    margin-left: 0.5rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 8rem;
+    // margin-top: 5rem;
+    margin-left: 0.5rem;
+  }
+
+    // SIDEWAYS!!
+
+    @media (max-width: 568px) and (max-height: 430px) and (orientation: landscape) {
+      font-size: 4.3rem;
+    }
+
+    //     @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
+    //   font-size: 4.3rem;
+    // }
+
+                @media only screen
+    and (min-width: 750px)
+    and (max-width: 960px)
+    and (orientation: landscape) {
+    font-size: 5.3rem;
+    }
+
+        @media (min-width: 810px) and (max-height: 400px) and (orientation: landscape){
+        font-size: 5.3rem;
+        margin-top: -2.2rem;
+    }
+}
+
+.title-hannes{
+  font-size: 5.3rem;
+  font-weight: bold;
+  color: #FFF960;
+  margin-top: -4.5rem;
+  margin-left: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 6.5rem;  // Adjusted between 5.3rem (mobile) and 8rem (desktop)
+    margin-top: -4.5rem; // Slight adjustment for better spacing
+    margin-left: 0.5rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 8rem;
+    margin-top: -6rem;
+    margin-left: 0.5rem;
+  }
+
+  // SIDEWAYS!!
+
+    @media (max-width: 568px) and (max-height: 430px) and (orientation: landscape) {
+      font-size: 4rem;
+      margin-top: -4rem;
+    }
+
+
+    // @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
+    //   font-size: 4.3rem;
+    //   margin-top: -4.2rem;
+    // }
+
+            @media only screen
+    and (min-width: 750px)
+    and (max-width: 960px)
+    and (orientation: landscape) {
+    font-size: 5.3rem;
+    margin-top: -4.5rem;
+    }
+
+    // @media (min-width: 810px) and (max-height: 400px) and (orientation: landscape){
+    //     font-size: 5.3rem;
+    //     margin-top: -2.2rem;
+    // }
+}
+
+
+.backdrop-title {
+  background-image: image-url("2guys.png");
+  background-size: 300% auto;
+  height: 12.5rem;
+  width: 26.75rem;
+
+  background-position: 90% 60%;
+  // background-size: cover;
+  // background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 4rem;
+  margin-top: 10%;
+
+  /* Apply the mask */
+  -webkit-mask-image: image-url('Vector-2.svg'); /* Use Rails asset helper */
+  mask-image: image-url('Vector-2.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  transition: background-position 0.2s ease-out;
+
+
+  @media (min-width: 768px) {
+    height: 16rem;  // Adjusted between 12.5rem (mobile) and 20rem (desktop)
+    width: 33rem;   // Adjusted between 26.75rem (mobile) and 40rem (desktop)
+    margin-bottom: 6rem;
+    margin-top: 16%;
+  }
+
+  @media (min-width: 992px) {
+    height: 20rem;
+    width: 40rem;
+    margin-bottom: 8rem;
+    margin-top: 10%;
+  }
+
+    // SIDEWAYS!!
+
+    @media (max-width: 568px) and (max-height: 430px) and (orientation: landscape) {
+      height: 9.5rem;
+      width: 21.75rem;
+      margin-top: -10%;
+    }
+
+    @media (max-width: 900px) and (max-height: 300px) and (orientation: landscape) {
+      height: 9.5rem;
+      width: 21.75rem;
+      margin-top: 0%;
+    }
+
+        @media (max-width: 600px) and (max-height: 350px) and (orientation: landscape) {
+      height: 9.5rem;
+      width: 21.75rem;
+      margin-top: -10%;
+    }
+
+      @media (min-width: 810px) and (max-height: 390px) and (orientation: landscape) {
+      height: 12.5rem;
+      width: 26.75rem;
+      margin-top: 0%;
+    }
+
+    //     @media (min-width: 810px) and (max-width: 960px) and (max-height: 400px) and (orientation: landscape) {
+    //   height: 12.5rem;
+    //   width: 26.75rem;
+    //   margin-top: -10%;
+    // }
+
+        @media only screen
+    and (min-width: 750px)
+    and (max-width: 960px)
+    and (orientation: landscape) {
+      height: 12.5rem;
+      width: 26.75rem;
+      margin-top: 5%;
+    }
+
+    //         @media only screen
+    // and (min-width: 735px)
+    // and (max-width: 800px)
+    // and (orientation: landscape) {
+    //   height: 12.5rem;
+    //   width: 26.75rem;
+    //   margin-top: -2%;
+    // }
+
+                @media only screen
+    and (min-width: 600px)
+    and (max-width: 800px)
+    and (orientation: landscape) {
+      height: 12.5rem;
+      width: 26.75rem;
+      margin-top: -8%;
+    }
+
+}
+
+// ABOUT PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
+
+
+#about {
+  display: block; /* Allow natural text flow */
+  width: 100%;
+  // margin: 0rem auto;
+  padding: 0 1rem; /* Prevents text from touching the edges */
+  padding-top: 2rem;
+  // height: 100vh;
+  font-size: 1rem;
+
+  @media (min-width: 768px) {
+    padding-top: 1rem;
+
+  }
+
+  @media (min-width: 992px) {
+    padding-top: 1rem;
+  }
+}
+
+.about-row{
+  width: 100%;
+  margin-top: -2rem;
+}
+
+.about-text{
+  text-align: center;
+  font-size: 2.4rem;
+
+  @media (min-width: 768px) {
+    font-size: 2.6rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 4rem;
+  }
+}
+.about-text h3{
+  margin-bottom: 0.5rem;
+
+}
+
+
+/* ✅ Float image right and allow text to wrap */
+.about-image {
+  max-width: 18.33rem; /* Default for mobile */
+  // width: 42%;
+  height: auto; /* Maintain aspect ratio */
+  // object-fit: cover;
+  float: right; /* Moves image to the right */
+  margin-left: 0.8rem; /* Creates space between text and image */
+  margin-bottom: 0.5rem; /* Avoids text clashing */
+  margin-right: 1.833rem;
+  shape-outside: margin-box; /* Ensures smooth wrapping */
+  // shape-margin: 2rem; /* Creates space around the image */;
+
+  @media (max-width: 372px) {
+    max-width: 11.33rem;
+  }
+
+  @media (min-width: 372px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) { /* Tablet */
+    width: 100%;
+    margin-left: 2rem;
+  }
+
+  @media (min-width: 992px) { /* Desktop */
+    width: 100%;
+    margin-left: 2.5rem;
+  }
+
+      // SIDEWAYS!!
+
+    @media (max-width: 568px) and (max-height: 430px) and (orientation: landscape) {
+      width: 20%
+    }
+
+        @media (max-width: 950px) and (max-height: 500px) and (orientation: landscape) {
+      width: 25%
+    }
+
+                @media only screen
+    and (min-width: 735px)
+    and (max-height: 310px)
+    and (orientation: landscape) {
+      width: 18%;
+    }
+
+}
+
+/* ✅ Ensure text wraps around the image */
+.upper-text {
+  // font-size: 1.2rem;
+  font-size: calc(1.8vw + 1vh);
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 0rem;
+  margin-right: 1.833rem;
+  line-height: 1.6;
+
+// @media (min-width: 390px) and (max-width: 1240px) and (min-height: 900px) {
+//   font-size: calc(1.8vw + 1.5vh);
+// }
+
+  @media (min-width: 1240px) {
+  font-size: calc(1.8vw + 1vh);
+  }
+
+    @media (min-width: 300px) and (max-height: 500px) {
+    font-size: calc(1.8vw + 1.4vh)
+  }
+
+      @media (min-width: 350px) and (max-height: 600px) {
+    font-size: calc(1.4vw + 1vh)
+  }
+
+    @media only screen
+  and (min-width: 768px)
+  and (max-width: 1366px)
+  and (orientation: portrait) {
+    /* Your styles for iPads in landscape */
+    font-size: calc(1.8vw + 1.4vh);
+  }
+
+    @media only screen
+  and (min-width: 370px)
+  and (max-width: 430px)
+  and (max-height: 950px)
+  and (orientation: portrait) {
+  /* Your styles for iPhones in portrait mode */
+  font-size: calc(2vw + 1.2vh);
+}
+
+      // SIDEWAYS!!
+
+    @media (max-width: 568px) and (max-height: 430px) and (orientation: landscape) {
+      font-size: calc(1.2vw + 1vh);
+    }
+}
+
+.upper-text p {
+  text-align: left;
+}
+
+.upper-text p {
+  // margin: 0;
+  // padding: 0;
+  // display: block; /* Ensures paragraph wraps properly */
+  text-align: left;
+}
+
+
+// THREE.JS 👇🏻👇🏻👇🏻👇🏻👇🏻
+
+.threejs-section{
+  height: 100vh;
+
+}
+
+#three-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; // Full viewport height
+  // background-color: #f0f0f0; // Example background color
+  // Add any other styles you need
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+}
+
+// MUSIC PAGE 👇🏻👇🏻👇🏻👇🏻👇🏻
+
+#music-platforms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.music-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+            @media only screen
+    and (min-width: 600px)
+    and (max-width: 800px)
+    and (orientation: landscape) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1 30%;
+    }
+
+
+  @media (min-width: 992px) {
+    margin-bottom: 4rem;
+  }
+
+  // SIDEWAYS!!
+
+        @media (max-width: 700px) and (max-height: 430px) and (orientation: landscape) {
+    flex: 1 1 30%; // Adjusts to three items per row
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    // width: 50%;
+  }
+
+}
+
+.music-list li {
+  height: 6rem; // Adjust height for mobile
+  width: 80%;
+  max-width: 29.166rem; // Restricts width on larger screens
+  background: #F1F0EB; // Light grey background like in Figma
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  // gap: 1rem;
+  // border-radius: 10px; // Soft rounded edges
+  border: 2px solid black; // Subtle border for separation
+
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (min-width: 400px) and (orientation: portrait) {
+    width: 100%; // Adjust height for tablet
+  }
+
+  @media (max-width: 320px) {
+    height: 3rem !important;
+  }
+
+      @media (min-width: 300px) and (max-height: 500px) {
+    height: 3rem;
+  }
+
+  @media (max-width: 700px) and (max-height: 500px) and (orientation: landscape) {
+    height: 1rem;
+    width: 30%;
+  }
+
+              @media only screen
+    and (min-width: 600px)
+    and (max-width: 800px)
+    and (orientation: landscape) {
+    height: 2rem;
+    width: 40%;
+    }
+}
+
+.music-list li a {
+  text-decoration: none;
+  color: #000;
+  font-family: 'afronaut', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+
+              @media only screen
+    and (min-width: 600px)
+    and (max-width: 800px)
+    and (orientation: landscape) {
+    font-size: 1.4rem;
+    }
+
+  // SIDEWAYS!!
+
+  @media (min-width: 300px) and (max-height: 500px) and (orientation: portrait) {
+    font-size: 1.4rem;
+  }
+
+    @media (max-width: 700px) and (max-height: 500px) and (orientation: landscape) {
+    font-size: 1rem !important;
+  }
+}
+
+.music-list li img {
+  width: 2.5rem; // Adjust icon size for mobile
+  height: auto;
+}
+
+/* Tablet View */
+@media (min-width: 768px) {
+  .music-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .music-list li {
+    flex: 1 1 45%; // Allows two items per row
+    max-width: 22rem;
+  }
+
+  .music-list li img {
+    width: 3rem;
+    height: auto;
+  }
+
+  .music-list li a {
+    font-size: 1.8rem;
+  }
+}
+
+/* Desktop View */
+@media (min-width: 992px) {
+  .music-list li {
+    flex: 1 1 30%; // Adjusts to three items per row
+    max-width: 25rem;
+  }
+
+  .music-list li img {
+    width: 3.5rem;
+    height: auto;
+  }
+
+  .music-list li a {
+    font-size: 2rem;
+  }
+}
+
+
+/* Ensure the CSS is applied correctly */
+.scroll-wrapper {
+  height: 100vh;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-scroll-snap-type: y mandatory;
+  scroll-behavior: smooth; /* Optional for smooth scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.scroll-selection {
+  height: 100%;
+  scroll-snap-align: start;
+  -webkit-scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* When section is in view */
+.scroll-selection.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-selection {
+  opacity: 0; /* Start hidden */
+  transform: scale(0.95); /* Slightly scaled down */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-selection:has([data-controller="kassi-scroll"]) {
+  // height: 50vh !important;
+  // height: clamp(50vh, 60vh, 70vh) !important;
+  height: 60vh;
+
+  @media (min-width: 358px) and (min-height: 780px) {
+  height: 50vh;
+  }
+
+  @media (max-width: 320px) {
+    height: 100vh;
+  }
+
+
+  @media (min-width: 650px) {
+    height: 65vh;
+  }
+
+  @media (min-width: 768px) {
+    height: 60vh;
+  }
+
+  @media (min-width: 800px) and (orientation: landscape) {
+    height: 100vh;
+  }
+
+  @media (min-width: 900px) {
+    height: 100vh;
+  }
+
+  // @media (min-width: 768px) and (max-width: 834px) and (min-height: 1024px) {
+  // height: 60vh;
+  // }
+
+  @media (min-width: 300px) and (max-height: 500px) {
+    height: 100vh;
+  }
+
+  @media only screen
+and (min-width: 400px)
+and (max-width: 430px)
+and (orientation: portrait) {
+  /* Your styles for iPhones in portrait mode */
+  height: 55vh;
+}
+
+
+
+  @media only screen
+and (min-width: 370px)
+and (max-width: 400px)
+and (max-height: 950px)
+and (orientation: portrait) {
+  /* Your styles for iPhones in portrait mode */
+  height: 58vh;
+}
+
+
+  @media only screen
+  and (min-width: 768px)
+  and (max-width: 1366px)
+  and (orientation: portrait) {
+    /* Your styles for iPads in landscape */
+    height: 60vh;
+  }
+
+
+
+  // SIDEWAYS!!
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    height: 100vh;
+  }
+
+  @media (max-width: 920px) and (max-height: 430px) and (orientation: landscape) {
+    height: 100vh;
+  }
+
+}
+
+.scroll-selection:has([class="about-row"]) {
+
+  // height: 100vh;
+
+  @media (min-width: 390px) and (min-height: 800px) {
+    height: 80vh;
+  }
+
+  @media (min-width: 768px) and (max-width: 834px) and (min-height: 1024px) {
+    height: 70vh;
+  }
+
+  @media (min-width: 992px) {
+    height: 100vh;
+  }
+
+
+
+  // SIDEWAYS!!
+
+  @media (min-width: 600px) and (max-width: 834px) and (min-height: 300px) {
+    height: 100vh;
+  }
+
+}

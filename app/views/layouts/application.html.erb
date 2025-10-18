@@ -1,16 +1,80 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicPortfolio</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Aron Hannes</title>
+
+  <!-- ✅ SEO for Google -->
+  <meta name="title" content="Aron Hannes | Music Artist & Producer" />
+  <meta name="description" content="Explore the music, visuals, and creative world of Aron Hannes. Discover songs, videos, and more from the Icelandic artist and producer." />
+
+  <!-- ✅ Open Graph for social media -->
+  <meta property="og:title" content="Aron Hannes | Music Artist & Producer" />
+  <meta property="og:description" content="Explore the music, visuals, and creative world of Aron Hannes." />
+  <meta property="og:image" content="<%= asset_path('AKAII.png') %>" />
+  <meta property="og:url" content="https://aronhannes.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- ✅ Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aron Hannes | Music Artist & Producer" />
+  <meta name="twitter:description" content="Explore the music, visuals, and creative world of Aron Hannes." />
+  <meta name="twitter:image" content="<%= asset_path('AKAII.png') %>" />
+
+    <meta name="viewport" content="width=device-width,    initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag 'favicon-32x32.png' %>
+
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
+
+    <!-- Swiper CSS -->
+    <%= stylesheet_link_tag "https://unpkg.com/swiper/swiper-bundle.min.css", media: "all" %>
+
+    <!-- Swiper JavaScript (Full Bundle) -->
+    <%= javascript_include_tag "https://unpkg.com/swiper/swiper-bundle.min.js", defer: true %>
+
+    <link rel="stylesheet" href="https://use.typekit.net/lnr4wfy.css">
+
+    <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/lnr4wfy.css">
+
+
+
+    <!-- Font Awesome -->
+  <%# <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- ✅ GSAP JavaScript (Place before closing </head>) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+
+
+
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+
+<div class="page-container">
+    <% unless controller_name == "home" && action_name == "index" %>
+      <%= render "shared/navbar" %>
+    <% end %>
+
+      <div class="content-wrapper">
+        <%= yield %> <!-- Main page content -->
+      </div>
+
+    <% unless controller_name == "home" && action_name == "index" %>
+      <%= render "shared/footer" %>
+    <% end %>
+  </div>
+
+
+
+</body>
+
+
 </html>

@@ -1,0 +1,46 @@
+
+<nav class="navbar" data-controller="navbar">
+  <div class="logo">
+    <%= link_to "AH.", root_path %>
+  </div>
+
+  <button class="menu-toggle" data-action="click->navbar#toggle">
+<%= image_tag "gridicons_dropdown.svg", alt: "Dropdown Image", class: "dropdown-image" %>
+  </button>
+
+  <ul class="nav-links hidden" data-navbar-target="menu">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to 'Music', music_path %></li>
+    <li><%= link_to "Gallery", gallery_path %></li>
+    <li><%= link_to "Videos", videos_path %></li>
+    <li><%= link_to "Newsletter", newsletter_path %></li>
+  </ul>
+</nav>
+
+<script>
+document.querySelectorAll('.navbar li').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    if (!item.dataset.spun) {
+      item.setAttribute('data-spun', 'true');
+    }
+  });
+});
+
+document.querySelectorAll('.navbar li a').forEach(link => {
+  link.addEventListener('click', (event) => {
+    if (window.innerWidth <= 768) { // Only for mobile devices
+      event.preventDefault(); // Stop immediate navigation
+
+      const listItem = link.closest('li');
+      listItem.classList.add('clicked');
+
+      // Wait for the spin-out animation to complete before navigating
+      setTimeout(() => {
+        window.location.href = link.href; // Now navigate
+      }, 600); // Matches spinOut animation duration (0.8s)
+    }
+  });
+});
+
+
+</script>

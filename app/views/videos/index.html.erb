@@ -1,0 +1,14 @@
+<div class="video-container">
+
+<h1>videos.</h1>
+
+  <% @videos.each do |video| %>
+    <div class="video-card">
+      <%# <h3 class="video-title"><%= video.title</h3> %>
+      <iframe class="video-iframe"
+        src="<%= video.youtube_embed_url %>"
+        frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+  <% end %>
+</div>

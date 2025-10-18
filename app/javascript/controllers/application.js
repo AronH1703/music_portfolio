@@ -1,9 +1,8 @@
-import { Application } from "@hotwired/stimulus"
+import { Application } from "@hotwired/stimulus";
 
-const application = Application.start()
+const application = Application.start();
+window.Stimulus = application; // ✅ This ensures Stimulus is available in the browser console
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+console.log("✅ Stimulus is now loaded!"); // ✅ Debugging Stimulus
 
-export { application }
+export { application };

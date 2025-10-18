@@ -1,10 +1,32 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Update Music route to point to MusicController instead of PagesController
+  get '/music', to: 'music#index', as: :music
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Keep gallery and home routes
+  get '/gallery', to: 'gallery#index', as: :gallery
+  get '/home', to: 'home#index', as: :home
+
+  # Rails health check (keep this)
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Define the homepage
+  root to: 'home#index' # Home page
+
+  # Newsletter subscription routes
+  get '/newsletter', to: 'newsletter_subscribers#new', as: :newsletter
+  post '/newsletter', to: 'newsletter_subscribers#create'
+
+  # RESTful routes for videos
+  resources :videos, only: [:index, :show]
+
+  # Add routes for contact
+  get '/contact', to: 'contact#index', as: :contact
+
+  # Add route for pages/music
+  get 'pages/music', to: 'pages#music', as: 'pages_music'
+
+  get '/privacy', to: 'pages#privacy', as: :privacy
+
+  # Add route for songs
+  get '/songs/:song', to: 'songs#show', as: 'song'
 end

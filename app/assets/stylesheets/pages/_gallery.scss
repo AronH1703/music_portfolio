@@ -1,0 +1,170 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
+.gallery {
+  background-color: #B94432; /* Change to your desired color */
+  min-height: 100vh; /* Ensure it covers the full height */
+}
+
+.gallery-container h1 {
+  font-size: 2rem;
+  color: white;
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+
+.by{
+  width: 80%; /* Matches image width */
+  text-align: left; /* Align text to the left */
+  margin: 0.5rem auto 2rem auto;
+  display: flex;
+  // align-self: flex-start;
+  justify-content: flex-start;
+
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+
+  @media (min-width: 992px) {
+    width: 60%;
+  }
+}
+
+.gallery-container p{
+  font-size: 0.5rem;
+  color: white;
+  font-family: 'Helvetica Neue';
+  font-weight: 100;
+  font-style: normal;
+  align-self: flex-start;
+  // margin-left: 16%;
+  // width: 20%;
+  // margin-top: 0%;
+  margin: 0%;
+}
+
+.gallery-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0rem;
+  padding-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.gallery-container img{
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin: 1rem;
+  // border-radius: 10px;
+  border: solid 0.4rem #F4EE53;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+
+  @media (min-width: 768px) {
+    width: 80%;
+    height: auto;
+  }
+
+  @media (min-width: 992px) {
+    width: 60%; /* Default width on desktop */
+    height: auto;
+  }
+
+
+//   @media only screen
+// and (min-width: 600px)
+// and (max-width: 950px)
+// and (orientation: landscape) {
+//   /* Your styles for iPhones in landscape mode */
+//   width: 40%;
+// }
+
+  }
+
+  // .gallery-image{
+  //   max-width: 100% !important; // Prevents browser from shrinking it
+  //   width: auto; // Ensures it respects the % width
+  // }
+
+.swiper {
+  width: 100%;
+  height: auto;
+
+
+  @media (min-width: 992px) {
+    width: 80%;
+    height: auto;
+  }
+
+  @media only screen
+  and (min-width: 600px)
+  and (max-width: 950px)
+  and (orientation: landscape) {
+  /* Your styles for iPhones in landscape mode */
+    width: 70%;
+    height: auto;
+  }
+
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100% !important;
+}
+
+.swiper-pagination {
+  // display: flex;
+  position: absolute;
+  text-align: center;
+  transition: .3s opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  transition: top 0.4s ease-in-out, opacity 0.3s ease-in-out !important; /* ✅ Smooth movement & fade */
+}
+
+.swiper-pagination-bullet{
+  background-color: white !important;
+}
+
+// .swiper-button-next{
+//   // color: white !important;
+//   margin-right: 1rem;
+// }
+
+// .swiper-button-prev{
+//   // color: white !important;
+//   margin-left: 1rem;
+// }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  transform: scale(0.4); /* Reduces size to 80% */
+  transition: top 0.6s ease-in-out, opacity 0.3s ease-in-out; /* ✅ Smooth movement & fade */
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+
+  @media (min-width: 768px) {
+    transform: scale(0.5);
+  }
+
+  @media (min-width: 992px) {
+    transform: scale(0.8);
+  }
+}
+
+.swiper-cube-shadow {
+  opacity: 0.2 !important; /* ✅ Reduces shadow intensity */
+}

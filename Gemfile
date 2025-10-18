@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.5"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
+# gem "sqlite3", ">= 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -25,6 +25,19 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "sassc-rails"
+
+gem 'bootstrap', '~> 5.3.3'
+
+gem 'image_optim'
+
+gem 'image_processing', '~> 1.12'
+
+
+gem 'pg'  # Replace sqlite3 gem with 'pg'
+
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -65,3 +78,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "font-awesome-sass", "~> 6.7"
