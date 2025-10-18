@@ -34,5 +34,3 @@ puts "Upserting newsletter subscribers..."
 end
 
 puts "Seeding completed! ✅"
-
- 
