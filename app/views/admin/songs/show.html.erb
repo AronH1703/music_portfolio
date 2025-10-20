@@ -1,0 +1,24 @@
+<h1><%= @song.title %></h1>
+
+<p><strong>Slug:</strong> <%= @song.slug %></p>
+
+<% if @song.image.attached? %>
+  <p>
+    <%= image_tag @song.image, alt: @song.title, class: 'admin-cover' %>
+  </p>
+<% end %>
+
+<h3>Links</h3>
+<ul>
+  <% @song.links_hash.each do |name, url| %>
+    <li><a href="<%= url %>" target="_blank" rel="noopener"><%= name %></a></li>
+  <% end %>
+  <% if @song.links_hash.empty? %>
+    <li>No links provided.</li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to 'Edit', edit_admin_song_path(@song) %> |
+  <%= link_to 'Back', admin_songs_path %>
+  </p>

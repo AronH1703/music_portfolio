@@ -1,0 +1,33 @@
+<div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+  <h1>Videos</h1>
+  <%= link_to 'New Video', new_admin_video_path, class: 'primary', style: 'display:inline-block;' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>YouTube</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @videos.each do |v| %>
+      <tr>
+        <td>
+          <% if v.image.attached? %>
+            <%= image_tag v.image, class: 'thumb', alt: v.title %>
+          <% end %>
+        </td>
+        <td><%= v.title %></td>
+        <td><%= v.youtube_url %></td>
+        <td>
+          <%= link_to 'Show', admin_video_path(v) %> |
+          <%= link_to 'Edit', edit_admin_video_path(v) %>
+          <%= button_to 'Delete', admin_video_path(v), method: :delete, form: { data: { turbo_confirm: 'Delete?' }, class: 'inline' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

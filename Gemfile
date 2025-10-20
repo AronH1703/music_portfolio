@@ -80,3 +80,8 @@ group :test do
 end
 
 gem "font-awesome-sass", "~> 6.7"
+
+# Authentication and file storage
+gem "devise"
+gem "activestorage-cloudinary-service"
+gem "cloudinary"

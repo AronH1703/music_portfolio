@@ -9,7 +9,6 @@ export default class extends Controller {
 
   open(event) {
     const song = event.currentTarget.dataset.song;
-
     const musicLinks = {
       "scream": {
         title: "Scream - Aron Hannes ft. Diljá",
@@ -70,33 +69,38 @@ export default class extends Controller {
       }
     };
 
-    if (!musicLinks[song]) return;
+    // Try server-provided song first
+    fetch(`/songs/${encodeURIComponent(song)}.json`, { headers: { 'Accept': 'application/json' } })
+      .then((r) => r.ok ? r.json() : Promise.reject())
+      .then((data) => {
+        this.populatePopup(song, data.title, data.links);
+      })
+      .catch(() => {
+        // Fallback to hardcoded map for legacy items
+        if (!musicLinks[song]) return;
+        this.populatePopup(song, musicLinks[song].title, musicLinks[song].links);
+      });
+  }
 
-    this.titleTarget.innerText = musicLinks[song].title;
+  populatePopup(song, title, links) {
+    this.titleTarget.innerText = title;
     this.linksTarget.innerHTML = "";
 
-    // Check if the current page is the music index page
-    const isMusicIndexPage = document.body.classList.contains("music-body");
-
-    Object.entries(musicLinks[song].links).forEach(([platform, url]) => {
-      // Exclude "SoundCloud" link from the popup window
+    Object.entries(links).forEach(([platform, url]) => {
       if (platform === "SoundCloud" || platform === "YouTube Music") return;
-
       const li = document.createElement("li");
-      const platformClass = platform.toLowerCase().replace(/\s/g, "-"); // Converts "Apple Music" → "apple-music"
+      const platformClass = platform.toLowerCase().replace(/\s/g, "-");
       li.innerHTML = `<a href="${url}" target="_blank" class="platform-link ${platformClass}">${platform}</a>`;
       this.linksTarget.appendChild(li);
     });
 
-    if (musicLinks[song]) {
-      const moreLinksButton = document.createElement("button");
-      moreLinksButton.innerText = "More Platforms";
-      moreLinksButton.className = "more-platforms-button";
-      moreLinksButton.onclick = () => {
-        window.location.href = `/songs/${song}`;
-      };
-      this.linksTarget.appendChild(moreLinksButton);
-    }
+    const moreLinksButton = document.createElement("button");
+    moreLinksButton.innerText = "More Platforms";
+    moreLinksButton.className = "more-platforms-button";
+    moreLinksButton.onclick = () => {
+      window.location.href = `/songs/${song}`;
+    };
+    this.linksTarget.appendChild(moreLinksButton);
 
     this.popupTarget.style.display = "flex";
   }

@@ -1,0 +1,32 @@
+<h2>Change password</h2>
+
+<%= form_for(resource, as: resource_name, url: admin_user_registration_path, html: { method: :put, class: 'admin-form', data: { turbo: false } }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, value: resource.email, readonly: true %>
+  </div>
+
+  <div>
+    <%= f.label :password, "New password" %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <small>Leave blank if you don't want to change it</small>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, "Confirm new password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div>
+    <%= f.label :current_password, "Current password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", required: true %>
+    <small>We need your current password to confirm changes</small>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class: 'primary' %>
+    <%= link_to "Cancel", admin_root_path %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1><%= @video.title %></h1>
+
+<p><strong>YouTube URL:</strong> <%= @video.youtube_url %></p>
+<p>
+  <% if @video.image.attached? %>
+    <% if @video.image.variable? %>
+      <%= image_tag @video.image.variant(resize_to_limit: [600, 600]) %>
+    <% else %>
+      <%= image_tag @video.image %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_admin_video_path(@video) %> |
+  <%= link_to 'Back', admin_videos_path %>
+</p>

@@ -2,6 +2,18 @@ class SongsController < ApplicationController
   def show
     @song = params[:song]
 
+    # Try DB first
+    if defined?(Song)
+      if (db_song = Song.find_by(slug: @song))
+        @song_data = { title: db_song.title, links: db_song.links_hash }
+        respond_to do |format|
+          format.html { render :show }
+          format.json { render json: @song_data }
+        end
+        return
+      end
+    end
+
     music_links = {
     "scream" => {
         title: "Scream - Aron Hannes ft. Diljá",
@@ -69,8 +81,21 @@ class SongsController < ApplicationController
     @song_data = music_links[@song]
     @song_data[:links] = @song_data[:links].transform_keys(&:to_s) if @song_data
 
-    if @song_data.nil?
-      render plain: "Song not found", status: :not_found
+    respond_to do |format|
+      format.html do
+        if @song_data.nil?
+          render plain: "Song not found", status: :not_found
+        else
+          render :show
+        end
+      end
+      format.json do
+        if @song_data.nil?
+          render json: { error: 'Song not found' }, status: :not_found
+        else
+          render json: @song_data
+        end
+      end
     end
   end
 end

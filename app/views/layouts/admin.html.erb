@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin | Aron Hannes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <header class="admin-nav">
+      <div class="admin-container">
+        <strong>Admin</strong>
+        <nav>
+          <%= link_to 'Dashboard', admin_root_path %>
+          <%= link_to 'Songs', admin_songs_path %>
+          <%= link_to 'Videos', admin_videos_path %>
+          <%= link_to 'Subscribers', admin_newsletter_subscribers_path %>
+          <%= link_to 'Change password', edit_admin_user_registration_path %>
+          <%= button_to 'Logout', destroy_admin_user_session_path, method: :delete, form: { class: 'inline' } %>
+        </nav>
+      </div>
+    </header>
+    <main class="admin-container">
+      <% if notice %>
+        <div class="flash notice"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="flash alert"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+  </html>

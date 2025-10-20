@@ -1,0 +1,24 @@
+<%= form_with model: [:admin, @video], class: "admin-form", html: { multipart: true } do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true %>
+  </div>
+  <div>
+    <%= f.label :youtube_url %>
+    <%= f.text_field :youtube_url, required: true, placeholder: 'https://youtu.be/...' %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image, accept: 'image/*' %>
+    <% if @video.image.attached? %>
+      <div style="margin-top:.5rem;">
+        <%= image_tag @video.image.variant(resize_to_fill: [200,200]) if @video.image.variable? %>
+      </div>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'primary' %>
+    <%= link_to 'Cancel', admin_videos_path %>
+  </div>
+<% end %>
+

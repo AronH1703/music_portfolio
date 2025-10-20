@@ -1,36 +1,10 @@
-<!-- filepath: /Users/aronemilsson/music_portfolio/app/views/songs/show.html.erb -->
-<div class="more-links-body">
-
-<div class="more-links-container">
-  <h1 class="song-more-title"><%= @song_data[:title] %></h1>
-  <ul class="music-list">
-    <% icon_files = {
-      "Spotify" => "Spotify.svg",
-      "Apple Music" => "applemusic.svg",
-      "Deezer" => "deezer.svg",
-      "YouTube Music" => "youtube-music.svg",
-      "Tidal" => "tidal.svg",
-      "Amazon Music" => "amazon-music.svg",
-      "SoundCloud" => "soundcloud.svg"
-    } %>
-
-    <% @song_data[:links].each do |platform, url| %>
-      <% icon = icon_files[platform] %>
-      <% Rails.logger.info "Processing platform: #{platform}, Icon: #{icon}" %>
-      <% if icon.nil? %>
-        <p>Missing icon for platform: <%= platform %></p>
-        <% next %>
-      <% end %>
-      <li>
-        <a href="<%= url %>" target="_blank">
-          <%= image_tag icon, alt: platform, class: "platform-icon #{'amazon-music-icon' if platform == 'Amazon Music'}" %>
-          <span class="<%= 'amazon-music-text' if platform == 'Amazon Music' %>">
-            <%= platform.to_s.upcase %>
-          </span>
-        </a>
-      </li>
+<div class="song-show">
+  <h1><%= @song_data[:title] %></h1>
+  <p>Listen on:</p>
+  <ul>
+    <% @song_data[:links].each do |name, url| %>
+      <li><a href="<%= url %>" target="_blank" rel="noopener"><%= name %></a></li>
     <% end %>
   </ul>
 </div>
 
-</div>

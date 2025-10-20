@@ -1,0 +1,36 @@
+<div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+  <h1>Songs</h1>
+  <%= link_to 'New Song', new_admin_song_path, class: 'primary', style: 'display:inline-block;' %>
+  </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Links</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each do |s| %>
+      <tr>
+        <td>
+          <% if s.image.attached? %>
+            <%# Avoid variants on index for reliability with remote services %>
+            <%= image_tag s.image, class: 'thumb', alt: s.title %>
+          <% end %>
+        </td>
+        <td><%= s.title %></td>
+        <td><%= s.slug %></td>
+        <td><%= s.links_hash.keys.join(', ') %></td>
+        <td>
+          <%= link_to 'Show', admin_song_path(s) %> |
+          <%= link_to 'Edit', edit_admin_song_path(s) %>
+          <%= button_to 'Delete', admin_song_path(s), method: :delete, form: { data: { turbo_confirm: 'Delete?' }, class: 'inline' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
