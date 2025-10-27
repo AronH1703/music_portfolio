@@ -9,7 +9,9 @@
       <% hardcoded_slugs = %w[vol_1 scream little-me child those-were-the-times twenties-album] %>
       <% @songs.each do |song| %>
         <% next if hardcoded_slugs.include?(song.slug) %>
-        <div class="music-item <%= 'coming-soon' if song.respond_to?(:coming_soon?) && song.coming_soon? %>" data-action="click->music-popup#open" data-song="<%= song.slug %>">
+        <div class="music-item <%= 'coming-soon' if song.respond_to?(:coming_soon_active?) && song.coming_soon_active? %>"
+             <% unless song.respond_to?(:coming_soon_active?) && song.coming_soon_active? %>data-action="click->music-popup#open"<% end %>
+             data-song="<%= song.slug %>">
           <% if song.respond_to?(:image) && song.image.attached? %>
             <%= image_tag song.image, alt: song.title %>
           <% elsif song.respond_to?(:asset_image_name) && asset_exists?(song.asset_image_name) %>
@@ -17,10 +19,10 @@
           <% else %>
             <%= image_tag "AKAII.png", alt: song.title %>
           <% end %>
-          <% if song.respond_to?(:coming_soon?) && song.coming_soon? %>
+          <% if song.respond_to?(:coming_soon_active?) && song.coming_soon_active? %>
             <div class="coming-soon-overlay">
               <% if song.respond_to?(:release_date) && song.release_date.present? %>
-                Release date: <%= song.release_date.strftime('%b %e, %Y • %l:%M%P %Z') %>
+                Release date: <%= song.release_date.in_time_zone.strftime('%b %e, %Y • %l:%M%P %Z') %>
               <% else %>
                 Coming soon
               <% end %>
@@ -31,7 +33,7 @@
     <% end %>
 
     <!-- Coming Soon -->
-    <div class="music-item coming-soon" data-action="click->music-popup#open" data-song="vol_1">
+    <div class="music-item coming-soon" data-song="vol_1">
       <%= image_tag "EP 3 CLEAN COVER.png", alt: "Vol. 1  Aron Hannes & Creature of Habit" %>
       <div class="coming-soon-overlay">Release date: Oct 27, 2025 • 12:00pm CET</div>
     </div>

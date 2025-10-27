@@ -1,24 +1,39 @@
-<h1><%= @song.title %></h1>
+<div class="admin-song-show">
+  <h1><%= @song.title %></h1>
 
-<p><strong>Slug:</strong> <%= @song.slug %></p>
+  <p class="meta"><strong>Slug:</strong> <%= @song.slug %></p>
 
-<% if @song.image.attached? %>
-  <p>
-    <%= image_tag @song.image, alt: @song.title, class: 'admin-cover' %>
-  </p>
-<% end %>
-
-<h3>Links</h3>
-<ul>
-  <% @song.links_hash.each do |name, url| %>
-    <li><a href="<%= url %>" target="_blank" rel="noopener"><%= name %></a></li>
+  <% if defined?(Song) && @song.respond_to?(:release_date) %>
+    <% if @song.release_date.present? %>
+      <p class="meta"><small>Release: <%= @song.release_date.in_time_zone.strftime('%b %e, %Y • %l:%M%P %Z') %> <%== @song.released? ? '— <span style="color:#0a7a3f">Released</span>' : '— <span style="color:#8a0f0f">Coming soon</span>' %></small></p>
+    <% end %>
   <% end %>
-  <% if @song.links_hash.empty? %>
-    <li>No links provided.</li>
-  <% end %>
-</ul>
 
-<p>
-  <%= link_to 'Edit', edit_admin_song_path(@song) %> |
-  <%= link_to 'Back', admin_songs_path %>
-  </p>
+  <div class="admin-song-detail">
+    <div class="media">
+      <% if @song.image.attached? %>
+        <p>
+          <%= image_tag @song.image, alt: @song.title, class: 'admin-cover' %>
+        </p>
+      <% end %>
+    </div>
+    <aside class="admin-links-card">
+      <h3>Links</h3>
+      <div class="admin-links-list">
+        <% @song.links_hash.each do |name, url| %>
+          <%= link_to name, url, class: 'btn btn-block', target: '_blank', rel: 'noopener' %>
+        <% end %>
+        <% if @song.links_hash.empty? %>
+          <span>No links provided.</span>
+        <% end %>
+      </div>
+    </aside>
+  </div>
+
+  <hr class="admin-divider">
+
+  <div class="page-actions">
+    <%= link_to 'Edit', edit_admin_song_path(@song), class: 'btn' %>
+    <%= link_to 'Back', admin_songs_path, class: 'btn' %>
+  </div>
+</div>

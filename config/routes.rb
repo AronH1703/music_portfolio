@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # Devise admin authentication (mounted at /admin). Disable public sign-up but allow edit/update.
-  devise_for :admin_users, path: 'admin', skip: [:registrations]
+  devise_for :admin_users, path: 'admin', skip: [:registrations], controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords'
+  }
   devise_scope :admin_user do
     get  'admin/edit', to: 'admin/registrations#edit', as: :edit_admin_user_registration
     put  'admin',      to: 'admin/registrations#update', as: :admin_user_registration

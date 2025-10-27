@@ -1,36 +1,43 @@
 <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
   <h1>Songs</h1>
-  <%= link_to 'New Song', new_admin_song_path, class: 'primary', style: 'display:inline-block;' %>
+  <%= link_to 'New Song', new_admin_song_path, class: 'btn btn-primary' %>
   </div>
 
-<table class="table">
+<div class="table-wrap">
+<table class="table table-stacked">
   <thead>
     <tr>
       <th>Cover</th>
       <th>Title</th>
       <th>Slug</th>
       <th>Links</th>
-      <th></th>
+      <th class="cell-actions">Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @songs.each do |s| %>
       <tr>
-        <td>
+        <td data-label="Cover">
           <% if s.image.attached? %>
             <%# Avoid variants on index for reliability with remote services %>
             <%= image_tag s.image, class: 'thumb', alt: s.title %>
           <% end %>
         </td>
-        <td><%= s.title %></td>
-        <td><%= s.slug %></td>
-        <td><%= s.links_hash.keys.join(', ') %></td>
-        <td>
-          <%= link_to 'Show', admin_song_path(s) %> |
-          <%= link_to 'Edit', edit_admin_song_path(s) %>
-          <%= button_to 'Delete', admin_song_path(s), method: :delete, form: { data: { turbo_confirm: 'Delete?' }, class: 'inline' } %>
+        <td data-label="Title"><%= s.title %></td>
+        <td data-label="Slug" class="truncate"><%= s.slug %></td>
+        <td class="truncate" data-label="Links"><%= s.links_hash.keys.join(', ') %></td>
+        <td class="cell-actions" data-label="Actions">
+          <span class="row-actions">
+            <%= link_to 'Show', admin_song_path(s), class: 'btn' %>
+            <%= link_to 'Edit', edit_admin_song_path(s), class: 'btn' %>
+            <%= button_to 'Delete', admin_song_path(s), method: :delete,
+                  data: { turbo_confirm: 'Delete?' },
+                  form: { class: 'inline' },
+                  class: 'btn btn-danger' %>
+          </span>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
