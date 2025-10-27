@@ -1,0 +1,29 @@
+<div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+  <h1>Subscribers</h1>
+  <div>
+    <%= link_to 'Copy Emails', emails_admin_newsletter_subscribers_path, class: 'btn' %>
+    <%= link_to 'Download CSV', export_admin_newsletter_subscribers_path(format: :csv), class: 'btn btn-primary' %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Joined</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscribers.each do |s| %>
+      <tr>
+        <td><%= s.email %></td>
+        <td><%= l s.created_at, format: :short %></td>
+        <td><%= button_to 'Delete', admin_newsletter_subscriber_path(s), method: :delete,
+                data: { turbo_confirm: 'Delete?' },
+                form: { class: 'inline' },
+                class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,53 @@
+<div class="admin-song-show admin-video-show">
+  <h1><%= @video.title %></h1>
+
+  <% if @video.youtube_url.present? %>
+    <p class="meta">
+      <strong>YouTube URL:</strong>
+      <%= link_to @video.youtube_url, @video.youtube_url, target: '_blank', rel: 'noopener', data: { turbo: false } %>
+    </p>
+  <% end %>
+
+  <div class="admin-song-detail">
+    <div class="media">
+      <% embed_url = @video.youtube_embed_url.presence %>
+      <% if embed_url %>
+        <div class="admin-video-frame">
+          <iframe src="<%= embed_url %>"
+                  title="<%= @video.title %>"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
+      <% elsif @video.image.attached? %>
+        <p>
+          <%= image_tag @video.image, alt: @video.title, class: 'admin-cover' %>
+        </p>
+      <% else %>
+        <p class="meta">No preview available.</p>
+      <% end %>
+    </div>
+
+    <% if @video.youtube_url.present? %>
+      <%= link_to @video.youtube_url,
+                  target: '_blank',
+                  rel: 'noopener',
+                  class: 'admin-links-card admin-video-link-card',
+                  data: { turbo: false } do %>
+        <h3>Watch on YouTube</h3>
+        <span class="admin-video-link-url"><%= @video.youtube_url %></span>
+      <% end %>
+    <% else %>
+      <aside class="admin-links-card">
+        <h3>Video link</h3>
+        <span>No link provided.</span>
+      </aside>
+    <% end %>
+  </div>
+
+  <hr class="admin-divider">
+
+  <div class="page-actions">
+    <%= link_to 'Edit', edit_admin_video_path(@video), class: 'btn' %>
+    <%= link_to 'Back', admin_videos_path, class: 'btn' %>
+  </div>
+</div>

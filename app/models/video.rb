@@ -2,6 +2,7 @@ require 'uri'
 require 'cgi'
 
 class Video < ApplicationRecord
+  has_one_attached :image
   # Build a robust YouTube embed URL from various input formats:
   # - https://www.youtube.com/watch?v=VIDEO_ID[&...]
   # - https://youtu.be/VIDEO_ID[?t=...]

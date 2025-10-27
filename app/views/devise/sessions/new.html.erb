@@ -1,0 +1,35 @@
+<section class="auth">
+  <div class="auth-card">
+    <h2>Sign in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: { class: 'admin-form' }) do |f| %>
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email,
+              autofocus: true,
+              autocomplete: 'username',
+              inputmode: 'email',
+              autocapitalize: 'none',
+              autocorrect: 'off' %>
+      </div>
+
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: 'current-password' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div>
+          <label>
+            <%= f.check_box :remember_me %> Remember me
+          </label>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit 'Log in', class: 'primary' %>
+        <%= link_to 'Forgot your password?', new_password_path(resource_name) %>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<h1>Dashboard</h1>
+
+<div class="cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;">
+  <div class="card" style="padding:1rem;border:1px solid #eee;border-radius:.5rem;">
+    <strong>Songs</strong>
+    <div><%= @songs_count %></div>
+    <div><%= link_to 'Manage', admin_songs_path %></div>
+  </div>
+  <div class="card" style="padding:1rem;border:1px solid #eee;border-radius:.5rem;">
+    <strong>Videos</strong>
+    <div><%= @videos_count %></div>
+    <div><%= link_to 'Manage', admin_videos_path %></div>
+  </div>
+  <div class="card" style="padding:1rem;border:1px solid #eee;border-radius:.5rem;">
+    <strong>Subscribers</strong>
+    <div><%= @subscribers_count %></div>
+    <div><%= link_to 'View', admin_newsletter_subscribers_path %></div>
+  </div>
+</div>
+

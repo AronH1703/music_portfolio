@@ -1,0 +1,19 @@
+en:
+  devise:
+    sessions:
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+      invalid: "Invalid email or password."
+    passwords:
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      updated: "Your password has been changed successfully. You are now signed in."
+    failure:
+      already_authenticated: "You are already signed in."
+      invalid: "Invalid email or password."
+      last_attempt: "You have one more attempt before your account is locked."
+      locked: "Your account is locked."
+      not_found_in_database: "Invalid email or password."
+      unauthenticated: "You need to sign in or sign up before continuing."
+    mailer:
+      reset_password_instructions:
+        subject: "Reset password instructions"

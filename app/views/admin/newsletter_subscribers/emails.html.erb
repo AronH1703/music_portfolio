@@ -1,0 +1,11 @@
+<h1>Copy Emails</h1>
+<p>Quick copy of all subscriber emails for your email tool.</p>
+
+<textarea id="emails" rows="6" style="width:100%;padding:.6rem;border:1px solid #ccc;border-radius:.35rem;"><%= @emails %></textarea>
+
+<button class="primary" onclick="navigator.clipboard.writeText(document.getElementById('emails').value)">Copy to clipboard</button>
+
+<p style="margin-top:1rem;">
+  <%= link_to 'Back', admin_newsletter_subscribers_path %>
+</p>
+

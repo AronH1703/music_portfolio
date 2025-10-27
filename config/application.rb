@@ -21,7 +21,10 @@ module MusicPortfolio
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    # Set application time zone to Netherlands (Amsterdam)
+    config.time_zone = "Amsterdam"
+    # Store in UTC in DB; convert to app time zone on read
+    config.active_record.default_timezone = :utc
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

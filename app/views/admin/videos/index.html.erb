@@ -1,0 +1,40 @@
+<div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;">
+  <h1>Videos</h1>
+  <%= link_to 'New Video', new_admin_video_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="table-wrap">
+<table class="table table-stacked">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>YouTube</th>
+      <th class="cell-actions">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @videos.each do |v| %>
+      <tr>
+        <td data-label="Image">
+          <% if v.image.attached? %>
+            <%= image_tag v.image, class: 'thumb', alt: v.title %>
+          <% end %>
+        </td>
+        <td data-label="Title"><%= v.title %></td>
+        <td class="truncate" data-label="YouTube"><%= v.youtube_url %></td>
+        <td class="cell-actions" data-label="Actions">
+          <span class="row-actions">
+            <%= link_to 'Show', admin_video_path(v), class: 'btn' %>
+            <%= link_to 'Edit', edit_admin_video_path(v), class: 'btn' %>
+            <%= button_to 'Delete', admin_video_path(v), method: :delete,
+                  data: { turbo_confirm: 'Delete?' },
+                  form: { class: 'inline' },
+                  class: 'btn btn-danger' %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

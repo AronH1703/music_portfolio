@@ -1,0 +1,57 @@
+<%= form_with model: [:admin, @song], class: "admin-form", html: { multipart: true } do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true %>
+  </div>
+  <div>
+    <%= f.label :slug %>
+    <%= f.text_field :slug, required: true, placeholder: "kebab-case" %>
+    <small>Appears in URL as /songs/SLUG</small>
+  </div>
+
+  <fieldset>
+    <legend>Links</legend>
+    <%= f.text_field :spotify_url,        placeholder: "Spotify URL" %>
+    <%= f.text_field :apple_music_url,    placeholder: "Apple Music URL" %>
+    <%= f.text_field :deezer_url,         placeholder: "Deezer URL" %>
+    <%= f.text_field :tidal_url,          placeholder: "Tidal URL" %>
+    <%= f.text_field :amazon_music_url,   placeholder: "Amazon Music URL" %>
+    <%= f.text_field :youtube_music_url,  placeholder: "YouTube Music URL" %>
+    <%= f.text_field :soundcloud_url,     placeholder: "SoundCloud URL" %>
+  </fieldset>
+
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image, accept: 'image/*' %>
+    <% if @song.image.attached? %>
+      <div style="margin-top:.5rem;">
+        <%= image_tag @song.image.variant(resize_to_fill: [200,200]) if @song.image.variable? %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :asset_image_name, 'Asset image filename (optional)' %>
+    <%= f.text_field :asset_image_name, placeholder: 'e.g. SCREAM (BOLD:YELLOW).png' %>
+    <small>Uses an image from app/assets/images if no upload is attached.</small>
+  </div>
+
+  <fieldset>
+    <legend>Release</legend>
+    <div>
+      <label>
+        <%= f.check_box :coming_soon %>
+        Coming soon
+      </label>
+    </div>
+    <div>
+      <%= f.label :release_date, 'Release date (optional)' %>
+      <%= f.datetime_local_field :release_date %>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit class: 'btn-primary' %>
+    <%= link_to 'Cancel', admin_songs_path, class: 'btn' %>
+  </div>
+<% end %>
