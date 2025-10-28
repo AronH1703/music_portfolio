@@ -119,6 +119,7 @@
   text-decoration: none;
   border-radius: 5px;
   transition: background 0.2s;
+  margin-bottom: .6rem;
 
   &:hover {
     background: #1DB954;
@@ -130,6 +131,7 @@
   font-weight: bold;
   font-style: normal;
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .popup p {
@@ -188,6 +190,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: .5rem;
 
   &:hover {
     background-color: #B94432; /* Change to your desired hover color */
