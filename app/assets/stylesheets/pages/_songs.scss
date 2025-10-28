@@ -1,32 +1,177 @@
-.amazon-music-icon {
-  width: 3rem !important;
-}
+.song-show {
+  // max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #ffffff;
+  min-height: calc(100vh - 6rem);
+  width: 100;
 
-.song-more-title {
-  font-size: 2rem;
-  font-family: "neue-kabel", sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #FFF960;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Adds a subtle shadow
-}
-
-.more-links-container {
-  margin-bottom: 4rem;
-}
-
-.amazon-music-text {
-  @media (max-width: 320px) { /* Target screens like iPhone 5 */
-    font-size: 1.8rem; /* Adjust font size for smaller screens */
+  @media (min-width: 992px) {
+    padding: 4rem 2rem 6rem;
+    // gap: 1rem;
   }
 }
 
-.more-links-body{
+.song-show__back { width: 100%; }
+
+.song-show__back-link {
+  display: inline-block;
+  background-color: #FFF960;
+  color: #000;
+  text-decoration: none;
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 2px solid #000;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #B94432;
+    color: #fff;
+  }
+}
+
+.song-show__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    align-items: flex-start;
+    // gap: 2rem;
+  }
+}
+
+.song-show-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.song-show__cover {
+  flex: 0 0 auto;
+  width: 85%;
+  max-width: 18rem;
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.song-show__details {
+  flex: 1;
+  text-align: center;
+
+  @media (min-width: 992px) {
+    text-align: left;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-family: "neue-kabel", sans-serif;
+    font-weight: bold;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+}
+
+.song-show__status {
+  font-family: "helvetica", sans-serif;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.song-show__listen-label {
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  // margin: 0.5rem 0 1rem;
+  text-align: center;
+}
+
+.song-show__platforms {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.song-show__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  // gap: 1rem;
+  width: 100%;
+
+  li {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 65%;
+    padding: 1rem 1.5rem;
+
+    @media (min-width: 768px) {
+      min-width: 220px;
+    }
+
+    a {
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      width: 2rem;
+    }
+  }
+}
+
+/* Platform hover accents */
+// .song-show__list a.spotify:hover { background: #1DB954; color: #fff; }
+// .song-show__list a.apple-music:hover { background: #FA243C; color: #fff; }
+// .song-show__list a.deezer:hover { background: #a138ff; color: #fff; }
+// .song-show__list a.tidal:hover { background: #ffd432; color: #000; }
+// .song-show__list a.amazon-music:hover { background: #27d0da; color: #000; }
+// .song-show__list a.youtube-music:hover { background: #FF0000; color: #fff; }
+// .song-show__list a.soundcloud:hover { background: #ff7700; color: #000; }
+
+.amazon-music-icon {
+  width: 2rem !important;
+}
+
+.song-more-title {
+  font-size: 1.6rem;
+  font-family: "neue-kabel", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #FFF960;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.more-links-container {
+  margin-bottom: 2rem;
+}
+
+.more-links-body {
   background-color: #B94432;
-  min-height: 100vh; /* Ensure it covers the full viewport height */
-  height: auto; /* Allow it to grow if content exceeds viewport height */
-  display: flex; /* Optional: Use flexbox if you want to center content */
-  flex-direction: column; /* Optional: Align content vertically */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.amazon-music-text {
+  @media (max-width: 320px) {
+    font-size: 1.4rem;
+  }
 }

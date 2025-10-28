@@ -1,10 +1,63 @@
-<div class="song-show">
-  <h1><%= @song_data[:title] %></h1>
-  <p>Listen on:</p>
-  <ul>
-    <% @song_data[:links].each do |name, url| %>
-      <li><a href="<%= url %>" target="_blank" rel="noopener"><%= name %></a></li>
-    <% end %>
-  </ul>
-</div>
+<% platform_icons = {
+  "Spotify" => "Spotify.svg",
+  "Apple Music" => "applemusic.svg",
+  "Deezer" => "deezer.svg",
+  "YouTube Music" => "youtube-music.svg",
+  "Tidal" => "tidal.svg",
+  "Amazon Music" => "amazon-music.svg",
+  "SoundCloud" => "soundcloud.svg"
+} %>
 
+<div class="song-show">
+  <div class="song-show__back">
+    <%= link_to "← Back to Music", music_path, class: "song-show__back-link" %>
+  </div>
+  <div class="song-show-container">
+  <div class="song-show__hero">
+    <% if @song_cover.present? %>
+      <div class="song-show__cover">
+        <% if @song_cover.respond_to?(:attached?) && @song_cover.attached? %>
+          <%= image_tag @song_cover, alt: @song_data[:title] %>
+        <% else %>
+          <%= image_tag @song_cover, alt: @song_data[:title] %>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+
+    <div class="song-show__details">
+      <h1><%= @song_data[:title] %></h1>
+      <% if @song_is_coming_soon %>
+        <p class="song-show__status">
+          Coming soon
+          <% if @song_release_date.present? %>
+            • <%= @song_release_date.in_time_zone.strftime('%b %e, %Y • %l:%M%P %Z') %>
+          <% end %>
+        </p>
+      <% elsif @song_release_date.present? %>
+        <p class="song-show__status">
+          Released <%= @song_release_date.in_time_zone.strftime('%b %e, %Y') %>
+        </p>
+      <% end %>
+      <p class="song-show__listen-label">Listen on:</p>
+    </div>
+  </div>
+
+  <div class="song-show__platforms">
+    <ul class="music-list song-show__list">
+      <% @song_data[:links].each do |name, url| %>
+        <% next if url.blank? %>
+        <% platform_class = name.downcase.gsub(/\s+/, '-') %>
+        <li>
+          <a href="<%= url %>" target="_blank" rel="noopener" class="platform-link <%= platform_class %>">
+            <% icon_name = platform_icons[name] %>
+            <% if icon_name.present? && asset_exists?(icon_name) %>
+              <%= image_tag icon_name, alt: name %>
+            <% end %>
+            <span class="<%= 'amazon-music-text' if name == 'Amazon Music' %>"><%= name %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
